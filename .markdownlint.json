@@ -1,0 +1,17 @@
+{
+  "line-length": false,
+  "no-inline-html": {
+    "allowed_elements": [
+      "a",
+      "figure",
+      "img",
+      "figcaption",
+      "span",
+      "p",
+      "strong",
+      "div",
+      "iframe",
+      "i"
+    ]
+  }
+}

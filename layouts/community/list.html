@@ -1,0 +1,130 @@
+{{ define "main" }}
+
+<a class="td-offset-anchor"></a>
+<section
+  class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto"
+>
+  <div class="container text-center td-arrow-down">
+    <span class="h4 mb-0">
+      <h1>
+        <!-- <img
+          src="/img/support-header.svg"
+          alt="Life Preserver"
+          title="Support"
+        /> -->
+        社区和支持
+      </h1>
+      <p>
+        帮助即将结束! 松露有一个壮观的开发人员社区 -
+        任何形象的发展框架中最大的社区！
+      </p>
+    </span>
+  </div>
+</section>
+
+<main class="banner banner-light-cream pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body card-zendesk">
+            <h2>
+              开设支持票！
+              <span class="badge badge-pill badge-success">新的</span>
+            </h2>
+            <p>
+              跟踪您的谈话的最简单方法并为我们的知识库做出贡献！
+              开设支持票以开始与我们的支持人员交谈。我们的知识库将增加常见问题，以帮助未来的松露者！
+            </p>
+            <a
+              href="https://trufflesuite.zendesk.com/hc/en-us/requests/new"
+              class="btn btn-truffle"
+            >
+              打开一个支持票
+            </a>
+          </div>
+        </div>
+
+        <h2 class="mt-5">我们朋友的一点帮助</h2>
+        <p>
+          如果您陷入困境，试图获取一些工作，有任何问题或建议，从社区获取帮助的最快方式。
+          Truffle拥有地球上最大的区块链开发商社区！
+          与Gitter或Spectrum上的数百同胞聊天。
+        </p>
+        <hr />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <h3>聊天</h3>
+        <p class="mb-0">
+          对于聊天室,
+          <a href="http://gitter.im/ConsenSys/truffle">检测 Gitter</a>.
+          它非常活跃;最快的响应通常在这里，但难以跟踪更长的线程或搜索。
+        </p>
+      </div>
+
+      <div class="col-6">
+        <h3>Spectrum 发帖</h3>
+        <p class="mb-0">
+          对于论坛,
+          <a href="https://spectrum.chat/trufflesuite?tab=posts">
+            检测Spectrum
+          </a>
+          . 响应可能更慢，但后/响应格式借助更好地跟踪您对他人的问题和搜索性。
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h2 class="mt-5"><i class="fab fa-github"></i> 在github上找到我们！</h2>
+        <p>
+          松露不像预期的行为？知道你的问题是一个错误吗？
+          想建议改进吗？你可以在这里做！
+        </p>
+        <hr />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <h3>在GitHub上提交问题</h3>
+        <p>
+          如果某些东西不按预期工作，或者您对您希望看到的功能或改变有一个想法, 请
+          <a href="https://github.com/trufflesuite/">打开一个问题</a>
+          并开始讨论.
+        </p>
+      </div>
+
+      <div class="col-6">
+        <h3>帮助改进文档</h3>
+        <p>
+          我们只有人类，需要所有的帮助，您可以给我们改进文档。
+          如果您想提交任何反馈或建议，请在<a
+            href="https://github.com/trufflesuite/trufflesuite.com/"
+            >文档存储库</a
+          >上创建一个拉请求。
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+<script>
+  window.jQuery ||
+    document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>');
+</script>
+<script src="js/bootstrap.min.js"></script>
+
+{{ partial "community_links.html" . }}
+
+<div class="td-content">{{ .Content }}</div>
+
+{{ end }}
