@@ -13,7 +13,7 @@ weight: 4
 
 现在，当您导航到该存储库的 **<span class="inline-menu-item"><i class="fal fa-tasks"></i> BUILDS</span>** 时, 对于任何新构建，您可以单击 **<span class="inline-button"><i class="far fa-clipboard-list-check"></i> BUILD DETAILS</span>** 要查看您的 GitHub 集成构建服务的列表, 以及各自的构建状态.
 
-> Note: 有关通过其市场向 GitHub 添加服务的更详细信息, 查看 GitHub 文档的[关于 GitHub Marketplace](https://help.github.com/en/github/customizing-your-github-workflow/about-github-marketplace)部分.</p>
+> 注意: 有关通过其市场向 GitHub 添加服务的更详细信息, 查看 GitHub 文档的[关于 GitHub Marketplace](https://help.github.com/en/github/customizing-your-github-workflow/about-github-marketplace)部分.
 
 <figure>
   <img class="mb-4 figure-shadow" src="/img/blog/bring-your-own-ci-byoci-with-truffle-teams/figure-2.png" alt="Build with external CI enabled" style="width:100%">

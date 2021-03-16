@@ -1,5 +1,5 @@
 ---
-title: "通过松露团队控制您的部署"
+title: "通过 Truffle 团队控制您的部署"
 date: "2019-12-18"
 author: "Mike Seese"
 published: true

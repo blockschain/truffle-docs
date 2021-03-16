@@ -1,5 +1,5 @@
 ---
-title: "Drizzle Vue: 松露的故事"
+title: "Drizzle Vue:  Truffle 的故事"
 date: "2019-07-22"
 author: "Amal Sudama"
 published: true

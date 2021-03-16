@@ -12,7 +12,7 @@ Build 将排队在 Truffle 团队和 GitHub 上与承诺本身排队。
 
 在进步时要查看构建, 点击 **<span class="inline-menu-item"><i class="fal fa-tasks"></i> BUILDS</span>**.
 
-> Note: Truffle 团队只会构建在存储库根的 rootfle 项目的存储库. 它在构建之前在根目录中寻找一个 <code>truffle-config.js</code> or <code>truffle.js</code> 配置 .阅读更多[配置文档](/docs/teams/reference/configuration#repository-structure).
+> 注意: Truffle 团队只会构建在存储库根的 rootfle 项目的存储库. 它在构建之前在根目录中寻找一个 <code>truffle-config.js</code> or <code>truffle.js</code> 配置 .阅读更多[配置文档](/docs/teams/reference/configuration#repository-structure).
 
 <figure>
   <img class="figure-shadow mb-2" src="/img/docs/teams/starting-builds-01.png" alt="Build in progress" style="width: 100%">

@@ -1,5 +1,5 @@
 ---
-title: "松露球队才能获得新的外观！"
+title: " Truffle 球队才能获得新的外观！"
 date: "2020-03-04"
 author: "Mike Seese"
 published: true

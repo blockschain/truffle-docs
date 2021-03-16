@@ -17,7 +17,7 @@ Truffle Teams doesn't currently support configuring a subfolder folder for the T
 
 Truffle Teams currently doesn't support injecting environment variables and/or secrets into the build or deployment environments. For Builds, checkout [External CI](/docs/teams/testing/external-ci) which can enable you use an external CI provider that does have those features with Truffle Teams.
 
-## 松露配置文件
+##  Truffle 配置文件
 
 Truffle Teams makes some assumptions and modifications to your `truffle-config.js` (or `truffle.js`) configuration file.
 

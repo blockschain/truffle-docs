@@ -1,17 +1,16 @@
 ---
-title: 松露事件系统
+title: Truffle 事件系统
 weight: 4
 ---
 
-
-<p class="alert alert-warning"><strong>Note</strong>: The Truffle Event System is currently an experimental feature and we
+<p class="alert alert-warning">注意: The Truffle Event System is currently an experimental feature and we
 anticipate that it will be developing and changing in the near future.
 Please keep this in mind when using this feature as we cannot promise that its
 architecture or the API will remain the same until we declare it as stable.
 Please enjoy and if you discover any issues or bugs, we would love it if you
 created an issue on the
-<a href="https://github.com/trufflesuite/truffle/issues">Truffle GitHub page</a>.
-Thank you!</p>
+[Truffle GitHub page](https://github.com/trufflesuite/truffle/issues).
+Thank you!
 
 The Truffle Event System is a system of hooks implemented in several of the
 command flows. Truffle commands emit events for specific tasks, passing
@@ -19,9 +18,10 @@ data relevant to the task. For example, during compilation an event is
 emitted that contains the names of contracts that are being compiled.
 
 Events are currently implemented for the following Truffle command flows:
-  - compile
-  - unbox
-  - obtain
+
+- compile
+- unbox
+- obtain
 
 We plan to integrate the event system into the rest of Truffle's command
 flows in future versions of Truffle.
@@ -82,11 +82,11 @@ fields: `initialization` and `handlers`.
 Subscriber is instantiated at the beginning of all command flows. This
 function is optional.
 
-*NOTE: In this function you will have access to the Subscriber itself through
+_注意: In this function you will have access to the Subscriber itself through
 the `this` keyword when your functions are described using `function`
 syntax, i.e., `function(data){`, not `(data) => {`. This makes it easy to
 attach properties and helper methods to the Subscriber that will then be
-available in your handlers.*
+available in your handlers._
 
 `handlers` should be an object whose keys are event names and values are an
 array of event handler functions. This is where you will describe what
@@ -104,9 +104,9 @@ modules.exports = {
   },
   subscribers: {
     mySubscriberName: require("../my-subscriber-config.js"),
-    myOtherSubscriberName: require("../my-other-subscriber-config.js")
-  }
-}
+    myOtherSubscriberName: require("../my-other-subscriber-config.js"),
+  },
+};
 ```
 
 ## How to define your event handlers
@@ -147,21 +147,21 @@ simple "hello world" example:
 module.exports = {
   handlers: {
     "compile:start": [
-      function() {
+      function () {
         console.log("hello world!");
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 ```
 
 In the above example, every time the `"compile:start"` event is emitted,
 `"hello world!"` will be logged to the console.
 
-*NOTE: Currently you must use `function` syntax when creating the handler
+_注意: Currently you must use `function` syntax when creating the handler
 functions in order to have the appropriate `this` value. You can use arrow
 functions in your handler functions, but you will lose the `this` reference
-to the Subscriber if you do so.*
+to the Subscriber if you do so._
 
 ## More on subscribers
 
@@ -180,7 +180,7 @@ create a reference to it in the initialization like so:
 const colors = require("colors");
 
 module.exports = {
-  initialization: function() {
+  initialization: function () {
     this.colors = colors;
   },
   // ......
@@ -194,18 +194,20 @@ extending the example above could yield the following code:
 const colors = require("colors");
 
 module.exports = {
-  initialization: function() {
+  initialization: function () {
     this.colors = colors;
   },
   handlers: {
     "compile:compiledSources": [
-      function(data) {
+      function (data) {
         const { sourceFileNames } = data;
-        const message = this.colors.rainbow(`The source files are ${sourceFileNames}`);
+        const message = this.colors.rainbow(
+          `The source files are ${sourceFileNames}`
+        );
         console.log(message);
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 ```
 
@@ -216,8 +218,8 @@ provide data to your handlers at the time of execution. The
 particular handler. Check the chart below to see which events are provided
 with what data.
 
-*Reminder: The `this` in your Subscriber files refers to the Subscriber class
-that is instantiated from the file you create and not the `this` in the file.*
+_Reminder: The `this` in your Subscriber files refers to the Subscriber class
+that is instantiated from the file you create and not the `this` in the file._
 
 ## Currently supported events
 
@@ -228,12 +230,11 @@ the handlers.
 
 ### `truffle compile`
 
-
 #### `"compile:start"`
 
 Emitted at the start of the command flow.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"compile:succeed"`
 
@@ -281,7 +282,7 @@ Emitted after sources are compiled.
 
 Emitted after attempted compilation if no compilation was needed
 
-*No data available for this event.*
+_No data available for this event._
 
 ### `truffle obtain`
 
@@ -289,7 +290,7 @@ Emitted after attempted compilation if no compilation was needed
 
 Emitted at the start of the command flow.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"obtain:succeed"`
 
@@ -308,7 +309,7 @@ Emitted at the end of the command flow.
 
 Emitted in case the obtain command fails.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"downloadCompiler:start"`
 
@@ -324,25 +325,25 @@ Emitted before attempting to download a compiler.
 
 Emitted after successfully downloading a compiler
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"fetchSolcList:start"`
 
 Emitted before fetching the list of available versions of the Solidity compiler
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"fetchSolcList:succeed"`
 
 Emitted after fetching the list of available versions of the Solidity compiler
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"fetchSolcList:fail"`
 
 Emitted emitted if downloading the list of Solidity compiler versions fails
 
-*No data available for this event.*
+_No data available for this event._
 
 ### `truffle unbox`
 
@@ -350,68 +351,68 @@ Emitted emitted if downloading the list of Solidity compiler versions fails
 
 Emitted at the start of command flow.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:succeed"`
 
 Emitted at the end of command flow.
 
-  ```
-  {
-      boxConfig: <object: contents of the `truffle-box.json` for the given box>
-  }
-  ```
+```
+{
+    boxConfig: <object: contents of the `truffle-box.json` for the given box>
+}
+```
 
 #### `"unbox:fail"`
 
 Emitted if the unbox fails.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:preparingToDownload:start"`
 
 Emitted before setting up a temporary directory for the downloaded contents.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:preparingToDownload:succeed"`
 
 Emitted after creating the temporary directory for the downloaded contents.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:downloadingBox:start"`
 
 Emitted before attempting to download the box contents.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:downloadingBox:succeed"`
 
 Emitted after downloading the box contents.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:cleaningTempFiles:start"`
 
 Emitted before removing the temporary files.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:cleaningTempFiles:succeed"`
 
 Emitted after removing the temporary files.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:settingUpBox:start"`
 
 Emitted before installing box dependencies.
 
-*No data available for this event.*
+_No data available for this event._
 
 #### `"unbox:settingUpBox:succeed"`
 
 Emitted after installing box dependencies.
 
-*No data available for this event.*
+_No data available for this event._

@@ -1,5 +1,5 @@
 ---
-title: "引入松露DB., 第2部分: '重量和切换'"
+title: "引入 Truffle DB., 第2部分: '重量和切换'"
 date: "2019-07-11"
 author: "gnidan (Nick D'Andrea) and Faina Shalts"
 published: true
@@ -9,17 +9,19 @@ description: "In the second of this two-part blog post, we go over Truffle DB's 
 Welcome back! If you missed the [first part](/blog/introducing-truffle-db-part-1) of this post, you may want to read it to learn more about Truffle’s contract artifacts, their current limitations, and why we seek to build a better solution.
 
 Or, just to catch up:
-* Truffle currently stores information about your smart contracts in files that we call “contract artifacts” (or just “artifacts” for short.)
-* Truffle uses these artifacts for pretty much everything.
-* Plenty of other tools use artifacts too, and rely on their behavior.
-* Unfortunately, the artifacts file format has several design flaws, forcing dozens of workarounds and even preventing certain use cases entirely.
-* Addressing these flaws head-on risks severe negative impact on other projects.
-* We’re excited to share a project we’ve been working on, to offer a deprecation plan and to encourage community involvement.
+
+- Truffle currently stores information about your smart contracts in files that we call “contract artifacts” (or just “artifacts” for short.)
+- Truffle uses these artifacts for pretty much everything.
+- Plenty of other tools use artifacts too, and rely on their behavior.
+- Unfortunately, the artifacts file format has several design flaws, forcing dozens of workarounds and even preventing certain use cases entirely.
+- Addressing these flaws head-on risks severe negative impact on other projects.
+- We’re excited to share a project we’ve been working on, to offer a deprecation plan and to encourage community involvement.
 
 So why should you care?
-* If you are a tools developer, or rely on Truffle artifacts directly in any way: there will be breaking changes!
-* If you use Truffle for smart contract development: the developer experience using Truffle will have fewer roadblocks (“[software warts](http://www.catb.org/jargon/html/W/wart.html)”). This will not break existing Truffle projects.
-* No matter who you are: better data means better tools.
+
+- If you are a tools developer, or rely on Truffle artifacts directly in any way: there will be breaking changes!
+- If you use Truffle for smart contract development: the developer experience using Truffle will have fewer roadblocks (“[software warts](http://www.catb.org/jargon/html/W/wart.html)”). This will not break existing Truffle projects.
+- No matter who you are: better data means better tools.
 
 Great! I’m convinced. 😁 Now, where were we?
 
@@ -61,11 +63,12 @@ Truffle DB is still in development, but we would like to share what we’ve got 
 We’re gearing up for a minor release (Truffle v5.1), and we plan to make a first version of Truffle DB available as an experimental implementation. This means building blocks to start: key pieces of infrastructure to paint a picture of Truffle DB for review and iteration.
 
 Day 1, this means you will get:
-* The ability to convert your artifacts and load them into Truffle DB
-* A mechanism to persist Truffle DB data side-by-side with your artifacts
-* Improvements to Truffle that take advantage of this data when it exists
-* A bundled GraphQL playground for hands-on exploration
-* The ability to easily explore the schema to better understand our system design
+
+- The ability to convert your artifacts and load them into Truffle DB
+- A mechanism to persist Truffle DB data side-by-side with your artifacts
+- Improvements to Truffle that take advantage of this data when it exists
+- A bundled GraphQL playground for hands-on exploration
+- The ability to easily explore the schema to better understand our system design
 
 <figure>
   <img src="/img/blog/introducing-truffle-db/graphql-playground.png" alt="Example of Truffle DB" style="width:100%">
@@ -78,16 +81,18 @@ Day 1, this means you will get:
 Since we’ve started by building infrastructure, the work remains to connect the dots into a final design that we can validate for quality and usefulness.
 
 This includes:
-* Documentation, of course! See our current [Truffle DB – Proposal](https://trufflesuite.github.io/artifact-updates/index.html) working docs, which include the data model diagrams. Expect us to convert these docs into proper documentation for release.
-* Better persistence. Our initial implementation will save JSON files to disk, but we intend to support more robust data storage options, including relational databases and native support in [Truffle Teams](https://www.trufflesuite.com/teams).
-* Schema design updates, including support for pagination and proper data filtering.
-* A prototype candidate for Truffle DB’s external interface.
+
+- Documentation, of course! See our current [Truffle DB – Proposal](https://trufflesuite.github.io/artifact-updates/index.html) working docs, which include the data model diagrams. Expect us to convert these docs into proper documentation for release.
+- Better persistence. Our initial implementation will save JSON files to disk, but we intend to support more robust data storage options, including relational databases and native support in [Truffle Teams](https://www.trufflesuite.com/teams).
+- Schema design updates, including support for pagination and proper data filtering.
+- A prototype candidate for Truffle DB’s external interface.
 
 ## The long-term plan
 
 We’re going to introduce Truffle DB gradually, deprecating the old artifacts format and introducing Truffle DB more and more as it’s validated.
 
 We expect to follow these steps:
+
 1. Release initial Truffle DB features as opt-in and experimental.
 1. Gather feedback and support to build a cohesive Truffle DB release candidate (for broad community use).
 1. Turn Truffle DB on by default, but continue to use artifacts as the primary data store.
@@ -99,7 +104,7 @@ We expect to follow these steps:
 We expect this process, start to finish, to span at least two major (breaking change) releases. We plan to maintain legacy support for artifacts for at least 18 months after we release a Truffle DB release candidate.
 
 <figure>
-  <div style="width:100%;height:0;padding-bottom:43%;position:relative;"><iframe src="https://giphy.com/embed/26tPcRGbvMEcKmrRe" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/film-cinemagraph-26tPcRGbvMEcKmrRe">via GIPHY</a></p>
+  <div style="width:100%;height:0;padding-bottom:43%;position:relative;"><iframe src="https://giphy.com/embed/26tPcRGbvMEcKmrRe" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>[via GIPHY](https://giphy.com/gifs/film-cinemagraph-26tPcRGbvMEcKmrRe)
   <figcaption>[Weight and Switch](https://tvtropes.org/pmwiki/pmwiki.php/Main/WeightAndSwitch): Dr. Jones demonstrating proper technique for delicate data migration procedures</figcaption>
 </figure>
 

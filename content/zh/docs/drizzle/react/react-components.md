@@ -8,13 +8,13 @@ A set of useful components for common UI elements.
 ## Installation
 
 Install Drizzle React Components via npm:
+
 ```bash
 npm install --save drizzle-react-components
 ```
 
 <p class="alert alert-warning">
-<strong>Note</strong>: You'll also need the `drizzle-react` package, if it isn't already installed.
-</p>
+注意: You'll also need the `drizzle-react` package, if it isn't already installed.
 
 ## Components
 
@@ -48,4 +48,4 @@ This components wraps your entire app (but within the DrizzleProvider) and will 
 
 `sendArgs` (object) An object specifying options for the transaction to be sent; namely: `from`, `gasPrice`, `gas` and `value`. Further explanataion of these parameters can be found [here in the web3 documentation](https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#id19).
 
-`labels` (array) Custom labels; will follow ABI input ordering. Useful for friendlier names. For example "_to" becoming "Recipient Address".
+`labels` (array) Custom labels; will follow ABI input ordering. Useful for friendlier names. For example "\_to" becoming "Recipient Address".

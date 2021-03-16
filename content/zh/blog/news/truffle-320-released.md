@@ -1,5 +1,5 @@
 ---
-title: "松露3.2.0发布 🎉"
+title: " Truffle 3.2.0发布 🎉"
 date: "2017-03-22"
 author: "Tim Coulter"
 published: true

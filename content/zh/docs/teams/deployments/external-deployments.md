@@ -29,6 +29,4 @@ Click the <span class="inline-button">CONFIRM >></span> button to begin uploadin
   <img class="figure-shadow mb-2" src="/img/docs/teams/add-contract-04.png" alt="Contract address confirmation" style="width: 100%">
 </figure>
 
-<p class="alert alert-info">
-<strong>Note</strong>: Monitoring for external deployments begins once the contract is added to Truffle Teams and does not currently include historical data from before that point.
-</p>
+注意: Monitoring for external deployments begins once the contract is added to Truffle Teams and does not currently include historical data from before that point.

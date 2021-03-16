@@ -14,7 +14,7 @@ weight: 5
 
 在您继续下面之前，您需要确保[创建一个帐户](/docs/teams/getting-started/creating-an-account) **和** [添加至少一个存储库](/docs/teams/getting-started/adding-repositories) 对于您想要应用优惠券代码的 GitHub 用户/组织.
 
-一旦确保您想要应用优惠券的帐户，就会导航到 <a href="https://my.truffleteams.com/#/settings" target="_blank">settings</a> 页.
+一旦确保您想要应用优惠券的帐户，就会导航到 [settings](https://my.truffleteams.com/#/settings" target="\_blank) 页.
 您还可以通过单击侧栏中的化身/用户名来导航。
 
 接下来，单击您想要兑换优惠券的侧栏中的 GitHub 用户或组织。
@@ -43,7 +43,7 @@ Press **<span class="inline-button">CONTINUE</span>**.
 
 Enter your location information and press **<span class="inline-button text-light">Continue &raquo;</span>**.
 
-Click <strong class="color-truffle"><u>Add Coupon</u></strong>.
+Click <strong class="color-truffle"><u>Add Coupon</u>.
 
 ![Add Coupon Link](/img/docs/teams/coupon-redemption-coupon-link.png)
 

@@ -8,7 +8,7 @@ weight: 2
 
 <figure class="screenshot">
   <img class="figure-shadow mb-2 w-100" src="/img/docs/teams/debugger-transaction-01.png" alt="Teams Debugger Interface">
-  <figcaption class="text-center">松露团队调试器界面。</figcaption>
+  <figcaption class="text-center"> Truffle 团队调试器界面。</figcaption>
 </figure>
 
 首先要注意的是页面标题中的事务哈希(`0x82f668a...`)。
@@ -24,7 +24,7 @@ weight: 2
 
 <figure class="screenshot">
   <img class="figure-shadow mb-2 w-50" src="/img/docs/teams/debugger-control-palette.png" alt="Teams Debugger Control Palette">
-  <figcaption class="text-center">松露团队调试器控制面板。</figcaption>
+  <figcaption class="text-center"> Truffle 团队调试器控制面板。</figcaption>
 </figure>
 
 从左到右，控件及其相关操作的说明如下。请注意，您也可以将控件悬停以显示其关联名称。
@@ -32,13 +32,13 @@ weight: 2
 
 - <code>Continue</code> - 继续直到到达下一个断点或执行最后一行 ("c" or "F8")
 - <code>Step Over</code> - 跨过当前行 ("o" or "F10")
-- <code>Step Into</code> - 进入当前正在评估的函数调用或合同创建 ("i" or "F11")
+- <code>Step Into</code> - 进入当前正在评估的函数调用或合约创建 ("i" or "F11")
 - <code>Step Out</code> - 退出当前正在运行的功能 ("u" or "Shift+F11")
 - <code>Restart</code> - 重新启动调试器会话 ("r")
 
 ## 源文件
 
-将作为带有事务文件执行路径的一部分访问的源文件将由带有合同文件名的选项卡表示。
+将作为带有事务文件执行路径的一部分访问的源文件将由带有合约文件名的选项卡表示。
 值得注意的是，您的项目可能包含的文件数量超过此处显示的文件数量。
 
 <figure class="screenshot">

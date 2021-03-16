@@ -5,7 +5,7 @@ author: "Simon de la Rouviere"
 published: true
 ---
 
-> NOTE: This tutorial is written for versions of Solidity prior to v0.4.13. It relies on the deprecated `throw` keyword, now replaced by `revert()`, `require()`, and `assert()`. See Solidity documentation for <a href="http://solidity.readthedocs.io/en/develop/control-structures.html?highlight=require#error-handling-assert-require-revert-and-exceptions">error handling</a> for more information.
+> 注意: This tutorial is written for versions of Solidity prior to v0.4.13. It relies on the deprecated `throw` keyword, now replaced by `revert()`, `require()`, and `assert()`. See Solidity documentation for [error handling](http://solidity.readthedocs.io/en/develop/control-structures.html?highlight=require#error-handling-assert-require-revert-and-exceptions) for more information.
 
 Truffle 3 brings forth Solidity unit testing, which means one can now test contracts in Solidity itself. This is a boon to contract developers, as there are several reasons why it's useful to have Solidity tests in addition to Truffle’s Javascript tests. For us at [Ujo](https://ujomusic.com/), one of our biggest concerns is testing how contracts interact with each other, rather than just testing their interaction from a web3 perspective, and Solidity tests allow us to do that.
 
@@ -14,7 +14,6 @@ Though Solidity tests can be quite powerful, they do come with some drawbacks. O
 ## Diving In
 
 In Solidity, when performing a contract call that produces an error, Solidity automatically rethrows, meaning it will bubble that error up to the caller. However, with a _raw_ call, the behavior is different: one can catch the error and decide what to do from there on out. If it throws (fails), it will return `false`. If it succeeds, it will return `true`. Thus, the following calls will produce a different result.
-
 
 ```solidity
 // Returns false
@@ -89,7 +88,7 @@ Perhaps the most interesting line is the following:
 Thrower(address(throwProxy)).doThrow();
 ```
 
-This is telling Solidity to call the `doThrow()` function at the `throwProxy` address. Solidity automatically creates the necessary message data (`msg.data`) based on this call. Writing it like this, one would assume that at `throwProxy` there *is* a Thrower contract, but there isn’t. There's a proxy instead. The proxy then receives the msg data, and since it doesn’t have a `doThrow()` function, the fallback function is triggered in its place.
+This is telling Solidity to call the `doThrow()` function at the `throwProxy` address. Solidity automatically creates the necessary message data (`msg.data`) based on this call. Writing it like this, one would assume that at `throwProxy` there _is_ a Thrower contract, but there isn’t. There's a proxy instead. The proxy then receives the msg data, and since it doesn’t have a `doThrow()` function, the fallback function is triggered in its place.
 
 The fallback function then saves the message data. After that, when executing the proxy, it then forwards the request onwards as a raw call, not a contract call. Since the `throw` would use up all the gas, the rest of the tests would legitimately OOG, so we restrict the gas sent through when calling the `execute()` method. Note that enough should be sent through so that it doesn’t OOG legitimately and thus miss the actual throw condition.
 
@@ -129,8 +128,7 @@ Testing `throws` is possible from within Solidity tests, but can be cumbersome i
 
 Happy developing!
 
-
-------------
+---
 
 ![About Simon de la Rouviere](https://consensys.net/img/team/simon.jpg)
 

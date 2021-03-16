@@ -3,10 +3,10 @@ title: 连接到沙箱
 weight: 1
 ---
 
-请注意，本文档的这一部分假定您已经创建了一个沙箱并将合同部署到该沙箱。
+请注意，本文档的这一部分假定您已经创建了一个沙箱并将合约部署到该沙箱。
 如果您需要帮助，请开始使用沙箱和将其部署到沙箱, 请查看[创建沙箱](/docs/teams/sandboxes/creating-a-sandbox)部分和[部署到沙箱](/docs/teams/deployments/deploying-to-a-sandbox)部分以了解更多详细信息。
 
-如果您将合同部署到沙盒，并希望使用合同管理器与其进行交互，则需要将 MetaMask 连接到沙盒实例。
+如果您将合约部署到沙盒，并希望使用合约管理器与其进行交互，则需要将 MetaMask 连接到沙盒实例。
 要将 MetaMask 连接到沙盒，您需要 RPC URL 和生成的助记符。
 Navigate to **<span class="inline-menu-item"><i class="far fa-cubes"></i>SANDBOXES</span>** and click on <span class="inline-button">VIEW/EDIT</span> of the sandbox you deployed to.
 Copy the **Mnemonic**, open your MetaMask browser extension, and select **Import using account seed phrase**.
@@ -39,4 +39,4 @@ Navigate to the **<span class="inline-menu-item"><i class="fal fa-parachute-box"
 On the chosen deployment page, under the **CONTRACTS** tab, you can chose a contract to interact with by clicking on **<span class="inline-button"><i class="far fa-pager"></i> MANAGE</span>**.
 
 A MetaMask pop-up will appear asking you to select an account to use, choose which account to use from the list and click **Next**, and finally accept the permissions by clicking **Connect**.
-You've successfully selected an account, now you're ready to interact with the contract manager! To learn more on interacting with contracts, head over to the <a href="/docs/teams/contract-manager/interacting-with-functions">Interacting with functions</a> section.
+You've successfully selected an account, now you're ready to interact with the contract manager! To learn more on interacting with contracts, head over to the [Interacting with functions](/docs/teams/contract-manager/interacting-with-functions) section.

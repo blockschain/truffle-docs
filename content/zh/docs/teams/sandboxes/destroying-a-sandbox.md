@@ -7,5 +7,5 @@ weight: 3
 
 <figure class="screenshot">
   <img class="w-100" src="/img/docs/teams/sandboxes.png" alt="Truffle Teams SANDBOXES screen">
-  <figcaption class="text-center">松露队沙盒屏幕。</figcaption>
+  <figcaption class="text-center"> Truffle 队沙盒屏幕。</figcaption>
 </figure>

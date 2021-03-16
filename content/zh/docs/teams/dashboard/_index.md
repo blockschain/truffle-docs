@@ -6,7 +6,7 @@ weight: 10
 
 Truffle Teams 仪表板使您可以快速了解有关已部署 DApp 的运行状况的信息，例如已部署提交的链接，部署成本以及随着时间推移的事务。
 
-To learn more and get started with the dashboard, head over to the <a href="/docs/teams/dashboard/adding-a-deployment">Adding a deployment</a> section of the dashboard documentation.
+To learn more and get started with the dashboard, head over to the [Adding a deployment](/docs/teams/dashboard/adding-a-deployment) section of the dashboard documentation.
 
 <figure class="screenshot">
   <img class="img-fluid" src="/img/docs/teams/dashboard-landing.png" title="Truffle Teams dashboard view" alt="Truffle Teams dashboard view" />

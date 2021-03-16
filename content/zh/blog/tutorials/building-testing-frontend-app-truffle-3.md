@@ -1,12 +1,11 @@
 ---
-title: "建筑和测试带有松露3.0的前端应用程序"
+title: "建筑和测试带有 Truffle 3.0的前端应用程序"
 date: "2017-02-14"
 author: "Doug von Kohorn"
 published: true
 ---
 
 > **Update**: While this tutorial was originally written for Truffle 3, we have updated it to be fully compatible with newer versions of Truffle. We have kept some of the language unaltered, except where necessary.
-
 
 Truffle 3 is out and switched to less opinionated build process that allows any build pipeline to be plugged in. We're going to take advantage of that feature today, and build a frontend app with a custom pipeline.
 
@@ -52,9 +51,7 @@ networks: {
 
 This is the default setting for [Ganache](/docs/ganache/using), though you can change this to use any connection you'd like.
 
-<p class="alert alert-info">
 **Note**: Read more about [setting up Ganache](/docs/ganache/using). You can also use [Truffle Develop](/docs/getting_started/console), which launches a personal blockchain for testing and is built directly into Truffle, no separate installation required.
-</p>
 
 Let's get the contracts on the network:
 
@@ -62,7 +59,7 @@ First run `truffle compile`. This will compile the `.sol` contracts into `.json`
 
 ```javascript
 // Import our contract artifacts and turn them into usable abstractions.
-import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
+import metacoin_artifacts from "../../build/contracts/MetaCoin.json";
 ```
 
 Next, make sure you have a blockchain running, and then run `truffle migrate`. This will deploy the contracts onto the default network running at `127.0.0.1:7545`.
@@ -99,7 +96,7 @@ plugins: [
 ...
 ```
 
-You can find more information on webpack concepts on [webpack's website](https://webpack.js.org/concepts/). Notice we didn't *have* to use webpack here, but Truffle comes with a handy webpack demo that gets us started quickly. We _could_ replace the webpack config with a `Gruntfile`, for instance, and use Grunt instead. Truffle don't care no mo'.
+You can find more information on webpack concepts on [webpack's website](https://webpack.js.org/concepts/). Notice we didn't _have_ to use webpack here, but Truffle comes with a handy webpack demo that gets us started quickly. We _could_ replace the webpack config with a `Gruntfile`, for instance, and use Grunt instead. Truffle don't care no mo'.
 
 ## The app
 

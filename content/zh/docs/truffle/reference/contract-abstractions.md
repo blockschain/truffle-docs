@@ -1,21 +1,22 @@
 ---
-title: 合同抽象
+title: 合约抽象
 weight: 3
 ---
+
 # Contract Abstractions
 
-Truffle provides contract abstractions for interacting with your contracts.  Skip ahead to the [api section](/docs/truffle/reference/contract-abstractions#api) for a list of contract methods.
+Truffle provides contract abstractions for interacting with your contracts. Skip ahead to the [api section](/docs/truffle/reference/contract-abstractions#api) for a list of contract methods.
 
 ### Usage
 
-To obtain a contract abstraction you can require it with the contract name from the `artifacts` object.  Outside of the console this is an object available in migration files, tests, and exec scripts.
+To obtain a contract abstraction you can require it with the contract name from the `artifacts` object. Outside of the console this is an object available in migration files, tests, and exec scripts.
 You would require your contract as follows:
 
 ```javascript
 const MyContract = artifacts.require("MyContract");
 ```
 
-You can also obtain one in the developer console.  Your contract types are available here and all you need to do is use the `at`, `deployed`, or `new` method.
+You can also obtain one in the developer console. Your contract types are available here and all you need to do is use the `at`, `deployed`, or `new` method.
 
 ```javascript
 truffle(development)> const myContract = await MyContract.deployed();
@@ -23,9 +24,9 @@ truffle(development)> const myContract = await MyContract.deployed();
 
 You now have access to the following functions on `MyContract`, as well as many others:
 
-* `at()`: Create an instance of `MyContract` that represents your contract at a specific address.
-* `deployed()`: Create an instance of `MyContract` that represents the default address managed by `MyContract`.
-* `new()`: Deploy a new version of this contract to the network, getting an instance of `MyContract` that represents the newly deployed instance.
+- `at()`: Create an instance of `MyContract` that represents your contract at a specific address.
+- `deployed()`: Create an instance of `MyContract` that represents the default address managed by `MyContract`.
+- `new()`: Deploy a new version of this contract to the network, getting an instance of `MyContract` that represents the newly deployed instance.
 
 Each instance is tied to a specific address on the Ethereum network, and each instance has a 1-to-1 mapping from Javascript functions to contract functions. For instance, if your Solidity contract had a function defined `someFunction(uint value) {}` (solidity), then you could execute that function on the network like so:
 
@@ -35,7 +36,8 @@ MyContract.deployed()
   .then((instance) => {
     deployed = instance;
     return deployed.someFunction(5);
-  }).then((result) => {
+  })
+  .then((result) => {
     // Do something with the result or continue with more transactions.
   });
 ```
@@ -51,18 +53,18 @@ const result = await deployed.someFunction(5);
 
 See the [processing transaction results](/docs/truffle/getting-started/interacting-with-your-contracts#processing-transaction-results) section to learn more about the results object obtained from making transactions.
 
-Contract methods and events have an EventEmitter interface.  So you can set up handlers like the following:
+Contract methods and events have an EventEmitter interface. So you can set up handlers like the following:
 
 ```javascript
 const example = await artifacts.require("Example").deployed();
 
 example
   .setValue(45)
-  .on('transactionHash', hash => {})
-  .on('receipt', receipt => {})
-  .on('error', error => {})
-  .on('confirmation', (num, receipt) => {})
-  .then(receipt => {});
+  .on("transactionHash", (hash) => {})
+  .on("receipt", (receipt) => {})
+  .on("error", (error) => {})
+  .on("confirmation", (num, receipt) => {})
+  .then((receipt) => {});
 ```
 
 ```javascript
@@ -101,7 +103,7 @@ Link a library represented by a contract abstraction instance to MyContract. The
 
 Libraries can be linked multiple times and will overwrite their previous linkage.
 
-Note: This method has two other forms, but this form is recommended.
+注意: This method has two other forms, but this form is recommended.
 
 #### `MyContract.link(name, address)`
 
@@ -151,21 +153,26 @@ const MyOtherContract = MyContract.clone(1337);
 ```
 
 #### `MyContract.numberFormat = number_type`
-You can set this property to choose the number format that abstraction methods return.  The default behavior is to return BN.
+
+You can set this property to choose the number format that abstraction methods return. The default behavior is to return BN.
+
 ```javascript
 // Choices are:  `["BigNumber", "BN", "String"].
-const Example = artifacts.require('Example');
-Example.numberFormat = 'BigNumber';
+const Example = artifacts.require("Example");
+Example.numberFormat = "BigNumber";
 ```
 
 #### `MyContract.timeout(block_timeout)`
-This method allows you to set the block timeout for transactions.  Contract instances created from this abstraction will have the specified transaction block timeout.  This means that if a transaction does not immediately get mined, it will retry for the specified number of blocks.
+
+This method allows you to set the block timeout for transactions. Contract instances created from this abstraction will have the specified transaction block timeout. This means that if a transaction does not immediately get mined, it will retry for the specified number of blocks.
 
 #### `MyContract.autoGas = <boolean>`
-If this is set to true, instances created from this abstraction will use `web3.eth.estimateGas` and then apply a gas multiplier to determine the amount of gas to include with the transaction.  The default value for this is `true`.  See [gasMultiplier](/docs/truffle/reference/contract-abstractions#-code-mycontract-gasmultiplier-gas_multiplier-code-).
+
+If this is set to true, instances created from this abstraction will use `web3.eth.estimateGas` and then apply a gas multiplier to determine the amount of gas to include with the transaction. The default value for this is `true`. See [gasMultiplier](/docs/truffle/reference/contract-abstractions#-code-mycontract-gasmultiplier-gas_multiplier-code-).
 
 #### `MyContract.gasMultiplier(gas_multiplier)`
-This is the value used when `autoGas` is enabled to determine the amount of gas to include with transactions.  The gas is computed by using `web3.eth.estimateGas` and multiplying it by the gas multiplier.  The default value is `1.25`.
+
+This is the value used when `autoGas` is enabled to determine the amount of gas to include with transactions. The gas is computed by using `web3.eth.estimateGas` and multiplying it by the gas multiplier. The default value is `1.25`.
 
 ### Contract Instance API
 
@@ -247,7 +254,7 @@ This isn't very useful in this case, since `setValue()` sets things, and the val
 
 #### Calling getters
 
-However, we can *get* the value using `getValue()`, using `.call()`. Calls are always free and don't cost any Ether, so they're good for calling functions that read data off the blockchain:
+However, we can _get_ the value using `getValue()`, using `.call()`. Calls are always free and don't cost any Ether, so they're good for calling functions that read data off the blockchain:
 
 ```javascript
 const value = await instance.getValue.call();
@@ -255,7 +262,7 @@ const value = await instance.getValue.call();
 // since the contract returns that value.
 ```
 
-Even more helpful, however is we *don't even need* to use `.call` when a function is marked as `view` or `pure` (or the deprecated `constant`), because `@truffle/contract` will automatically know that that function can only be interacted with via a call:
+Even more helpful, however is we _don't even need_ to use `.call` when a function is marked as `view` or `pure` (or the deprecated `constant`), because `@truffle/contract` will automatically know that that function can only be interacted with via a call:
 
 ```javascript
 const value = await instance.getValue();

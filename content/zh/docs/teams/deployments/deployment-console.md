@@ -10,6 +10,4 @@ The deployment console is where you can find all of the output from the deployme
     <figcaption class="text-center font-italic">Deployment console</figcaption>
 </figure>
 
-<p class="alert alert-info">
-  <strong>Note</strong>: You cannot currently view the deployment console for in progress or failed deployments. We're currently working on fixing this.
-</p>
+注意: You cannot currently view the deployment console for in progress or failed deployments. We're currently working on fixing this.

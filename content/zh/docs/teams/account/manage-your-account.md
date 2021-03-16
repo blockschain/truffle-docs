@@ -25,15 +25,15 @@ weight: 1
 ## 结算和计划
 
 当您注册 Truffle 团队时，您将自动注册自由计划。
-自由计划附带无限制的构建，监控无限制的合同，对沙盒，Testnets 和 Mainnet 的无限部署，以及访问 1 个 Ganache 沙箱。
+自由计划附带无限制的构建，监控无限制的合约，对沙盒，Testnets 和 Mainnet 的无限部署，以及访问 1 个 Ganache 沙箱。
 但是，自由计划仅限于公共存储库。
 
 您可以随时升级到 Pro 或企业计划。
 对于 Pro 计划，您将获得免费计划附带的所有内容以及私人存储库和访问 3 个 Ganache 沙箱。
-<a href="/docs/teams/account/claim-a-1-month-trial">试试职业月份</a>!
+[试试职业月份](/docs/teams/account/claim-a-1-month-trial)!
 
 要升级到 Pro 计划，请单击 **BILLING > UPGRADE** 系统将提示您输入您的结算信息和付款方式。
-如果您对我们的企业计划感兴趣, <a href="mailto:sales@trufflesuite.com" target="_blank" rel="noopener noreferrer" class="sc-dymIpo jtCNSr sc-ktHwxA isqCSL">contact us</a> 为您和您的团队获得量身定制的体验.
+如果您对我们的企业计划感兴趣, [contact us](mailto:sales@trufflesuite.com" target="\_blank" rel="noopener noreferrer" class="sc-dymIpo jtCNSr sc-ktHwxA isqCSL) 为您和您的团队获得量身定制的体验.
 
 如果您已订阅 Pro 计划，并且由于任何原因想要返回免费计划，请单击 **BILLING** 然后通过点击 **<span class="inline-button">SWITCH</span>**选择 **FREE** 计划 .
 在结算期结束之前，您将继续接收专业服务。
@@ -53,7 +53,7 @@ weight: 1
 ## Advanced
 
 **Advanced** 选项卡是您可以选择选择的早期访问功能，该功能是尖端，但可能是不稳定的。
-如果您确定选择选择并发现任何错误, 请在我们的[松露团队频谱支持频道](<https://spectrum.chat/trufflesuite/truffle-teams)上告诉我们!
+如果您确定选择选择并发现任何错误, 请在我们的[ Truffle 团队频谱支持频道](<https://spectrum.chat/trufflesuite/truffle-teams)上告诉我们!
 
 ## Users
 

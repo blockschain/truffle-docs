@@ -1,11 +1,12 @@
 ---
-title: "openzeppelin和松露的甜蜜可升级合同经验"
+title: "openzeppelin和 Truffle 的甜蜜可升级合约经验"
 date: "2020-08-18"
 author: "Josh Quintal"
 published: true
 description: "Check out OpenZeppelin's new plugin to make it easier to deploy and upgrade proxy contracts."
 image: "/img/blog/a-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle/blog-thumbnail.png"
 ---
+
 ![Truffle + OpenZeppelin Banner](/img/blog/a-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle/blog-header.png)
 
 Immutability is a cornerstone of blockchain technology. This is great for many reasons, but presents a problem when it’s time to upgrade our smart contracts. There are a few different upgrade patterns, but one that’s proven to be robust is the proxy pattern. This pattern has, until now, involved some additional overhead for development teams. Thanks to OpenZeppelin though, you can now deploy upgradeable contract systems with ease using the familiar Truffle tool suite!
@@ -30,21 +31,20 @@ npm install --save-dev @openzeppelin/truffle-upgrades
 ```
 
 <p class="alert alert-info m-t-2">
-<i class="fas fa-info-circle"></i> <strong>Note</strong>: This package requires Truffle version 5.1.35 or greater.
-</p>
+<i class="fas fa-info-circle"></i> 注意: This package requires Truffle version 5.1.35 or greater.
 
 Then, in your migration script, use the new deployProxy and upgradeProxy functions:
 
 ```javascript
-const { deployProxy, upgradeProxy } = require('@openzeppelin/truffle-upgrades');
+const { deployProxy, upgradeProxy } = require("@openzeppelin/truffle-upgrades");
 
-const Box = artifacts.require('Box');
-const BoxV2 = artifacts.require('BoxV2');
+const Box = artifacts.require("Box");
+const BoxV2 = artifacts.require("BoxV2");
 
 module.exports = async function (deployer) {
   const instance = await deployProxy(Box, [42], { deployer });
   const upgraded = await upgradeProxy(instance.address, BoxV2, { deployer });
-}
+};
 ```
 
 Now your contract systems can be much more flexible while still leveraging all of the benefits of a blockchain network. For more information on the truffle-upgrades plugin, check out [OpenZeppelin’s Truffle documentation](https://github.com/OpenZeppelin/openzeppelin-upgrades/blob/master/packages/plugin-truffle/README.md).

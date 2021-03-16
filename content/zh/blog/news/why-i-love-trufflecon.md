@@ -28,6 +28,5 @@ Sincerely,
 
 <p>
   <img style="margin-left: 0 !important; margin-bottom: 0 !important;" src="/img/blog/why-i-love-trufflecon/josh-signature.png" title="Josh Quintal Signature" alt="Josh Quintal Signature" width="150px">
-</p>
 
 Josh Quintal

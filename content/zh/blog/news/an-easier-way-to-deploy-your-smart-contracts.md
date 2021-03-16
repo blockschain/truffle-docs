@@ -1,11 +1,12 @@
 ---
-title: "一种部署智能合同的更简单的方法"
+title: "一种部署智能合约的更简单的方法"
 date: "2019-07-19"
 author: "Mike Seese"
 published: true
 description: "Deploying your smart contracts shouldn't be difficult, and the process should be flexible. I give a sneak peek at the next feature we're building: an easy to use interface to deploy your Truffle projects with Truffle Teams! Be the first to use it at my TruffleCon 2019 workshop!"
 image: "/img/blog/thumbnails/truffle-teams.png"
 ---
+
 **TL;DR** - Deploying your smart contracts shouldn't be difficult, and the process should be flexible. I give a sneak peek at the next feature we're building: an **easy to use interface to deploy your Truffle projects with [Truffle Teams](/teams)**! It's going to be awesome, and **you can be the first to use it**! I'll be giving a **hands-on workshop from 9AM-12PM on Friday, August 2nd, at [TruffleCon 2019](/trufflecon2019)** that will walk you through through the entire Truffle Teams lifecycle, including the **never-before-used Deployments interface**! See you there!
 
 ---
@@ -146,7 +147,7 @@ Head over to https://my.truffleteams.com and click on the `BUILDS` tab if you're
 
 ### All Your Tests Pass, Let's Deploy! (but only to a testnet just to be sure)
 
-> NOTE: This is just a sneak peek of features to come! You won't be able to follow along (yet, but [stay tuned](https://share.hsforms.com/1OaTglVhGTdWk7spR6nE_AA34pbp)!).
+> 注意: This is just a sneak peek of features to come! You won't be able to follow along (yet, but [stay tuned](https://share.hsforms.com/1OaTglVhGTdWk7spR6nE_AA34pbp)!).
 
 Great! Your builds are passing, and you're ready to deploy to a testnet (i.e. Ropsten) to see if everything works.
 

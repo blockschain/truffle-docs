@@ -21,5 +21,4 @@ If you're using the **TABLE** view, click on the **ACTIONS** dropdown of your ch
 </figure>
 
 <p class="alert alert-warning">
-  <strong><i class="far fa-exclamation-triangle"></i> Be careful</strong> when using the archive feature; we haven't implemented a way to unarchive deployments yet.
-</p>
+  <i class="far fa-exclamation-triangle"></i> Be careful when using the archive feature; we haven't implemented a way to unarchive deployments yet.

@@ -1,5 +1,5 @@
 ---
-title: "了解如何用松露团队部署"
+title: "了解如何用 Truffle 团队部署"
 date: "2019-12-18"
 author: "Mike Seese"
 published: true

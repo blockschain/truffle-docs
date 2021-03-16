@@ -13,21 +13,18 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 8545,
-      network_id: "*" // Match any network id
-    }
-  }
+      network_id: "*", // Match any network id
+    },
+  },
 };
 ```
 
 The default configuration ships with configuration for a single development network, running on `127.0.0.1:8545`. There are many other configuration options, detailed below.
 
-
 ### Resolving naming conflicts on Windows
 
 <p class="alert alert-warning">
-<strong>Note</strong>: This only applies to Truffle version 4 and below.
-</p>
-
+注意: This only applies to Truffle version 4 and below.
 
 When using the Command Prompt on Windows, the default configuration file name can cause a conflict with the `truffle` executable, and so **you may not be able to run Truffle commands properly on existing projects**.
 
@@ -35,11 +32,10 @@ This is because of the way that command precedence works on the Command Prompt. 
 
 Any of the following solutions will remedy this issue:
 
-* Call the executable file explicitly using its `.cmd` extension (`truffle.cmd compile`)
-* Edit the system `PATHEXT` environment variable and remove `.JS;` from the list of executable extensions
-* Rename `truffle.js` to something else (`truffle-config.js`)
-* Use [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/) or [Git BASH](https://git-for-windows.github.io/), as these shells do not have this conflict.
-
+- Call the executable file explicitly using its `.cmd` extension (`truffle.cmd compile`)
+- Edit the system `PATHEXT` environment variable and remove `.JS;` from the list of executable extensions
+- Rename `truffle.js` to something else (`truffle-config.js`)
+- Use [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/) or [Git BASH](https://git-for-windows.github.io/), as these shells do not have this conflict.
 
 ## General options
 
@@ -91,16 +87,17 @@ networks: {
 
 For each network, if unspecified, transaction options will default to the following values:
 
-* `gas`: Gas limit used for deploys. Default is `6721975`.
-* `gasPrice`: Gas price used for deploys. Default is `100000000000` (100 Shannon).
-* `from`: From address used during migrations. Defaults to the first available account provided by your Ethereum client.
-* `provider`: Default web3 provider using `host` and `port` options: `new Web3.providers.HttpProvider("http://<host>:<port>")`
-* `websockets`: You will need this enabled to use the `confirmations` listener or to hear Events using `.on` or `.once`.  Default is `false`.
-* `deploymentPollingInterval`: When a smart contract is deployed, this determines how often to check whether the transaction has been completed, specified in milliseconds. Default is `4000`. Note that this is *independent* of the polling interval that `provider` may use. See [`@truffle/hdwallet-provider` documentation](https://github.com/trufflesuite/truffle/blob/develop/packages/hdwallet-provider/README.md#instantiation) if you are using `HDWalletProvider` and wish to specify a custom `pollingInterval`.
+- `gas`: Gas limit used for deploys. Default is `6721975`.
+- `gasPrice`: Gas price used for deploys. Default is `100000000000` (100 Shannon).
+- `from`: From address used during migrations. Defaults to the first available account provided by your Ethereum client.
+- `provider`: Default web3 provider using `host` and `port` options: `new Web3.providers.HttpProvider("http://<host>:<port>")`
+- `websockets`: You will need this enabled to use the `confirmations` listener or to hear Events using `.on` or `.once`. Default is `false`.
+- `deploymentPollingInterval`: When a smart contract is deployed, this determines how often to check whether the transaction has been completed, specified in milliseconds. Default is `4000`. Note that this is _independent_ of the polling interval that `provider` may use. See [`@truffle/hdwallet-provider` documentation](https://github.com/trufflesuite/truffle/blob/develop/packages/hdwallet-provider/README.md#instantiation) if you are using `HDWalletProvider` and wish to specify a custom `pollingInterval`.
 
 Note that it is perfectly fine to set `disableConfirmationListener` while also setting a value for `confirmations`; this will not cause hangs during deployment.
 
-For each network, you can specify `host` / `port`, `url`, or `provider`, but not more than one. If you need an HTTP provider, we recommend using `host` and `port`, or `url`, while if you need a custom provider such as `HDWalletProvider`, you must use `provider`.  The `url` option also supports WebSockets and SSL. `url` should include the full url; see the examples below:
+For each network, you can specify `host` / `port`, `url`, or `provider`, but not more than one. If you need an HTTP provider, we recommend using `host` and `port`, or `url`, while if you need a custom provider such as `HDWalletProvider`, you must use `provider`. The `url` option also supports WebSockets and SSL. `url` should include the full url; see the examples below:
+
 - http://127.0.0.1:8545
 - ws://127.0.0.1:8545
 - https://sandbox.truffleteams.com/yoursandboxid
@@ -145,14 +142,12 @@ module.exports = {
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
-    }
-  }
+    },
+  },
 };
 ```
 
-<p class="alert alert-info">
-<strong>Note</strong>: In addition to specifying a relative path, you can also use globs/regular expressions to selectively compile contracts.
-</p>
+注意: In addition to specifying a relative path, you can also use globs/regular expressions to selectively compile contracts.
 
 ### contracts_build_directory
 
@@ -170,8 +165,8 @@ module.exports = {
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
-    }
-  }
+    },
+  },
 };
 ```
 
@@ -185,17 +180,18 @@ module.exports = {
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
-    }
-  }
+    },
+  },
 };
 ```
 
 Absolute paths will also work. This is not recommended though, as an absolute path may not exist when compiled on another system. If you use absolute paths on Windows, make sure to use double backslashes for paths (example: `C:\\Users\\Username\\output`).
 
 ### migrations_directory
+
 The default migrations directory is `./migrations` relative to the project root. This can be changed with the `migrations_directory` key.
 
- Example:
+Example:
 
 ```javascript
 module.exports = {
@@ -205,11 +201,10 @@ module.exports = {
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
-    }
-  }
+    },
+  },
 };
 ```
-
 
 ### mocha
 
@@ -219,31 +214,32 @@ Example:
 
 ```javascript
 mocha: {
-  useColors: true
+  useColors: true;
 }
 ```
 
 ### etherscan
 
-Configuration options that Truffle will use when attempting to download source code from [Etherscan](https://etherscan.io/).  Has one suboption:
+Configuration options that Truffle will use when attempting to download source code from [Etherscan](https://etherscan.io/). Has one suboption:
 
-* `apiKey`: The API key to use when retrieving source code from Etherscan.  If omitted, source will be retrieved without an API key, which may be slower.
+- `apiKey`: The API key to use when retrieving source code from Etherscan. If omitted, source will be retrieved without an API key, which may be slower.
 
 Example:
 
 ```javascript
 etherscan: {
-  apiKey: "0123456789abcdef0123456789abcdef" //replace this with your API key if you have one
+  apiKey: "0123456789abcdef0123456789abcdef"; //replace this with your API key if you have one
 }
 ```
 
 ### sourceFetchers
 
-A list of verified source repositories that Truffle may attempt to download source code from, in the order it should attempt to use them.  Currently the supported repositories are `"etherscan"` (for [Etherscan](https://etherscan.io/)) and `"sourcify"` (for [Sourcify](https://github.com/ethereum/sourcify)).  The default is `["etherscan", "sourcify"]`, i.e., to check Etherscan first, then Sourcify.
+A list of verified source repositories that Truffle may attempt to download source code from, in the order it should attempt to use them. Currently the supported repositories are `"etherscan"` (for [Etherscan](https://etherscan.io/)) and `"sourcify"` (for [Sourcify](https://github.com/ethereum/sourcify)). The default is `["etherscan", "sourcify"]`, i.e., to check Etherscan first, then Sourcify.
 
 Example:
+
 ```javascript
-sourceFetchers: ["sourcify", "etherscan"] //prefer Sourcify over Etherscan
+sourceFetchers: ["sourcify", "etherscan"]; //prefer Sourcify over Etherscan
 ```
 
 ## Compiler configuration
@@ -255,11 +251,12 @@ In the `compilers` object you can specify settings related to the compilers used
 Solidity compiler settings. Supports optimizer settings for `solc`, as well as other settings such as debug and metadata settings.
 
 You may specify...
-+ any solc-js version listed at [solc-bin](http://solc-bin.ethereum.org/bin/list.json). Specify the one you want and Truffle will get it for you.
-+ a natively compiled solc binary (you'll need to install this yourself, links to help below).
-+ a dockerized solc from one of images published [here](https://hub.docker.com/r/ethereum/solc/tags/).
-+ a path to a locally available solc
-+ a solc-js parser for faster docker and native compilations
+
+- any solc-js version listed at [solc-bin](http://solc-bin.ethereum.org/bin/list.json). Specify the one you want and Truffle will get it for you.
+- a natively compiled solc binary (you'll need to install this yourself, links to help below).
+- a dockerized solc from one of images published [here](https://hub.docker.com/r/ethereum/solc/tags/).
+- a path to a locally available solc
+- a solc-js parser for faster docker and native compilations
 
 Truffle config example:
 
@@ -285,11 +282,12 @@ module.exports = {
   }
 }
 ```
-For more information, please see the Solidity documentation on [Compiler Input JSON Description](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) for the various possible settings.  Note that customizing `stopAfter` and `outputSelection` are not currently supported.
+
+For more information, please see the Solidity documentation on [Compiler Input JSON Description](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) for the various possible settings. Note that customizing `stopAfter` and `outputSelection` are not currently supported.
 
 ### vyper
 
-Vyper compiler settings.  Similar to the `solc` settings, but not as extensive.  In particular, specifying a Vyper version is not currently supported; your local Vyper installation will always be used.
+Vyper compiler settings. Similar to the `solc` settings, but not as extensive. In particular, specifying a Vyper version is not currently supported; your local Vyper installation will always be used.
 
 Truffle config example:
 
@@ -305,7 +303,7 @@ module.exports = {
 }
 ```
 
-Currently, only changing the `settings` is supported for Vyper; see the Vyper documentation on [Compiler Input JSON Description](https://vyper.readthedocs.io/en/stable/compiling-a-contract.html#input-json-description) for the possible settings.  However customizing `outputSelection` is not supported, so currently the only supported setting is `evmVersion`.
+Currently, only changing the `settings` is supported for Vyper; see the Vyper documentation on [Compiler Input JSON Description](https://vyper.readthedocs.io/en/stable/compiling-a-contract.html#input-json-description) for the possible settings. However customizing `outputSelection` is not supported, so currently the only supported setting is `evmVersion`.
 
 ### external compilers
 
@@ -317,115 +315,123 @@ module.exports = {
   compilers: {
     external: {
       command: "./compile-contracts",
-      targets: [{
-        /* compilation output */
-      }]
-    }
-  }
-}
+      targets: [
+        {
+          /* compilation output */
+        },
+      ],
+    },
+  },
+};
 ```
 
 When you run truffle compile, Truffle will run the configured command and look for contract artifacts specified by targets.
 
 This new configuration supports a couple of main use cases:
 
-+ Your compilation command outputs Truffle JSON artifacts directly.
-If your compilation command generates artifacts directly, or generates output that contains all the information for an artifact, configure a target as follows:
+- Your compilation command outputs Truffle JSON artifacts directly.
+  If your compilation command generates artifacts directly, or generates output that contains all the information for an artifact, configure a target as follows:
 
 ```javascript
 module.exports = {
   compilers: {
     external: {
       command: "./compile-contracts",
-      targets: [{
-        path: "./path/to/artifacts/*.json"
-      }]
-    }
-  }
-}
+      targets: [
+        {
+          path: "./path/to/artifacts/*.json",
+        },
+      ],
+    },
+  },
+};
 ```
 
-Truffle will execute your script, then expand the glob (*) and find all .json files in the listed path and copy those over as artifacts in the build/contracts/ directory.
+Truffle will execute your script, then expand the glob (\*) and find all .json files in the listed path and copy those over as artifacts in the build/contracts/ directory.
 
-+ Your compilation command outputs individual parts of an artifact, and you want Truffle to generate the artifacts for you.
-The above use case might not be sufficient for all use cases. You can configure your target to run an arbitrary post-processing command:
+- Your compilation command outputs individual parts of an artifact, and you want Truffle to generate the artifacts for you.
+  The above use case might not be sufficient for all use cases. You can configure your target to run an arbitrary post-processing command:
 
 ```javascript
 module.exports = {
   compilers: {
     external: {
       command: "./compile-contracts",
-      targets: [{
-        path: "./path/to/preprocessed-artifacts/*.json",
-        command: "./process-artifact"
-      }]
-    }
-  }
-}
+      targets: [
+        {
+          path: "./path/to/preprocessed-artifacts/*.json",
+          command: "./process-artifact",
+        },
+      ],
+    },
+  },
+};
 ```
 
 This will run ./process-artifact for each matched .json file, piping the contents of that file as stdin. Your ./process-artifact command is then expected to output a complete Truffle artifact as stdout.
 
 Want to provide the path as a filename instead? Add `stdin: false` to your target configuration.
 
-+ You can also specify the individual properties of your contracts and have Truffle generate the artifacts itself.
+- You can also specify the individual properties of your contracts and have Truffle generate the artifacts itself.
 
 ```javascript
 module.exports = {
   compilers: {
     external: {
       command: "./compile-contracts",
-      targets: [{
-        properties: {
-          contractName: "MyContract",
-          /* other literal properties */
+      targets: [
+        {
+          properties: {
+            contractName: "MyContract",
+            /* other literal properties */
+          },
+          fileProperties: {
+            abi: "./output/contract.abi",
+            bytecode: "./output/contract.bytecode",
+            /* other properties encoded in output files */
+          },
         },
-        fileProperties: {
-          abi: "./output/contract.abi",
-          bytecode: "./output/contract.bytecode",
-          /* other properties encoded in output files */
-        }
-      }]
-    }
-  }
-}
+      ],
+    },
+  },
+};
 ```
+
 Specify `properties` and/or `fileProperties`, and Truffle will look for those values when building the artifacts.
 
 To override the working directory for all specified paths and running commands, use the `workingDirectory` option.
 For instance, the following will run `./proj/compile-contracts` and read `./proj/output/contract.abi`:
+
 ```javascript
 module.exports = {
   compilers: {
     external: {
       command: "./compile-contracts",
       workingDirectory: "./proj",
-      targets: [{
-        fileProperties: {
-          abi: "./output/contract.abi",
-          bytecode: "./output/contract.bytecode",
-        }
-      }]
-    }
-  }
-}
+      targets: [
+        {
+          fileProperties: {
+            abi: "./output/contract.abi",
+            bytecode: "./output/contract.bytecode",
+          },
+        },
+      ],
+    },
+  },
+};
 ```
-
 
 ## plugins
 
 <p class="alert alert-warning">
-<strong>Note</strong>: This feature is new and still in a barebones state. Please let us
+注意: This feature is new and still in a barebones state. Please let us
 know how we can improve it!
-</p>
 
 Provides Truffle with a list of installed third-party extensions installed as
 NPM package dependencies.
 
 Truffle plugin support is currently limited to plugins that define custom
 workflow commands. For more information, see [Third-Party Plugin Commands](/docs/truffle/getting-started/writing-external-scripts#third-party-plugin-commands).
-
-
 
 ## EthPM configuration
 
@@ -436,8 +442,9 @@ This configuration applies to the optional `ethpm.json` file that exists alongsi
 Name of the package you're publishing. Your package name must be unique to the EthPM registry.
 
 Example:
+
 ```javascript
-package_name: "adder"
+package_name: "adder";
 ```
 
 ### version
@@ -445,8 +452,9 @@ package_name: "adder"
 Version of this package, using the [semver](http://semver.org/) specification.
 
 Example:
+
 ```javascript
-version: "0.0.3"
+version: "0.0.3";
 ```
 
 ### description
@@ -454,8 +462,9 @@ version: "0.0.3"
 A text description of your package for human readers.
 
 Example:
+
 ```javascript
-description: "Simple contract to add two numbers"
+description: "Simple contract to add two numbers";
 ```
 
 ### authors
@@ -463,10 +472,9 @@ description: "Simple contract to add two numbers"
 An array of authors. Can have any format, but we recommend the format below.
 
 Example:
+
 ```javascript
-authors: [
-  "Tim Coulter <tim.coulter@consensys.net>"
-]
+authors: ["Tim Coulter <tim.coulter@consensys.net>"];
 ```
 
 ### keywords
@@ -474,6 +482,7 @@ authors: [
 An array of keywords that tag this package with helpful categories.
 
 Example:
+
 ```javascript
 keywords: [
   "ethereum",
@@ -486,6 +495,7 @@ keywords: [
 A list of EthPM packages your package depends on, using [semver](http://semver.org/) version ranges, like npm.
 
 Example:
+
 ```javascript
 dependencies: {
   "owned": "^0.0.1",
@@ -493,13 +503,13 @@ dependencies: {
 }
 ```
 
-
 ### license
 
-License to use for this package; primarily informative.  Contracts created with `truffle create` will
+License to use for this package; primarily informative. Contracts created with `truffle create` will
 also include this in their `SPDX-License-Identifier` comment.
 
 Example:
+
 ```javascript
 license: "MIT",
 ```

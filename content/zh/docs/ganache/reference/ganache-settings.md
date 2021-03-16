@@ -8,7 +8,7 @@ weight: 1
 
 ![访问Ganache设置](/img/docs/ganache/ganache-settings-gear-icon.png)
 
-<p class="text-center">*访问Ganache设置*</p>
+<p class="text-center">*访问Ganache设置*
 
 我们已将设置分为几页:
 
@@ -28,9 +28,9 @@ weight: 1
 
 ![Ganache设置](/img/docs/ganache/ganache-settings.png)
 
-<p class="text-center">*Ganache设置*</p>
+<p class="text-center">*Ganache设置*
 
-## 配置松露连接到 Ganache
+## 配置 Truffle 连接到 Ganache
 
 要配置 Truffle 连接到 Ganache，请编辑`truffle-config.js`以指向 Ganache 的 IP 和端口，例如
 

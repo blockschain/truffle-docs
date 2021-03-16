@@ -5,14 +5,14 @@ weight: 2
 
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](http://chaijs.com/) for assertions to provide you with a solid framework from which to write your JavaScript tests. Let's dive in and see how Truffle builds on top of Mocha to make testing your contracts a breeze.
 
-Note: If you're unfamiliar with writing unit tests in Mocha, please see [Mocha's documentation](https://mochajs.org/) before continuing.
+注意: If you're unfamiliar with writing unit tests in Mocha, please see [Mocha's documentation](https://mochajs.org/) before continuing.
 
 ## Use contract() instead of describe()
 
 Structurally, your tests should remain largely unchanged from that of Mocha: Your tests should exist in the `./test` directory, they should end with a `.js` extension, and they should contain code that Mocha will recognize as an automated test. What makes Truffle tests different from that of Mocha is the `contract()` function: This function works exactly like `describe()` except it enables Truffle's [clean-room features](/docs/truffle/testing/testing-your-contracts#clean-room-environment). It works like this:
 
-* Before each `contract()` function is run, your contracts are redeployed to the running Ethereum client so the tests within it run with a clean contract state.
-* The `contract()` function provides a list of accounts made available by your Ethereum client which you can use to write tests.
+- Before each `contract()` function is run, your contracts are redeployed to the running Ethereum client so the tests within it run with a clean contract state.
+- The `contract()` function provides a list of accounts made available by your Ethereum client which you can use to write tests.
 
 Since Truffle uses Mocha under the hood, you can still use `describe()` to run normal Mocha tests whenever Truffle clean-room features are unnecessary.
 
@@ -41,11 +41,11 @@ File: `./test/metacoin.js`
 ```javascript
 const MetaCoin = artifacts.require("MetaCoin");
 
-contract("MetaCoin", accounts => {
+contract("MetaCoin", (accounts) => {
   it("should put 10000 MetaCoin in the first account", () =>
     MetaCoin.deployed()
-      .then(instance => instance.getBalance.call(accounts[0]))
-      .then(balance => {
+      .then((instance) => instance.getBalance.call(accounts[0]))
+      .then((balance) => {
         assert.equal(
           balance.valueOf(),
           10000,
@@ -59,15 +59,15 @@ contract("MetaCoin", accounts => {
     let metaCoinEthBalance;
 
     return MetaCoin.deployed()
-      .then(instance => {
+      .then((instance) => {
         meta = instance;
         return meta.getBalance.call(accounts[0]);
       })
-      .then(outCoinBalance => {
+      .then((outCoinBalance) => {
         metaCoinBalance = outCoinBalance.toNumber();
         return meta.getBalanceInEth.call(accounts[0]);
       })
-      .then(outCoinBalanceEth => {
+      .then((outCoinBalanceEth) => {
         metaCoinEthBalance = outCoinBalanceEth.toNumber();
       })
       .then(() => {
@@ -94,24 +94,24 @@ contract("MetaCoin", accounts => {
     const amount = 10;
 
     return MetaCoin.deployed()
-      .then(instance => {
+      .then((instance) => {
         meta = instance;
         return meta.getBalance.call(account_one);
       })
-      .then(balance => {
+      .then((balance) => {
         account_one_starting_balance = balance.toNumber();
         return meta.getBalance.call(account_two);
       })
-      .then(balance => {
+      .then((balance) => {
         account_two_starting_balance = balance.toNumber();
         return meta.sendCoin(account_two, amount, { from: account_one });
       })
       .then(() => meta.getBalance.call(account_one))
-      .then(balance => {
+      .then((balance) => {
         account_one_ending_balance = balance.toNumber();
         return meta.getBalance.call(account_two);
       })
-      .then(balance => {
+      .then((balance) => {
         account_two_ending_balance = balance.toNumber();
 
         assert.equal(
@@ -128,7 +128,6 @@ contract("MetaCoin", accounts => {
   });
 });
 ```
-
 
 This test will produce the following output:
 
@@ -149,7 +148,7 @@ Here is a similar example, but using [async/await](https://javascript.info/async
 ```javascript
 const MetaCoin = artifacts.require("MetaCoin");
 
-contract("2nd MetaCoin test", async accounts => {
+contract("2nd MetaCoin test", async (accounts) => {
   it("should put 10000 MetaCoin in the first account", async () => {
     let instance = await MetaCoin.deployed();
     let balance = await instance.getBalance.call(accounts[0]);

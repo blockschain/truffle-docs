@@ -1,11 +1,11 @@
 ---
-title: "调试智能合同"
+title: "调试智能合约"
 date: "2017-10-23"
 author: "Mike Pumphrey"
 published: true
 ---
 
-> Note: This tutorial requires Truffle version 4.0 or newer.
+> 注意: This tutorial requires Truffle version 4.0 or newer.
 
 <!-- TODO: How is the gas limit set? When/how does an out of gas error occur? -->
 
@@ -20,8 +20,6 @@ If our contracts are not coded correctly, our transactions may fail, which can r
 **Luckily, Truffle (as of version 4) has a built in debugger for stepping through your code.** So when something goes wrong, you can find out exactly what it was, and fix it promptly.
 
 In this tutorial, we will migrate a basic contract to a test blockchain, introduce some errors into it, and solve each one through the use of the built-in Truffle debugger.
-
-
 
 ## A basic smart contract
 
@@ -45,8 +43,8 @@ contract SimpleStorage {
 
 This contract does two things:
 
-* Allows you to set a variable (`myVariable`) to a particular integer value
-* Allows you to query that variable to get the selected value
+- Allows you to set a variable (`myVariable`) to a particular integer value
+- Allows you to query that variable to get the selected value
 
 This isn't a very interesting contract, but that's not the point here. We want to see what happens when things go wrong.
 
@@ -94,7 +92,7 @@ First, let's set up our environment.
    ```javascript
    var SimpleStorage = artifacts.require("SimpleStorage");
 
-   module.exports = function(deployer) {
+   module.exports = function (deployer) {
      deployer.deploy(SimpleStorage);
    };
    ```
@@ -146,20 +144,24 @@ The smart contract is now deployed to a test network via `truffle develop`, whic
 
 We next want to interact with the smart contract to see how it works when working correctly. We'll interact using the `truffle develop` console.
 
-<p class="alert alert-info">
-<strong>Note</strong>: If you're wondering why we didn't need to mine to get the transaction to be secured, the Truffle Develop console already takes care of that for us. If using a different network, you'll need to make sure you mine to get the transaction on the blockchain.
-</p>
+注意: If you're wondering why we didn't need to mine to get the transaction to be secured, the Truffle Develop console already takes care of that for us. If using a different network, you'll need to make sure you mine to get the transaction on the blockchain.
 
 1. In the console where `truffle develop` is running, run the following command:
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.get.call();}).then(function(value){return value.toNumber()});
+   SimpleStorage.deployed()
+     .then(function (instance) {
+       return instance.get.call();
+     })
+     .then(function (value) {
+       return value.toNumber();
+     });
    ```
 
    This command looks at the SimpleStorage contract, and then calls the `get()` function as defined inside it. It then returns the output, which is usually rendered as a string, and converts it to a number:
 
    ```javascript
-   0
+   0;
    ```
 
    This shows us that our variable, `myVariable`, is set to `0`, even though we haven't set this variable to any value (yet). This is because **variables with integer types are automatically populated with the value of zero in Solidity**, unlike other languages where it might be `NULL` or `undefined`.
@@ -167,10 +169,12 @@ We next want to interact with the smart contract to see how it works when workin
 1. Now let's run a transaction on our contract. We'll do this by running the `set()` function, where we can set our variable value to some other integer. Run the following command:
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.set(4);});
+   SimpleStorage.deployed().then(function (instance) {
+     return instance.set(4);
+   });
    ```
 
-   This sets the variable to `4`. The output shows some information about the transaction, including the transaction ID (hash), transaction receipt,  and any event logs that were triggered during the course of the transaction:
+   This sets the variable to `4`. The output shows some information about the transaction, including the transaction ID (hash), transaction receipt, and any event logs that were triggered during the course of the transaction:
 
    ```javascript
     { tx: '0x7f799ad56584199db36bd617b77cc1d825ff18714e80da9d2d5a0a9fff5b4d42',
@@ -188,32 +192,35 @@ We next want to interact with the smart contract to see how it works when workin
 
    Most important to us is the transaction ID (listed here both as `tx` and as `transactionHash`). We'll need to copy that value when we start to debug.
 
-   <p class="alert alert-info">
-   <strong>Note</strong>: Your transaction IDs will likely be different from what is listed here.
-   </p>
+   注意: Your transaction IDs will likely be different from what is listed here.
 
 1. To verify that the variable has changed values, run the `get()` function again:
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.get.call();}).then(function(value){return value.toNumber()});
+   SimpleStorage.deployed()
+     .then(function (instance) {
+       return instance.get.call();
+     })
+     .then(function (value) {
+       return value.toNumber();
+     });
    ```
 
    The output should look like this:
 
    ```javascript
-   4
+   4;
    ```
 
 ## Debugging errors
 
-The above shows how the contract *should* work. Now, we will introduce some small errors to the contract and redeploy it. We will see how the issues present itself, and also **use Truffle's built-in debug feature to fix the issues**.
+The above shows how the contract _should_ work. Now, we will introduce some small errors to the contract and redeploy it. We will see how the issues present itself, and also **use Truffle's built-in debug feature to fix the issues**.
 
 We will look at the following issues:
 
-* An infinite loop
-* Invalid error check
-* No error, but a function isn't operating as desired
-
+- An infinite loop
+- Invalid error check
+- No error, but a function isn't operating as desired
 
 ### Issue #1: An infinite loop
 
@@ -264,7 +271,9 @@ The Truffle Develop console has the ability to migrate updated contracts without
 1. Now we are ready to run that transaction. Run the `set()` command from above.
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.set(4);});
+   SimpleStorage.deployed().then(function (instance) {
+     return instance.set(4);
+   });
    ```
 
    An error will display:
@@ -297,10 +306,7 @@ Truffle contains a built-in debugger. The command to launch this is `debug <Tran
    debug 0xe493340792ab92b95ac40e43dca6bc88fba7fd67191989d59ca30f79320e883f
    ```
 
-   <p class="alert alert-info">
-   <strong>Note</strong>: Again, your transaction ID will be different from what is listed here.
-   </p>
-
+   注意: Again, your transaction ID will be different from what is listed here.
 
    You will see the following output:
 
@@ -413,7 +419,6 @@ Truffle contains a built-in debugger. The command to launch this is `debug <Tran
 
 1. Type `q` to exit the debugger.
 
-
 ### Issue #2: An invalid error check
 
 Smart contracts can use statements like `assert()` to ensure that certain conditions are met. These can conflict with the state of the contract in ways that are irreconcilable.
@@ -448,7 +453,9 @@ Just as before, we'll reset the contract on the blockchain.
 1. Now we are ready to test the new transaction. Run the same command as above:
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.set(4);});
+   SimpleStorage.deployed().then(function (instance) {
+     return instance.set(4);
+   });
    ```
 
    You will see an error:
@@ -469,10 +476,7 @@ Just as before, we'll reset the contract on the blockchain.
    debug 0xe493340792ab92b95ac40e43dca6bc88fba7fd67191989d59ca30f79320e883f
    ```
 
-   <p class="alert alert-info">
-   <strong>Note</strong>: Again, your transaction ID will be different from what is listed here.
-   </p>
-
+   注意: Again, your transaction ID will be different from what is listed here.
 
    Now we are back in the debugger:
 
@@ -508,7 +512,6 @@ Just as before, we'll reset the contract on the blockchain.
    ```
 
    **It is this last event that is triggering the error.** You can see that it is the `assert()` that is to blame.
-
 
 ### Issue #3: A function isn't operating as desired
 
@@ -558,7 +561,9 @@ Just as before, we'll reset the contract on the blockchain.
 1. Now we are ready to test the new transaction. Run the same command as above:
 
    ```javascript
-   SimpleStorage.deployed().then(function(instance){return instance.set(4);});
+   SimpleStorage.deployed().then(function (instance) {
+     return instance.set(4);
+   });
    ```
 
    **Note that there is no error here.** The response is given as a transaction ID with details:
@@ -596,9 +601,7 @@ Just as before, we'll reset the contract on the blockchain.
    debug 0x7f799ad56584199db36bd617b77cc1d825ff18714e80da9d2d5a0a9fff5b4d42
    ```
 
-   <p class="alert alert-info">
-   <strong>Note</strong>: Again, your transaction ID will be different from what is listed here.
-   </p>
+   注意: Again, your transaction ID will be different from what is listed here.
 
    You will enter the debugger as before.
 
@@ -625,7 +628,6 @@ Just as before, we'll reset the contract on the blockchain.
    ```
 
    **The problem is revealed.** The conditional is leading to the wrong event.
-
 
 ## Conclusion
 

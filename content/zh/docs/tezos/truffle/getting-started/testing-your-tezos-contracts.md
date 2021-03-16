@@ -1,11 +1,10 @@
 ---
-title: 测试您的Tezos合同
+title: 测试您的Tezos合约
 weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Testing Your Tezos Contracts
 
@@ -37,20 +36,20 @@ Truffle provides a clean room environment when running your test files. When run
 
 ## Speed and reliability considerations
 
-The above clean room environment is a trade off between speed and test maintainability, but at times can be slow. We originally built Ganache for Ethereum to make running Ethereum-based tests significantly faster, where the test framework can take advantage of testing-specific features. We hope to do the same for Tezos. Please reach out to TQ and let them know you'd like a version of Ganache for Tezos! 
+The above clean room environment is a trade off between speed and test maintainability, but at times can be slow. We originally built Ganache for Ethereum to make running Ethereum-based tests significantly faster, where the test framework can take advantage of testing-specific features. We hope to do the same for Tezos. Please reach out to TQ and let them know you'd like a version of Ganache for Tezos!
 
 # Writing Tests in JavaScript
 
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](http://chaijs.com/) for assertions to provide you with a solid framework from which to write your JavaScript tests. Let's dive in and see how Truffle builds on top of Mocha to make testing your contracts a breeze.
 
-Note: If you're unfamiliar with writing unit tests in Mocha, please see [Mocha's documentation](https://mochajs.org/) before continuing.
+注意: If you're unfamiliar with writing unit tests in Mocha, please see [Mocha's documentation](https://mochajs.org/) before continuing.
 
 ## Use contract() instead of describe()
 
 Structurally, your tests should remain largely unchanged from that of Mocha: Your tests should exist in the `./test` directory, they should end with a `.js` extension (generally), and they should contain code that Mocha will recognize as an automated test. What makes Truffle tests different from that of Mocha is the `contract()` function: This function works exactly like `describe()` except it enables Truffle's clean-room features described above. It works like this:
 
-* Before each `contract()` function is run, your contracts are redeployed to the running Tezos client so the tests within it run with a clean contract state.
-* The `contract()` function provides a list of accounts made available by your Tezos client which you can use to write tests.
+- Before each `contract()` function is run, your contracts are redeployed to the running Tezos client so the tests within it run with a clean contract state.
+- The `contract()` function provides a list of accounts made available by your Tezos client which you can use to write tests.
 
 Since Truffle uses Mocha under the hood, you can still use `describe()` to run normal Mocha tests whenever Truffle clean-room features are not required.
 
@@ -79,21 +78,23 @@ File: `./test/simpleStorage.test.js`
 ```javascript
 const SimpleStorage = artifacts.require("SimpleStorage");
 
-contract('SimpleStorage', () => {
+contract("SimpleStorage", () => {
   it("...should store the integer 89.", (done) => {
     var simpleStorageInstance;
-    SimpleStorage.deployed().then(function(instance) {
-      simpleStorageInstance = instance;
-      return simpleStorageInstance.main(89);
-    }).then(function(tx) {
-      return simpleStorageInstance.storage();
-    }).then(function(storedInt) {
-      assert.equal(storedInt, 89, "The integer 89 was not stored.");
-    });    
+    SimpleStorage.deployed()
+      .then(function (instance) {
+        simpleStorageInstance = instance;
+        return simpleStorageInstance.main(89);
+      })
+      .then(function (tx) {
+        return simpleStorageInstance.storage();
+      })
+      .then(function (storedInt) {
+        assert.equal(storedInt, 89, "The integer 89 was not stored.");
+      });
   });
 });
 ```
-
 
 This test will produce the following output:
 
@@ -111,9 +112,9 @@ Here is a similar example, but using [async/await](https://javascript.info/async
 ```javascript
 const SimpleStorage = artifacts.require("SimpleStorage");
 
-contract('SimpleStorage', () => {
-  it("...should store the integer 89.", async() => {
-    const simpleStorageInstance = await SimpleStorage.deployed()
+contract("SimpleStorage", () => {
+  it("...should store the integer 89.", async () => {
+    const simpleStorageInstance = await SimpleStorage.deployed();
     await simpleStorageInstance.main(89);
     const storedInt = await simpleStorageInstance.storage();
 

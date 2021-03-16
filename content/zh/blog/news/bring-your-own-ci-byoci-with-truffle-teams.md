@@ -1,5 +1,5 @@
 ---
-title: "带有松露队带上自己的CI（Byoci）"
+title: "带有 Truffle 队带上自己的CI（Byoci）"
 date: "2020-04-30"
 author: "Josh Quintal"
 published: true

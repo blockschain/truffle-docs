@@ -5,13 +5,13 @@ author: "Mike Pumphrey"
 published: true
 description: "As you have hopefully heard by now, TruffleCon, Truffle's first-ever user conference, will be on October 5-7, 2018 in Portland, Oregon, U.S.A."
 ---
+
 ![TruffleCon 2018](/img/blog/why-were-organizing-trufflecon-2018/trufflecon2018header.jpg)
 
 As you have hopefully heard by now, [TruffleCon](http://truffleframework.com/trufflecon2018), Truffle's first-ever user conference, will be on [October 5-7, 2018 in Portland, Oregon, U.S.A](http://truffleframework.com/trufflecon2018).
 
 <p class="m-b-2">
-  <a href="https://trufflecon2018.eventbrite.com" class="btn btn-eventbrite m-t-1" target="_blank">Buy Tickets!</a>
-</p>
+  [Buy Tickets!](https://trufflecon2018.eventbrite.com" class="btn btn-eventbrite m-t-1" target="_blank)
 
 ## Why TruffleCon?
 
@@ -25,7 +25,6 @@ Also, many developers are working in silos, connected to other teams only by Git
 
 We want people to share their ideas, and talk about their successes and challenges. We want people to promote their projects, of course, and professional networking is always a part of these events, but more than anything else, **we want people to be heard**.
 
-
 ## Why now?
 
 We've noticed a shift over the past year or so in the usage of Truffle.
@@ -34,14 +33,13 @@ Whereas many of the comments and requests in [our Gitter channel](https://gitter
 
 **We want to help people "go live".** And so we believe that there has never been a better time than now.
 
-
 ## Why Portland?
 
 Portland is a vibrant city full of world-class food and drink, unmatched outdoor opportunities, and an excellent transportation system for getting where you need to go. And early October is typically a sweet spot where the days are still warm and dry, while the fall colors are starting to come into view.
 
 If you've never been, you're missing out. And why not stay awhile once you're here?
 ![TruffleCon 2018](/img/blog/why-were-organizing-trufflecon-2018/portlandskyline.jpg)
-*Photo courtesy of Flickr/sama093. [Large version here](https://flic.kr/p/qg3nwJ).* 
+_Photo courtesy of Flickr/sama093. [Large version here](https://flic.kr/p/qg3nwJ)._
 
 ## See you in October!
 
@@ -54,9 +52,8 @@ If we do it right, people will go home inspired, and will change how they do the
 We can't wait to see you there. If you have questions, feel free to tweet us at [@trufflesuite](http://twitter.com/trufflesuite). And please use the hashtag [#TruffleCon](https://twitter.com/search?l=&q=%23TruffleCon&src=typd).
 
 <p class="m-b-2">
-  <a href="https://trufflecon2018.eventbrite.com" class="btn btn-eventbrite m-t-1" target="_blank">Buy Tickets!</a>
-</p>
+  [Buy Tickets!](https://trufflecon2018.eventbrite.com" class="btn btn-eventbrite m-t-1" target="_blank)
 
------
+---
 
-*Mike Pumphrey is an Enterprise Trainer at ConsenSys working on the Truffle team. With over a dozen years of experience in documentation, support, and training, Mike is passionate about making technical concepts understandable to a wider audience. Mike is also the lead organizer for TruffleCon 2018.*
+_Mike Pumphrey is an Enterprise Trainer at ConsenSys working on the Truffle team. With over a dozen years of experience in documentation, support, and training, Mike is passionate about making technical concepts understandable to a wider audience. Mike is also the lead organizer for TruffleCon 2018._

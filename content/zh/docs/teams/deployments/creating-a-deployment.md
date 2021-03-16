@@ -69,12 +69,10 @@ MetaMask 将弹出，要求您登录（如果尚未登录）。
 现在，您应该看到向导提示您输入“部署上下文”。
 将其设置为**Create a New Deployment **，或选择以前的部署进行迁移。
 
-<p class="alert alert-info">
-<strong><i class="far fa-info-circle"></i> 部署环境</strong>: 通过此选项，您可以在要使用其部署的工件的同一网络上选择一个现有的部署。
-Truffle支持迁移应用程序的概念，并且只会从上次部署（也称为部署上下文）运行新的迁移脚本。
-这在少数情况下变得很有用：也许您添加了额外的合同以与现有部署一起使用，您的Truffle项目使用代理合同来升级您的合同，等等。
-从技术上讲，选择“部署上下文”将在运行“松露迁移”之前将Truffle工件从您在目录中选择的部署上下文中放入。
-</p>
+<i class="far fa-info-circle"></i> 部署环境: 通过此选项，您可以在要使用其部署的工件的同一网络上选择一个现有的部署。
+Truffle 支持迁移应用程序的概念，并且只会从上次部署（也称为部署上下文）运行新的迁移脚本。
+这在少数情况下变得很有用：也许您添加了额外的合约以与现有部署一起使用，您的 Truffle 项目使用代理合约来升级您的合约，等等。
+从技术上讲，选择“部署上下文”将在运行“ Truffle 迁移”之前将 Truffle 工件从您在目录中选择的部署上下文中放入。
 
 ## 开始部署
 
@@ -85,11 +83,10 @@ Truffle支持迁移应用程序的概念，并且只会从上次部署（也称�
 </figure>
 
 <p class="alert alert-warning">
-<strong><i class="far fa-exclamation-triangle"></i> Be Aware</strong>: 从这里开始，不要关闭选项卡，刷新页面或断开网络连接，这一点很重要。
+<i class="far fa-exclamation-triangle"></i> Be Aware: 从这里开始，不要关闭选项卡，刷新页面或断开网络连接，这一点很重要。
 我们正在努力提供更强大的体验，使您能够选择尚未完成的部署，但是就目前而言，我们的当前版本要求该选项卡保持打开和连接状态。
-</p>
 
-松露团队只能同时处理这么多部署，因此您可能会看到部署已排队。
+Truffle 团队只能同时处理这么多部署，因此您可能会看到部署已排队。
 您必须等待（不关闭/刷新选项卡）部署才能显示在列表的最前面。
 但是，我们正在努力使这种体验更加顺畅。
 
@@ -123,7 +120,7 @@ Truffle支持迁移应用程序的概念，并且只会从上次部署（也称�
   <img class="figure-shadow mb-2" src="/img/docs/teams/deployment-wizard-results.png" alt="Deployment wizard results modal">
 </figure>
 
-您的合同已部署！那很简单。
+您的合约已部署！那很简单。
 继续并在向导中按 **<span class="inline-button">GREAT! GO BACK TO WORKFLOW</span>** 或 **X**。
 如果您使用的是“ CARDS”视图，现在应该在“ Staging”列中看到一张新卡。
 如果您使用的是 **TABLE** 视图，则新的部署将出现在第一行中。有关更多信息，请查看我们文档的[Deployment details](/docs/teams/deployments/deployment-details)部分。

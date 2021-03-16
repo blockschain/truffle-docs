@@ -1,5 +1,5 @@
 ---
-title: "使用流动松露盒开发"
+title: "使用流动 Truffle 盒开发"
 date: "2019-07-12"
 author: "Deepa Sathaye, Guest Blogger from Fluidity"
 published: true

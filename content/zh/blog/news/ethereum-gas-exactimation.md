@@ -5,6 +5,7 @@ author: "Nicholas Paterno & Cruz Molina"
 published: true
 description: "At Truffle, we decided such an approach was an unnecessarily CPU-intensive solution to the problem and set out to find a (theoretically) more performant and perfectly accurate way of estimating gas. The result? Gas exactimation."
 ---
+
 In Ethereum, estimating gas for a given transaction is a tricky problem to solve (especially when attempting to maintain [EIP-114](https://github.com/ethereum/EIPs/issues/114) compliance). Most of the well-known Ethereum implementations like Geth<sup>¹</sup> and Parity<sup>²</sup> use interval halving (binary search) to estimate gas by running transactions through the EVM until an approximate estimation converges.
 
 ![Ganache Logo](/img/ganache-logo-h-dark.svg)
@@ -15,9 +16,9 @@ At [Truffle](https://www.trufflesuite.com/), we decided such an approach was an 
 
 **_Prerequisites: You should be familiar with Truffle, Ganache, and Solidity. If you need an introduction please consult the following resources:_**
 
-* [Truffle Quickstart](https://truffleframework.com/docs/truffle/quickstart)
-* [Ganache Quickstart](https://www.trufflesuite.com/docs/ganache/quickstart)
-* [Solidity Documentation](https://solidity.readthedocs.io/en/v0.5.9/index.html)
+- [Truffle Quickstart](https://truffleframework.com/docs/truffle/quickstart)
+- [Ganache Quickstart](https://www.trufflesuite.com/docs/ganache/quickstart)
+- [Solidity Documentation](https://solidity.readthedocs.io/en/v0.5.9/index.html)
 
 ## EIP-114, or the “1/64ths rule”
 
@@ -168,8 +169,7 @@ Error: Returned error: VM Exception while processing transaction: revert
 
 Exactimation confirmed 🚀.
 
-
-Note: Since the initial release of gas exactimation, an even more performant iteration of the algorithm is currently in review here.
+注意: Since the initial release of gas exactimation, an even more performant iteration of the algorithm is currently in review here.
 
 [1]: [https://github.com/ethereum/go-ethereum/blob/master/accounts/abi/bind/backends/simulated.go#L267](https://github.com/ethereum/go-ethereum/blob/master/accounts/abi/bind/backends/simulated.go#L267)
 

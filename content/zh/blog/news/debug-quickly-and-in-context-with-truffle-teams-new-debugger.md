@@ -3,16 +3,15 @@ title: "用Truffle Teams新的调试器轻快地和上下调试"
 date: "2020-11-12"
 author: "Josh Quintal"
 published: true
-excerpt: "如果您使用过Truffle的调试器，则会知道这是一流的。 直到现计，它已被限制在命令行。 今天，调试器会在松露团队中的一个GUI中脱离控制台！"
+excerpt: "如果您使用过Truffle的调试器，则会知道这是一流的。 直到现计，它已被限制在命令行。 今天，调试器会在 Truffle 团队中的一个GUI中脱离控制台！"
 image: "/img/blog/debug-quickly-and-in-context-with-truffle-teams-new-debugger/blog-thumbnail.png"
 ---
+
 ![Truffle Teams Debugger Banner](/img/blog/debug-quickly-and-in-context-with-truffle-teams-new-debugger/blog-header.png)
 
-如果您使用过Truffle的调试器，则会知道这是一流的。直到现计，它已被限制在命令行。今天，调试器会在松露团队中的一个GUI中脱离控制台！这是一个巨大的工作流程增强 - 允许我们在我们已经查看的地方调试交易 - 通过部署详细信息屏幕或监视各个合同。让我们来看看！
+如果您使用过 Truffle 的调试器，则会知道这是一流的。直到现计，它已被限制在命令行。今天，调试器会在 Truffle 团队中的一个 GUI 中脱离控制台！这是一个巨大的工作流程增强 - 允许我们在我们已经查看的地方调试交易 - 通过部署详细信息屏幕或监视各个合约。让我们来看看！
 
-<p class="alert alert-info">
-  <i class="fas fa-info-circle"></i> <strong>Note</strong>: To use the debugger right away, you'll need to opt-in to <a href="/blog/try-new-features-first-with-truffle-teams-early-access">Truffle Teams Early Access</a>.
-</p>
+<i class="fas fa-info-circle"></i> 注意: To use the debugger right away, you'll need to opt-in to [Truffle Teams Early Access](/blog/try-new-features-first-with-truffle-teams-early-access).
 
 ## 启动调试器
 
@@ -27,7 +26,7 @@ To launch the debugger, we just need to find a transaction. Head over to the Dep
 
 <div class="container container-post"><div class="row justify-content-center"><div class="col">
 
-## 导航UI.
+## 导航 UI.
 
 Starting at the top, you'll see the transaction hash along with an icon noting its status and, if applicable, the accompanying error message (1). Below that we have our functions, from left to right: Step Next, Step Over, Step In, Step Out, and Reset (2). Next we have some tabs showing the contracts included in this transaction (3). Finally we have two panes, one showing our Solidity with the current step highlighted in yellow (4). The second with our variables (5).
 

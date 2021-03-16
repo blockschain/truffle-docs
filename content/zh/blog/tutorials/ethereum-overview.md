@@ -11,16 +11,16 @@ This is a high-level overview covering:
 
 **Blockchain basics**
 
-*   Why use a blockchain?
-*   What is a blockchain?
-*   How a blockchain works
+- Why use a blockchain?
+- What is a blockchain?
+- How a blockchain works
 
 **The Ethereum blockchain**
 
-*   What is Ethereum?
-*   What is a smart contract?
-*   Ethereum networks
-*   Distributed applications (dapps)
+- What is Ethereum?
+- What is a smart contract?
+- Ethereum networks
+- Distributed applications (dapps)
 
 ## Why use a blockchain?
 
@@ -50,11 +50,10 @@ Sharing large amounts of data can be expensive and cumbersome. We can ease this 
 
 Modern shared databases use techniques to minimize this corruption. Some of these overlap with blockchains. Depending on the shared database system, it may feature:
 
-* **Immutability**: Rather than overwriting old data, a new copy is created with the old data retained as a historical record. This record can be accessed to prove a piece of data existed at a certain time.
-* **Consensus**: For a database to be shared, all parties must agree on its contents. There are various methods of reaching consensus, one of which (proof-of-work) will be discussed below.
+- **Immutability**: Rather than overwriting old data, a new copy is created with the old data retained as a historical record. This record can be accessed to prove a piece of data existed at a certain time.
+- **Consensus**: For a database to be shared, all parties must agree on its contents. There are various methods of reaching consensus, one of which (proof-of-work) will be discussed below.
 
 Blockchains use these and take them a step further, solving the problem of trust.
-
 
 ## What is a blockchain?
 
@@ -62,10 +61,9 @@ Fundamentally, **a blockchain is a shared database**, consisting of a ledger of 
 
 Blockchains eliminate the problem of trust that affect other databases in the following ways:
 
-* **Full decentralization**: Reading/writing to the database is completely decentralized and secure. No single person or group controls a blockchain.
-* **Extreme fault tolerance**: Fault tolerance is the ability of a system to handle corrupt data. While fault tolerance is not unique to blockchains, it takes the concept to its logical extreme by having *every* account sharing the database validate its changes.
-* **Independent verification**: Transactions can be verified by anyone, without a third party. This is sometimes referred to as "disintermediation".
-
+- **Full decentralization**: Reading/writing to the database is completely decentralized and secure. No single person or group controls a blockchain.
+- **Extreme fault tolerance**: Fault tolerance is the ability of a system to handle corrupt data. While fault tolerance is not unique to blockchains, it takes the concept to its logical extreme by having _every_ account sharing the database validate its changes.
+- **Independent verification**: Transactions can be verified by anyone, without a third party. This is sometimes referred to as "disintermediation".
 
 ## How a blockchain works
 
@@ -90,6 +88,7 @@ While the original data can't be reproduced from its hash, the same data will al
 Once more than half of the miners have validated the new block, the network has "reached consensus" and the block becomes part of the blockchain permanent history. Now this data can be downloaded by all nodes, with its validity assured.
 
 Here's the whole process visually:
+
 </div>
 <div class="container text-center">
 <div class="row row-steps justify-content-center">
@@ -129,18 +128,17 @@ Here's the whole process visually:
 <div class="container container-narrow container-post">
 <h3><a name="what-is-ethereum" class="anchor" href="#what-is-ethereum"><span class="header-link" style="z-index: 9999995985">&nbsp;</span></a>What is Ethereum?</h3>
 
-<p><strong>Ethereum is a blockchain that allows you to run programs in its trusted environment.</strong> This contrasts with the Bitcoin blockchain, which only allows you to manage cryptocurrency.</p>
+<p>Ethereum is a blockchain that allows you to run programs in its trusted environment. This contrasts with the Bitcoin blockchain, which only allows you to manage cryptocurrency.
 
-<p>To this end, Ethereum has a virtual machine, called the Ethereum Virtual Machine (EVM). The EVM allows code to be verified and executed on the blockchain, providing guarantees it will be run the same way on everyone's machine. This code is contained in "smart contracts" (more on these below).</p>
+<p>To this end, Ethereum has a virtual machine, called the Ethereum Virtual Machine (EVM). The EVM allows code to be verified and executed on the blockchain, providing guarantees it will be run the same way on everyone's machine. This code is contained in "smart contracts" (more on these below).
 
-<p>Beyond just tracking account balances, Ethereum maintains the state of the EVM on the blockchain. All nodes process smart contracts to verify the integrity of the contracts and their outputs.</p>
-
+<p>Beyond just tracking account balances, Ethereum maintains the state of the EVM on the blockchain. All nodes process smart contracts to verify the integrity of the contracts and their outputs.
 
 <h3><a name="what-is-a-smart-contract" class="anchor" href="#what-is-a-smart-contract"><span class="header-link" style="z-index: 9999995985">&nbsp;</span></a>What is a smart contract?</h3>
 
-<p><strong>A smart contract is code that runs on the EVM.</strong> Smart contracts can accept and store ether, data, or a combination of both. Then, using the logic programmed into the contract, it can distribute that ether to other accounts or even other smart contracts.</p>
+<p>A smart contract is code that runs on the EVM. Smart contracts can accept and store ether, data, or a combination of both. Then, using the logic programmed into the contract, it can distribute that ether to other accounts or even other smart contracts.
 
-<p>Here's a smart contract example with Bob and Alice again. Alice wants to hire Bob to build her a patio, and they are using an escrow contract (a place to store money until a condition is fulfilled) to store their ether before the final transaction.</p>
+<p>Here's a smart contract example with Bob and Alice again. Alice wants to hire Bob to build her a patio, and they are using an escrow contract (a place to store money until a condition is fulfilled) to store their ether before the final transaction.
 
 </div>
 
@@ -171,7 +169,6 @@ Here's the whole process visually:
 
 **Smart contracts are written in a language called Solidity**. [Solidity](https://solidity.readthedocs.io/) is statically typed, and supports inheritance, libraries, and complex user-defined types, among much else. Solidity syntax is similar to JavaScript.
 
-
 ## Ethereum networks
 
 Up to this point we've been describing the main Ethereum public blockchain (or "MainNet"). On the MainNet, data on the chain—including account balances and transactions—are public, and anyone can create a node and begin verifying transactions. Ether on this network has a market value and can be exchanged for other cryptocurrency or fiat currencies like US Dollars.
@@ -188,21 +185,20 @@ Developers use public test networks (or testnets) to test Ethereum applications 
 
 There are three public test networks in wide usage:
 
-* **Ropsten**: The official test network, created by [The Ethereum Foundation](https://www.ethereum.org/foundation). Its functionality is similar to the MainNet.
+- **Ropsten**: The official test network, created by [The Ethereum Foundation](https://www.ethereum.org/foundation). Its functionality is similar to the MainNet.
 
-* **Kovan**: A network that uses a consensus method called "proof-of-authority". This means its transactions are validated by select members, leading to a consistent four second block time. The supply of ether on this testnet is also controlled to mitigate spam attacks.
+- **Kovan**: A network that uses a consensus method called "proof-of-authority". This means its transactions are validated by select members, leading to a consistent four second block time. The supply of ether on this testnet is also controlled to mitigate spam attacks.
 
-* **Rinkeby**: A testnet also using proof-of-authority, created by The Ethereum Foundation.
+- **Rinkeby**: A testnet also using proof-of-authority, created by The Ethereum Foundation.
 
 ### Private/enterprise networks
 
 Private Ethereum networks allow parties to share data without making it publicly accessible. A private blockchain is a good choice for:
 
-* Sharing of sensitive data, such as health care records
-* Scaling to handle higher read/write throughput, due to the smaller network size
+- Sharing of sensitive data, such as health care records
+- Scaling to handle higher read/write throughput, due to the smaller network size
 
 An example of a private enterprise blockchain is [Quorum](https://www.jpmorgan.com/country/US/EN/Quorum), originally written by J.P. Morgan. ([Read our blog post on using Truffle with Quorum.](/tutorials/building-dapps-for-quorum-private-enterprise-blockchains))
-
 
 ## Decentralized applications (dapps)
 
@@ -210,10 +206,10 @@ An example of a private enterprise blockchain is [Quorum](https://www.jpmorgan.c
 
 Given the benefits of the Ethereum blockchain, a dapp could be a solution for many industries, including but not limited to:
 
-*   Record keeping
-*   Finance
-*   Supply chains
-*   Real estate
-*   Marketplaces
+- Record keeping
+- Finance
+- Supply chains
+- Real estate
+- Marketplaces
 
 And what is the best way to create your own dapp, test it, and deploy it to an Ethereum network of your choice? With [Truffle](/docs/getting_started/project), of course.

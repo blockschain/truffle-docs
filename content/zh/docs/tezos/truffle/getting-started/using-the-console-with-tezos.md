@@ -4,8 +4,7 @@ weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Using the Truffle Console with Tezos
 
@@ -35,8 +34,8 @@ The Truffle console provides most of the features available in the Truffle comma
 
 Additionally, the console has the following features:
 
-* All of your compiled contracts are available and ready for use, via objects like `SimpleStorage`, which are given the same names as your contracts.
-* After each command (such as `migrate --reset`) your contracts are reprovisioned so you can start using the newly assigned addresses and binaries immediately.
+- All of your compiled contracts are available and ready for use, via objects like `SimpleStorage`, which are given the same names as your contracts.
+- After each command (such as `migrate --reset`) your contracts are reprovisioned so you can start using the newly assigned addresses and binaries immediately.
 
 ## Example
 
@@ -66,27 +65,27 @@ truffle(development)> await instance.storage()  // Get storage data
 BigNumber { s: 1, e: 0, c: [ 2 ] }
 ```
 
-For more information using the contract abstractions made available in the console, see the [Interacting With Your Tezos Contracts](/docs/tezos/truffle/getting-started/interacting-with-your-tezos-contracts) section. 
+For more information using the contract abstractions made available in the console, see the [Interacting With Your Tezos Contracts](/docs/tezos/truffle/getting-started/interacting-with-your-tezos-contracts) section.
 
 ### Commands available
 
-You can run the following commands from within the console: 
+You can run the following commands from within the console:
 
-* `build`
-* `compile`
-* `create`
-* `debug`
-* `deploy`
-* `exec`
-* `help`
-* `install`
-* `migrate`
-* `networks`
-* `opcode`
-* `publish`
-* `run`
-* `test`
-* `version`
+- `build`
+- `compile`
+- `create`
+- `debug`
+- `deploy`
+- `exec`
+- `help`
+- `install`
+- `migrate`
+- `networks`
+- `opcode`
+- `publish`
+- `run`
+- `test`
+- `version`
 
 If a Truffle command is not available, it is because it is not relevant for an existing project (for example, `init`) wouldn't make sense (for example, `develop` or `console`).
 

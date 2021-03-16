@@ -1,5 +1,5 @@
 ---
-title: "有助于松露的最佳方法"
+title: "有助于 Truffle 的最佳方法"
 date: "2019-07-08"
 author: "Tyler Feickert"
 published: true

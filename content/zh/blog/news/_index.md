@@ -1,6 +1,6 @@
 
 ---
-title: "有关松露的消息"
+title: "有关 Truffle 的消息"
 linkTitle: "消息"
 weight: 20
 ---

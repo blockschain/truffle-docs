@@ -19,11 +19,11 @@ All I can say is: **wow**.
 
 I've been working in the open source software world for about a decade, and I've never seen so many people freely offering suggestions to documentation. As we all ruefully know, documentation can be first to go out of date and last to be updated, so knowing that our community is keeping such an eagle eye on even minute details says a lot.
 
-And I do mean *minute details*. When one of our tutorials wrote "tag a stab" instead of "take a stab", not less than [ten of you took the time to submit pull requests](https://github.com/trufflesuite/trufflesuite.github.io/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed%20tag%20take) telling us so.
+And I do mean _minute details_. When one of our tutorials wrote "tag a stab" instead of "take a stab", not less than [ten of you took the time to submit pull requests](https://github.com/trufflesuite/trufflesuite.github.io/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed%20tag%20take) telling us so.
 
 </div><div class="text-center container">
   ![Take a stab, indeed](/img/blog/one-hundred-documentation-pull-requests/take-a-stab.png)
-  <p class="caption">Take a stab indeed</p></br></br>
+  <p class="caption">Take a stab indeed</br></br>
 </div><div class="container container-narrow">
 
 Make no mistake: this is good thing. I believe in the [Broken Windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory) as it applies to documentation. **We want to fix up the small things now so we can maintain the larger things more easily in the future.**
@@ -34,10 +34,10 @@ I'm happy to be part of a community that cares about what we're doing, reducing 
 
 As for your suggestions on how we can serve you even better? Please keep them coming. Submit a pull request to our documentation, reach out on [Twitter](https://twitter.com/trufflesuite), or let us know if there's something we can improve by raising a [GitHub issue](https://github.com/trufflesuite/trufflesuite.com/issues).
 
-Need help with something? Reach out on our [community Gitter channel](https://github.com/ConsenSys/truffle), where hundreds of your fellow Trufflers congregate to answer your questions. 
+Need help with something? Reach out on our [community Gitter channel](https://github.com/ConsenSys/truffle), where hundreds of your fellow Trufflers congregate to answer your questions.
 
 -- Mike & the Truffle team
 
------
+---
 
-*Mike Pumphrey is an Enterprise Trainer at ConsenSys working on the Truffle team. With over a dozen years of experience in documentation, support, and training, Mike is passionate about making technical concepts understandable to a wider audience. He believes that great software can only be great when people know how to use it, and is excited to be bringing clarity to a field as exciting and new as blockchain.*
+_Mike Pumphrey is an Enterprise Trainer at ConsenSys working on the Truffle team. With over a dozen years of experience in documentation, support, and training, Mike is passionate about making technical concepts understandable to a wider audience. He believes that great software can only be great when people know how to use it, and is excited to be bringing clarity to a field as exciting and new as blockchain._

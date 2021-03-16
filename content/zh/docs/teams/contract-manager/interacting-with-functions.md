@@ -3,8 +3,8 @@ title: 与功能进行交互
 weight: 2
 ---
 
-请注意，本文档的这一部分假定您已经部署了合同并导航到合同管理器。
-如果您尚未这样做，请查看[合同管理器概述](/docs/teams/contract-manager/contract-manager-overview)了解更多详细信息。
+请注意，本文档的这一部分假定您已经部署了合约并导航到合约管理器。
+如果您尚未这样做，请查看[合约管理器概述](/docs/teams/contract-manager/contract-manager-overview)了解更多详细信息。
 
 To interact with a function, click on a function signature from the list of functions within the **Functions** section.
 If the function accepts parameters, you'll see an input box for each parameter.

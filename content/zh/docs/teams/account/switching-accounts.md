@@ -7,4 +7,4 @@ weight: 2
 
 要作为其他用户登录, 请[退出 GitHub](https://github.com/logout)，然后登录您要使用的其他 Github 帐户。
 
-一旦成功登录到 GitHub, 回到[松露团队](https://my.truffleteams.com)，然后点击 **<span class="inline-button"><i class="fab fa-github"></i> LOGIN WITH GITHUB</span>** 使用其他帐户登录.
+一旦成功登录到 GitHub, 回到[ Truffle 团队](https://my.truffleteams.com)，然后点击 **<span class="inline-button"><i class="fab fa-github"></i> LOGIN WITH GITHUB</span>** 使用其他帐户登录.

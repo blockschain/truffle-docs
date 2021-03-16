@@ -1,5 +1,5 @@
 ---
-title: "使用Troofle与ChainLink智能合同互动"
+title: "使用Troofle与ChainLink智能合约互动"
 date: "2019-08-20"
 author: "Chainlink, Guest Blogger"
 published: true
@@ -17,7 +17,7 @@ Working with blockchain technology requires a wallet, with one of the most popul
 
 Furthermore, you will also need to fund your MetaMask wallet with [test LINK](https://ropsten.chain.link/) and [test ETH](https://faucet.ropsten.be/), in order to power transactions on the Ropsten Ethereum Testnet.
 
-_Note: When funding your account from a test faucet, make sure you switch from the default Main Ethereum Network to the Ropsten Test Network, to properly see your funds. You can follow any transactions made on the Ropsten Testnet via Etherscan._
+_注意: When funding your account from a test faucet, make sure you switch from the default Main Ethereum Network to the Ropsten Test Network, to properly see your funds. You can follow any transactions made on the Ropsten Testnet via Etherscan._
 
 Our second environment variable will require an RPC URL. Some popular RPC connectivity services include [Infura](https://www.trufflesuite.com/tutorials/using-infura-custom-provider), [LinkPool](https://www.linkpool.io/), and [Fiews](https://fiews.io/free-rpc). After establishing a valid RPC connection and the funded address, you can start deploying smart contracts to public networks.
 
@@ -43,7 +43,7 @@ npm run migrate:live
 
 This will compile all of your smart contracts, and then start deploying (migrating) them.
 
-_Note: you may encounter some compilation warnings with the Chainlink contracts. This is simply because the LINK token was originally deployed with an older version of Solidity. Given that this contract is only being deployed when you run tests, these can be ignored._
+_注意: you may encounter some compilation warnings with the Chainlink contracts. This is simply because the LINK token was originally deployed with an older version of Solidity. Given that this contract is only being deployed when you run tests, these can be ignored._
 
 <figure>
   <img src="/img/blog/using-truffle-to-interact-with-chainlink-smart-contracts/02.png" alt="Truffle DB data model" style="width:100%">
@@ -54,9 +54,9 @@ Deploying our `Migrations` and `MyContract` cost us Ethereum, hence why we neede
 
 There are 3 helper scripts provided to interact with our contract, located in the scripts directory:
 
-* `fund-contract.js`
-* `request-data.js`
-* `read-contract.js`
+- `fund-contract.js`
+- `request-data.js`
+- `read-contract.js`
 
 They can be used by calling them from `npx truffle exec`. First, we must fund our contract with LINK, which can be done by running the following command:
 
@@ -95,7 +95,7 @@ npx truffle exec scripts/read-contract.js --network live
   <img src="/img/blog/using-truffle-to-interact-with-chainlink-smart-contracts/06.png" alt="Truffle DB data model">
 </figure>
 
-Notice for our output when reading the data, we get a number displaying the current price of LINK in USD * 100 (as of writing, 22094). This is due to the value of times specified in our smart contract request-data.js.
+Notice for our output when reading the data, we get a number displaying the current price of LINK in USD \* 100 (as of writing, 22094). This is due to the value of times specified in our smart contract request-data.js.
 
 <figure>
   <img src="/img/blog/using-truffle-to-interact-with-chainlink-smart-contracts/07.png" alt="Truffle DB data model" style="width:100%">

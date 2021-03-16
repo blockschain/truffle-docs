@@ -1,11 +1,12 @@
 ---
-title: "Axoni的企业使用松露"
+title: "Axoni的企业使用 Truffle "
 date: "2019-07-25"
 author: "Jonathan Leslie, Guest Blogger, a Lead Software Engineer from Axoni"
 published: true
-description: "At Axoni, our mission is to make shared information more trusted and reliable. We do this through distributed technology that we call \"Ethereum-inspired\"...given our compliance with the web3 JSON-RPC spec, Truffle basically works \"out-of-the-box\". However `truffle migrate` was less extensible, so we built a Truffle-based deployment tool."
+description: 'At Axoni, our mission is to make shared information more trusted and reliable. We do this through distributed technology that we call "Ethereum-inspired"...given our compliance with the web3 JSON-RPC spec, Truffle basically works "out-of-the-box". However `truffle migrate` was less extensible, so we built a Truffle-based deployment tool.'
 image: "/img/blog/thumbnails/truffle-axoni.png"
 ---
+
 ![Truffle + Axoni](/img/blog/axonis-enterprise-use-of-truffle/truffle-axoni.png)
 
 ## Axoni Background
@@ -18,7 +19,7 @@ Of course, an up-shot of the last is the ability to take part in all the innovat
 
 It was a delight for us to find that, given our compliance with the web3 JSON-RPC spec, truffle basically works "out-of-the-box" with no extensive customization required for many very useful stages in the application lifecycle: develop, build, test....
 
-One notable exception: we found the native `truffle migrate` functionality not extensible to our use case. In part, this is due to the fact that our smart contract applications implement something [similar to the proxy pattern](https://blog.zeppelinos.org/the-transparent-proxy-pattern/), which runs counter to the "migration" paradigm. On the other hand, and for reasons beyond the scope of this post, tools such as `zoslib` designed to handle upgradeable smart contract application deployments, generate smart contract implementations incompatible with our use case. At a high level, our smart contract framework is optimized for high-throughput and highly complex Solidity applications which enables the ability to make automatic upgrades based on semantic versioning. [ Note: I plan to speak more about our particular use cases and smart contract topologies at Trufflecon on August 3rd]
+One notable exception: we found the native `truffle migrate` functionality not extensible to our use case. In part, this is due to the fact that our smart contract applications implement something [similar to the proxy pattern](https://blog.zeppelinos.org/the-transparent-proxy-pattern/), which runs counter to the "migration" paradigm. On the other hand, and for reasons beyond the scope of this post, tools such as `zoslib` designed to handle upgradeable smart contract application deployments, generate smart contract implementations incompatible with our use case. At a high level, our smart contract framework is optimized for high-throughput and highly complex Solidity applications which enables the ability to make automatic upgrades based on semantic versioning. [ 注意: I plan to speak more about our particular use cases and smart contract topologies at Trufflecon on August 3rd]
 
 In any case, especially due to the often very high levels of complexity entailed by our use cases– combined with the noted [application-level gotcha's of upgrade design patterns in solidity itself](https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/)–we are biased towards a simple and opinionated declarative format that application and production engineers can easily understand and (when needed) manipulate.
 
@@ -34,7 +35,7 @@ Thus, we ventured to build a package on top of truffle that manages configuratio
 
 The first question is what the configuration file should look like? We determined the "Straw Man" to be, simply, a two-dimensional list of job types and associated contracts specified for deployment. Starting with this, we found another concept we needed to add ("custom-partition") that is specific to Axcore, relating to the way the node software provisions data across network partitions; certain contracts are provisioned differently from others. In addition to this, we found that the only other concept we needed was a parameter specifying dependencies ("deps") that linearizes to a certain order to deployment (which may be necessary, for instance, if a given storage address stores reference to another). For concision, we added limited regex support. In the end, we arrived at a yaml-based file looking very much like the below:
 
-``` yaml
+```yaml
 version: 0.0.1
 setup:
     partitions:
@@ -55,38 +56,37 @@ upgrade:
 
 In terms of implementation, a truffle exec script reads this configuration file, and for each contract, a) deploys the contract b) performs some basic API configuration and c) installs it in the application through invoking a basic `initialization` method. The basic top-level run (truffle exec) script looks very much like the below:
 
-``` javascript
+```javascript
 const run = async (done) => {
-    let jobParams = args;
+  let jobParams = args;
 
-        // Configure specific variables for a PROD-like environment:
-    if (process.env.ENV === 'PROD') {
-        jobParams = Object.assign(args, handleProd());
-    }
+  // Configure specific variables for a PROD-like environment:
+  if (process.env.ENV === "PROD") {
+    jobParams = Object.assign(args, handleProd());
+  }
 
-       //hoisting injected vars to global scope:
-    global.web3 = web3;
-    global.artifacts = artifacts;
+  //hoisting injected vars to global scope:
+  global.web3 = web3;
+  global.artifacts = artifacts;
 
-        // Create instance of job based on type
-    const jobInstance = new Job(jobParams.job, jobParams);
+  // Create instance of job based on type
+  const jobInstance = new Job(jobParams.job, jobParams);
 
-        //Run job by deploying and invoking an initialization method on each contract
-    await jobInstance.run().catch(e => done(e));
-    done();
+  //Run job by deploying and invoking an initialization method on each contract
+  await jobInstance.run().catch((e) => done(e));
+  done();
 };
 ```
 
 A command-line client can specify a given job to run, such as the "upgrade" job specified above. Given the above configuration, the below command would deploy (if necessary) and initialize "MagmaRegistryFooStorage", followed by "MagmaRegistryBarStorage" from a given artifacts repository:
 
-``` bash
+```bash
 etna --job upgrade --contracts_build_directory /path/to/artifacts
 ```
 
 ## Future Plans and an Announcement
 
 I am pleased to announce that we plan to open-source our core Solidity smart contract library, which provides an alternative version of the Proxy pattern, along with this aforementioned deployment tool. We believe both could be useful both for private and public applications and the Axoni team is excited to see what the community builds with these tools.
-
 
 In the meantime, we hope the above at least provides a high-level example of an approach to building lightweight extensions within truffle, and as a simplifying approach to the smart contract deployment process, especially for Proxy Pattern topologies.
 

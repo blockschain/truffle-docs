@@ -1,5 +1,5 @@
 ---
-title: "堆栈跟踪与松露测试"
+title: "堆栈跟踪与 Truffle 测试"
 date: "2020-05-08"
 author: "Harry Altman"
 published: true

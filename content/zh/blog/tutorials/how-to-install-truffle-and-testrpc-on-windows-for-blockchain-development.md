@@ -5,11 +5,11 @@ author: "David Burela"
 published: true
 ---
 
-> Update: Since this tutorial was published, we have released <a href="/docs/ganache/overview">Ganache</a>, a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but we highly recommend checking out our <a href="https://www.trufflesuite.com/ganache">Ganache Documentation</a>
+> Update: Since this tutorial was published, we have released [Ganache Documentation](/docs/ganache/overview">Ganache</a>, a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but we highly recommend checking out our <a href="https://www.trufflesuite.com/ganache)
 
 This post was originally published by David Burela on his blog [Burela's House-o-blog](https://davidburela.wordpress.com/2016/11/18/how-to-install-truffle-testrpc-on-windows-for-blockchain-development/). Big thanks to David for allowing us publish it here!
 
--------------------
+---
 
 I have been doing a bunch of Blockchain development work, one of which was recently featured on the front page of the [Australian Financial
 Review](http://www.afr.com/technology/webjet-moves-early-with-microsoft-to-create-first-blockchain-for-hotel-bookings-20161104-gshwra) and on [Microsoft’s news website](https://news.microsoft.com/en-au/2016/11/08/webjet-and-microsoft-build-first-of-a-kind-travel-industry-blockchain-solution/).
@@ -34,6 +34,7 @@ $ choco install VisualStudioCode -y
 ![image](https://davidburela.files.wordpress.com/2016/11/image.png)
 
 ## Step 2. Install the tools via npm:
+
 Open a NEW PowerShell prompt as Administrator (to ensure that it reloads), then run the following commands:
 
 ```shell

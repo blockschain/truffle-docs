@@ -3,25 +3,24 @@ title: 3种方式企业正在解决区间的隐私问题
 date: 2019-07-31
 author: Danny Pan, Guest Blogger, West Monroe Partners
 published: true
-description: > 
-  
+description: >
 ---
 
-今年已经看到了财富500强的单一和多党组区块飞行员的众多公告，例如...星巴克和Metlife。 
+今年已经看到了财富 500 强的单一和多党组区块飞行员的众多公告，例如...星巴克和 Metlife。
 数据隐私问题并没有阻止他们，企业区块链世界已经采取了这些步骤来改变他们的思考。
 
-[BlockChain被吹捧为伟大的连接器，以在联盟网络下整合业务](https://www.forbes.com/sites/andrewarnold/2019/02/21/why-2019-may-become-the-year-of-enterprise-blockchain/#66c9e516427e). 
-它能够验证使用智能合同的数据，并通过不可变共享数据跨网络参与者提供透明度，让人们谈论技术革命。 
-然而，这种好处是一把双刃剑，因为企业世界对在无法删除信息的分类帐上分享敏感数据持怀疑态度。 
-好消息是，今年已经看到了财富500强的单一和多党组区块飞行员的众多公告，如...... [星巴克](https://news.microsoft.com/transform/starbucks-turns-to-technology-to-brew-up-a-more-personal-connection-with-its-customers/) and [MetLife](https://www.forbes.com/sites/stevenehrlich/2019/06/19/metlife-plans-to-disrupt-2-7-trillion-life-insurance-industry-using-ethereum-blockchain/#3e9a87277022). 
+[BlockChain 被吹捧为伟大的连接器，以在联盟网络下整合业务](https://www.forbes.com/sites/andrewarnold/2019/02/21/why-2019-may-become-the-year-of-enterprise-blockchain/#66c9e516427e).
+它能够验证使用智能合约的数据，并通过不可变共享数据跨网络参与者提供透明度，让人们谈论技术革命。
+然而，这种好处是一把双刃剑，因为企业世界对在无法删除信息的分类帐上分享敏感数据持怀疑态度。
+好消息是，今年已经看到了财富 500 强的单一和多党组区块飞行员的众多公告，如...... [星巴克](https://news.microsoft.com/transform/starbucks-turns-to-technology-to-brew-up-a-more-personal-connection-with-its-customers/) and [MetLife](https://www.forbes.com/sites/stevenehrlich/2019/06/19/metlife-plans-to-disrupt-2-7-trillion-life-insurance-industry-using-ethereum-blockchain/#3e9a87277022).
 数据隐私问题并没有阻止他们，企业区块链世界已经采取了这些步骤来改变他们的思考。
 
 ## 1. 存储对区块链上的数据的引用
 
-规避此数据隐私问题的最简单方法是不会将数据放在链上。 
-一种流行的方法是在区块链上共享匿名ID，并使用它从另一个系统获取数据。 For example, [MediLedger](https://www.mediledger.com/) is a supply chain pilot in the heavily regulated pharmaceutical industry that uses a blockchain to trace a drug’s exchange of hands and then uses another private peer-to-peer application to transfer details about the medication. What is passed around on the chain is just an anonymous identifier to the medication. This keeps transactions light, allows enterprises to regulate data access, and uses proven methods to secure sensitive data. MediLedger actually takes this a step further and anonymizes the transaction details with zero knowledge proofs — which I’ll cover later.
+规避此数据隐私问题的最简单方法是不会将数据放在链上。
+一种流行的方法是在区块链上共享匿名 ID，并使用它从另一个系统获取数据。 For example, [MediLedger](https://www.mediledger.com/) is a supply chain pilot in the heavily regulated pharmaceutical industry that uses a blockchain to trace a drug’s exchange of hands and then uses another private peer-to-peer application to transfer details about the medication. What is passed around on the chain is just an anonymous identifier to the medication. This keeps transactions light, allows enterprises to regulate data access, and uses proven methods to secure sensitive data. MediLedger actually takes this a step further and anonymizes the transaction details with zero knowledge proofs — which I’ll cover later.
 
-## 2. 使用blockchains验证而不是共享
+## 2. 使用 blockchains 验证而不是共享
 
 Blockchain’s real power is in its ability to verify data. Instead of putting actual information on the chain, a solution could combine unique elements of data and share a hash of it on the blockchain. Hashing is a cryptographic method that generates a random, unique value from a fed input. In this scenario, the resulting hash itself doesn’t reveal any information, but it can verify an on-hand document by checking if it generates the same hash when fed into the function. The data inputs could also be selected in a way that no critical information is sampled to create the hash so that compliance regulations can be withheld. Businesses have reliable methods to exchange data, but the verification is long and expensive. By using blockchain as a verifier and not the store of the data, we can ease the pain point and maintain a higher level of privacy than open sharing.
 

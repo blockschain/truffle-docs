@@ -5,7 +5,7 @@ author: "Tim Coulter"
 published: true
 ---
 
-_Note: This guide also applies to users upgrading from Truffle beta 3.0.0-9 to Truffle 3.0.1_
+_注意: This guide also applies to users upgrading from Truffle beta 3.0.0-9 to Truffle 3.0.1_
 
 ## Introduction
 
@@ -14,11 +14,13 @@ Truffle 3.0 offers a ton of new features. With it comes some very important brea
 In order to show you code samples that describe the evolution from 2.0 to 3.0, we're going to use examples like this:
 
 v2.0:
+
 ```javascript
 // This is old code from Truffle 2.0
 ```
 
 v3.0:
+
 ```javascript
 // This is new code for Truffle 3.0!
 ```
@@ -35,20 +37,20 @@ In v2.0, a configuration with a named network might look like this:
 module.exports = {
   rpc: {
     host: "localhost",
-    port: 8545
+    port: 8545,
   },
   networks: {
     staging: {
       host: "localhost",
       port: 8546,
-      network_id: 1337
+      network_id: 1337,
     },
     ropsten: {
       host: "158.253.8.12",
       port: 8545,
-      network_id: 3
-    }
-  }
+      network_id: 3,
+    },
+  },
 };
 ```
 
@@ -60,19 +62,19 @@ module.exports = {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*"
+      network_id: "*",
     },
     staging: {
       host: "localhost",
       port: 8546,
-      network_id: 1337
+      network_id: 1337,
     },
     ropsten: {
       host: "158.253.8.12",
       port: 8545,
-      network_id: 3
-    }
-  }
+      network_id: 3,
+    },
+  },
 };
 ```
 
@@ -87,11 +89,13 @@ As Truffle 3.0 uses the new [Ethereum Package Manager (EthPM)](/docs/getting_sta
 So to import a local file:
 
 v2.0:
+
 ```solidity
 import "test.sol"
 ```
 
 v3.0:
+
 ```solidity
 import "./test.sol"
 ```
@@ -103,8 +107,9 @@ The `./` tells Truffle that the contract is in the current directory. See the [C
 Before package management, Truffle could assume that all the contracts you wrote yourself were the contracts you wanted to interact with via your migrations and tests. Now that package management is here, this is no longer a safe assumption -- contract dependencies can come from any number of sources, and so you have to explicitly ask for those abstractions yourself. This is all in the name of reducing magic. Let's look at an example migration.
 
 v2.0 : `./migrations/2_deploy_contracts.js`
+
 ```javascript
-module.exports = function(deployer) {
+module.exports = function (deployer) {
   deployer.deploy(ConvertLib);
   deployer.autolink();
   deployer.deploy(MetaCoin);
@@ -112,11 +117,12 @@ module.exports = function(deployer) {
 ```
 
 v3.0 : `./migrations/2_deploy_contracts.js`
+
 ```javascript
 var ConvertLib = artifacts.require("ConvertLib.sol");
 var MetaCoin = artifacts.require("MetaCoin.sol");
 
-module.exports = function(deployer) {
+module.exports = function (deployer) {
   deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);
@@ -179,21 +185,27 @@ In Truffle 2.0, your contract abstractions managed your networks in a naive way,
 In the general use case, here is how the new syntax differs from the old:
 
 v2.0
+
 ```javascript
 MyContract.setProvider(someWeb3Provider);
-MyContract.deployed().someFunction().then(function(tx) {
-  // Do something after the someFunction() transaction executed
-});
+MyContract.deployed()
+  .someFunction()
+  .then(function (tx) {
+    // Do something after the someFunction() transaction executed
+  });
 ```
 
 v3.0
+
 ```javascript
 MyContract.setProvider(someWeb3Provider);
-MyContract.deployed().then(function(instance) {
-  return instance.someFunction();
-}).then(function(result) {
-  // Do something after the someFunction() transaction executed
-});
+MyContract.deployed()
+  .then(function (instance) {
+    return instance.someFunction();
+  })
+  .then(function (result) {
+    // Do something after the someFunction() transaction executed
+  });
 ```
 
 This syntax is a little more verbose, but it ensures the correct network artifacts are used based on the Ethereum client the abstraction is connected to.
@@ -205,14 +217,17 @@ MyContract.setProvider(someWeb3Provider);
 
 var deployed;
 
-MyContract.deployed().then(function(instance) {
-  deployed = instance;
-  return deployed.someFunction();
-}).then(function(result) {
-  return deployed.anotherFunction();
-}).then(function(result) {
-  // etc.
-});
+MyContract.deployed()
+  .then(function (instance) {
+    deployed = instance;
+    return deployed.someFunction();
+  })
+  .then(function (result) {
+    return deployed.anotherFunction();
+  })
+  .then(function (result) {
+    // etc.
+  });
 ```
 
 ## Contract Abstractions: Transaction result objects
@@ -222,24 +237,30 @@ People have long complained that events are hard to watch for in Web3. Similarly
 In v2.0, a transaction simply returned the transaction hash. In v3.0, transactions return a result object with a wealth of information about that transaction.
 
 v2.0
+
 ```javascript
-MyContract.deployed().someFunction().then(function(tx) {
-  // tx is the transaction id (hash) of the transaction executed
-});
+MyContract.deployed()
+  .someFunction()
+  .then(function (tx) {
+    // tx is the transaction id (hash) of the transaction executed
+  });
 ```
 
 v3.0
+
 ```javascript
-MyContract.deployed().then(function(instance) {
-  deployed = instance;
-  return deployed.someFunction();
-}).then(function(result) {
-  // result is an object with the following values:
-  //
-  // result.tx      => transaction hash, string
-  // result.logs    => array of decoded events that were triggered within this transaction
-  // result.receipt => transaction receipt object, which includes gas used
-});
+MyContract.deployed()
+  .then(function (instance) {
+    deployed = instance;
+    return deployed.someFunction();
+  })
+  .then(function (result) {
+    // result is an object with the following values:
+    //
+    // result.tx      => transaction hash, string
+    // result.logs    => array of decoded events that were triggered within this transaction
+    // result.receipt => transaction receipt object, which includes gas used
+  });
 ```
 
 In Truffle 3.0, it's now much easier to detect if an event was fired as a result of your transaction. Here's a Javascript test for a hypothetical PackageIndex contract and ReleasePublished event:
@@ -248,30 +269,33 @@ In Truffle 3.0, it's now much easier to detect if an event was fired as a result
 var assert = require("assert");
 var PackageIndex = artifacts.require("PackageIndex.sol");
 
-contract("PackageIndex", function(accounts) {
+contract("PackageIndex", function (accounts) {
+  it("publishes a release correctly", function () {
+    return PackageIndex.deployed()
+      .then(function (deployed) {
+        return deployed.publish("v2.0.0");
+      })
+      .then(function (result) {
+        // This result object is what provides us with the information we need.
+        // result.logs, specifically for this example.
 
-  it("publishes a release correctly", function() {
-    return PackageIndex.deployed().then(function(deployed) {
-      return deployed.publish("v2.0.0");
-    }).then(function(result) {
-      // This result object is what provides us with the information we need.
-      // result.logs, specifically for this example.
+        var found_published_event = false;
 
-      var found_published_event = false;
+        for (var i = 0; i < result.logs.length; i++) {
+          var log = result.logs[i];
 
-      for (var i = 0; i < result.logs.length; i++) {
-        var log = result.logs[i];
-
-        if (log.event == "ReleasePublished") {
-          found_published_event = true;
-          break;
+          if (log.event == "ReleasePublished") {
+            found_published_event = true;
+            break;
+          }
         }
-      }
 
-      assert(found_published_event, "Uh oh! We didn't find the published event!")
-    });
+        assert(
+          found_published_event,
+          "Uh oh! We didn't find the published event!"
+        );
+      });
   });
-
 });
 ```
 
@@ -298,47 +322,41 @@ $ npm install truffle-default-builder --save
 Once installed, you can use the default builder within your `truffle.js` configuration file. Let's have a look at how your configuration file changes from v2.0 to v3.0, using a very simple build configuration:
 
 v2.0 : `truffle.js`
+
 ```javascript
 module.exports = {
   build: {
     "index.html": "index.html",
-    "app.js": [
-      "javascripts/app.js"
-    ],
-    "app.css": [
-      "stylesheets/app.css"
-    ],
-    "images/": "images/"
+    "app.js": ["javascripts/app.js"],
+    "app.css": ["stylesheets/app.css"],
+    "images/": "images/",
   },
   rpc: {
     host: "localhost",
-    port: 8545
-  }
+    port: 8545,
+  },
 };
 ```
 
 v3.0 : `truffle.js`
+
 ```javascript
 var DefaultBuilder = require("truffle-default-builder");
 
 module.exports = {
   build: new DefaultBuilder({
     "index.html": "index.html",
-    "app.js": [
-      "javascripts/app.js"
-    ],
-    "app.css": [
-      "stylesheets/app.css"
-    ],
-    "images/": "images/"
+    "app.js": ["javascripts/app.js"],
+    "app.css": ["stylesheets/app.css"],
+    "images/": "images/",
   }),
   networks: {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // Match any network id
-    }
-  }
+      network_id: "*", // Match any network id
+    },
+  },
 };
 ```
 
@@ -370,16 +388,17 @@ var contract = require("truffle-contract");
 var MyContract = contract(json);
 
 // Step 3: Provision the contract with a web3 provider
-MyContract.setProvider(new Web3.providers.HttpProvider("http://localhost:8545"));
+MyContract.setProvider(
+  new Web3.providers.HttpProvider("http://localhost:8545")
+);
 
 // Step 4: Use the contract!
-MyContract.deployed().then(function(deployed) {
+MyContract.deployed().then(function (deployed) {
   return deployed.someFunction();
 });
 ```
 
 All build processes and contract bootstrapping will follow this pattern. The key when setting up your own custom build process is to ensure you're consuming all of your contract artifacts and provisioning your abstractions correctly.
-
 
 ## Fin
 

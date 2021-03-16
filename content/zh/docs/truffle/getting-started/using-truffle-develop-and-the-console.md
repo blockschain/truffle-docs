@@ -1,17 +1,15 @@
 ---
-title: 使用松露开发和控制台
+title: 使用 Truffle 开发和控制台
 weight: 12
 ---
 
-有时候很高兴与您的合同交互式用于测试和调试目的，或者用手执行交易。 
-Truffle通过交互式控制台为您提供两种简单的方法，并提供您的合同并准备使用。
+有时候很高兴与您的合约交互式用于测试和调试目的，或者用手执行交易。
+Truffle 通过交互式控制台为您提供两种简单的方法，并提供您的合约并准备使用。
 
-* **Truffle Console**: 连接到任何Ethereum客户端的基本交互式控制台
-* **Truffle Develop**: 一个交互式控制台，也会产生一个开发区块链
+- **Truffle Console**: 连接到任何 Ethereum 客户端的基本交互式控制台
+- **Truffle Develop**: 一个交互式控制台，也会产生一个开发区块链
 
-<p class="alert alert-info">
-<strong>Note</strong>: 您的合同名称将作为变量加载到控制台上下文中。 因此，建议避免可能与节点的本机对象冲突的名称，如`Buffer`或`String`。 更新查看<a href="https://github.com/trufflesuite/truffle/issues/3329">GitHub上的相关问题</a>.
-</p>
+注意: 您的合约名称将作为变量加载到控制台上下文中。 因此，建议避免可能与节点的本机对象冲突的名称，如`Buffer`或`String`。 更新查看[GitHub 上的相关问题](https://github.com/trufflesuite/truffle/issues/3329).
 
 ## 为什么两个不同的控制台？
 
@@ -19,15 +17,15 @@ Having two different consoles allows you to choose the best tool for your needs.
 
 使用 **Truffle Console** 的原因:
 
-* 您有一个您已经使用的客户, 如 [Ganache](/docs/ganache/using) or geth
-* 您希望迁移到TestNet (或者主纪念网络)
-* 您想使用特定的助记符或帐户列表
+- 您有一个您已经使用的客户, 如 [Ganache](/docs/ganache/using) or geth
+- 您希望迁移到 TestNet (或者主纪念网络)
+- 您想使用特定的助记符或帐户列表
 
 使用 **Truffle Develop** 的原因:
 
-* 您正在测试您的项目，无需立即部署
-* 您无需使用特定帐户 (使用默认开发帐户，您很好)
-* 您不想安装和管理单独的区块链客户端
+- 您正在测试您的项目，无需立即部署
+- 您无需使用特定帐户 (使用默认开发帐户，您很好)
+- 您不想安装和管理单独的区块链客户端
 
 ## 命令
 
@@ -95,18 +93,12 @@ Mnemonic: candy maple cake sugar pudding cream honey rich smooth crumble sweet t
 
 This shows you the addresses, private keys, and mnemonic for this particular blockchain.
 
-<p class="alert alert-info">
-<strong>Note</strong>: When you run `truffle develop` for the first time, Truffle will generate a random mnemonic that will persist for you and you alone. If you want to use a different mnemonic or set of addresses, we recommend using <a href="/docs/ganache/using">Ganache</a>.
-</p>
-
-
+注意: When you run `truffle develop` for the first time, Truffle will generate a random mnemonic that will persist for you and you alone. If you want to use a different mnemonic or set of addresses, we recommend using [Ganache](/docs/ganache/using).
 
 <p class="alert alert-danger">
-<strong>Warning</strong>: Remember to never use any of these addresses or the mnemonic on the mainnet. This is for development only.
-</p>
+Warning: Remember to never use any of these addresses or the mnemonic on the mainnet. This is for development only.
 
-
-#### 日志RPC活动
+#### 日志 RPC 活动
 
 If you wish to see information regarding RPC activity during your Truffle
 develop session, you can use the `--log` option.
@@ -123,7 +115,6 @@ If you already have a Truffle develop session running and want to log all
 RPC activity occurring on it, you can run `truffle develop --log` in a
 separate terminal window. It will then connect to that session
 and act the same way as described above.
-
 
 #### 配置 Truffle Develop
 
@@ -144,12 +135,11 @@ module.exports = {
       network_id: 20,
       accounts: 5,
       defaultEtherBalance: 500,
-      blockTime: 3
-    }
-  }
+      blockTime: 3,
+    },
+  },
 };
 ```
-
 
 ## 特征
 
@@ -157,27 +147,27 @@ Both Truffle Develop and the console provide most of the features available in t
 
 Additionally, both Truffle Develop and the console have the following features:
 
-* All of your compiled contracts are available and ready for use.
-* After each command (such as `migrate --reset`) your contracts are reprovisioned so you can start using the newly assigned addresses and binaries immediately.
-* The `web3` library is made available and is set to connect to your Ethereum client.
+- All of your compiled contracts are available and ready for use.
+- After each command (such as `migrate --reset`) your contracts are reprovisioned so you can start using the newly assigned addresses and binaries immediately.
+- The `web3` library is made available and is set to connect to your Ethereum client.
 
 ### 可用的命令
 
-* `build`
-* `compile`
-* `create`
-* `debug`
-* `deploy`
-* `exec`
-* `help`
-* `install`
-* `migrate`
-* `networks`
-* `opcode`
-* `publish`
-* `run`
-* `test`
-* `version`
+- `build`
+- `compile`
+- `create`
+- `debug`
+- `deploy`
+- `exec`
+- `help`
+- `install`
+- `migrate`
+- `networks`
+- `opcode`
+- `publish`
+- `run`
+- `test`
+- `version`
 
 If a Truffle command is not available, it is because it is not relevant for an existing project (for example, `init`) wouldn't make sense (for example, `develop` or `console`).
 

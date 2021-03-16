@@ -1,11 +1,10 @@
 ---
-title: 部署Tezos合同
+title: 部署Tezos合约
 weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Deploying Tezos Contracts
 
@@ -55,6 +54,7 @@ At the beginning of the migration, we tell Truffle which contracts we'd like to 
 Consider this example where two contracts are specified within the same source file:
 
 Filename: `./contracts/SimpleStorage.ligo`
+
 ```
 function main (const newValue : int;  const storedValue : int) : (list(operation) * int) is
   block { storedValue := newValue } with ((nil : list(operation)), storedValue)
@@ -74,13 +74,13 @@ Your migration function can accept other parameters as well. See the examples be
 
 ### Handling default values
 
-A full migration script using `SimpleStorage` would look like the example below. Note that a default value (`3`) is passed to the deployer's `deploy()` function in order to set the contract's initial state. Note that the type of this second parameter must represent the type of state held in the contract, and should be represented in a form that is convertable from Javascript. More details on this below.   
+A full migration script using `SimpleStorage` would look like the example below. Note that a default value (`3`) is passed to the deployer's `deploy()` function in order to set the contract's initial state. Note that the type of this second parameter must represent the type of state held in the contract, and should be represented in a form that is convertable from Javascript. More details on this below.
 
 <p class="alert alert-warning">
-<strong>Coming from Ethereum?</strong> You'll notice that LIGO contracts lack constructors. Passing in default values as part of deployment is the only way to set the initial state of a contract. Constructors may be added to LIGO at a later date.
-</p>
+Coming from Ethereum? You'll notice that LIGO contracts lack constructors. Passing in default values as part of deployment is the only way to set the initial state of a contract. Constructors may be added to LIGO at a later date.
 
 Filename: `./migrations/2_deploy_simple_storage.js`
+
 ```javascript
 const SimpleStorage = artifacts.require("SimpleStorage");
 
@@ -105,7 +105,7 @@ Alternatively, each function on the deployer can be used as a Promise, to queue 
 
 ```javascript
 // Deploy A, then deploy B, passing in A's newly deployed address
-deployer.deploy(A).then(function() {
+deployer.deploy(A).then(function () {
   return deployer.deploy(B, A.address);
 });
 ```
@@ -119,13 +119,13 @@ It is possible to run deployment steps conditionally based on the network being 
 To conditionally stage deployment steps, write your migrations so that they accept a second parameter, called `network`. Example:
 
 ```javascript
-module.exports = function(deployer, network) {
+module.exports = function (deployer, network) {
   if (network == "delphinet") {
     // Do something specific to the network named "delphinet".
   } else {
     // Perform a different step otherwise.
   }
-}
+};
 ```
 
 ## Available accounts
@@ -133,14 +133,14 @@ module.exports = function(deployer, network) {
 Migrations are also passed the list of accounts set up in your wallet, for you to use during your deployments.
 
 ```javascript
-module.exports = function(deployer, network, accounts) {
+module.exports = function (deployer, network, accounts) {
   console.log(accounts);
   // => [ 'tz1iGB5P9bZkt356S2PYgAEUWCAuYEvwu152' ]
 
   // Example contract that takes in an owner as its default state.
   // In this case we use the same account we're using to deploy.
   deployer.deploy(OwnedContract, accounts[0]);
-}
+};
 ```
 
 ## Deployer API
@@ -157,7 +157,6 @@ The last argument is an optional object that can include the key named `overwrit
 
 For more information, please see the [@truffle/contract](https://github.com/trufflesuite/truffle/tree/master/packages/contract) documentation.
 
-
 Examples:
 
 ```javascript
@@ -168,7 +167,7 @@ deployer.deploy(A);
 deployer.deploy(A, 3);
 
 // Don't deploy this contract if it has already been deployed.
-deployer.deploy(A, {overwrite: false});
+deployer.deploy(A, { overwrite: false });
 
 // More specific example:
 //
@@ -176,7 +175,7 @@ deployer.deploy(A, {overwrite: false});
 // If it has already been deployed to our target network, we can skip deploying it.
 // This is useful for cases where we _do_ want to deploy that dependency for testing
 // and development networks, but we don't want to replace it in production.
-deployer.deploy(SomeDependency, {overwrite: false});
+deployer.deploy(SomeDependency, { overwrite: false });
 ```
 
 ### deployer.then(function() {...})
@@ -187,16 +186,19 @@ Example:
 
 ```javascript
 var a, b;
-deployer.then(function() {
-  // Create a new version of A programatically, with 3 as the initial state.
-  return A.new(3);
-}).then(function(instance) {
-  a = instance;
-  // Get the deployed instance of B
-  return B.deployed();
-}).then(function(instance) {
-  b = instance;
-  // Send a transaction with the new instance of A's address using B's main() function.
-  return b.main(a.address);
-});
+deployer
+  .then(function () {
+    // Create a new version of A programatically, with 3 as the initial state.
+    return A.new(3);
+  })
+  .then(function (instance) {
+    a = instance;
+    // Get the deployed instance of B
+    return B.deployed();
+  })
+  .then(function (instance) {
+    b = instance;
+    // Send a transaction with the new instance of A's address using B's main() function.
+    return b.main(a.address);
+  });
 ```

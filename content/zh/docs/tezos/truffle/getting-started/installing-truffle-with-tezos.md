@@ -4,8 +4,7 @@ weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Installing Truffle with Tezos
 
@@ -15,18 +14,16 @@ Before you can start developing Tezos applications with Truffle, you'll first ne
 
 [See Docker install instructions for your platform.](https://docs.docker.com/install/)
 
-<p class="alert alert-info">
-<strong>Docker on Windows:</strong> If you're developing on Windows, you need to install the <a href="https://docs.docker.com/docker-for-windows/edge-release-notes/">Docker edge release</a> instead of the mainline docker version. Trust us: This is a better experience.
-</p>
+Docker on Windows: If you're developing on Windows, you need to install the [Docker edge release](https://docs.docker.com/docker-for-windows/edge-release-notes/) instead of the mainline docker version. Trust us: This is a better experience.
 
 ### Other Requirements
 
-* [NodeJS](https://nodejs.org/) v8.9.4 or later
-* Windows, Linux or Mac OS X
+- [NodeJS](https://nodejs.org/) v8.9.4 or later
+- Windows, Linux or Mac OS X
 
 ## Installing Truffle
 
-You'll need to download a special version of Truffle to use Tezos. 
+You'll need to download a special version of Truffle to use Tezos.
 
     $ npm install -g truffle@tezos
 
@@ -35,5 +32,3 @@ If you already have Truffle installed, we recommend uninstalling truffle before 
 ## Next step: Create a Truffle project with Tezos
 
 Once you have Truffle and Docker installed, you can move on to [creating a Tezos project](/docs/tezos/truffle/getting-started/creating-a-tezos-project) with Truffle.
-
-

@@ -4,7 +4,7 @@ linkTitle: 部署
 weight: 7
 ---
 
-Truffle Teams 提供了一种快速简便的界面，用于将智能合同部署到 Ethereum Testnets，Mainnet 和[Sandboxes](/docs/teams/sandboxes/sandboxes-overview).
+Truffle Teams 提供了一种快速简便的界面，用于将智能合约部署到 Ethereum Testnets，Mainnet 和[Sandboxes](/docs/teams/sandboxes/sandboxes-overview).
 在 **<span class="inline-menu-item"><i class="fal fa-parachute-box"></i>DEPLOYMENTS</span>** 页上, 您可以在两个视图之间切换: [cards](#cards-view) 和 [table](#table-view).
 
 ## 卡片视图
@@ -19,7 +19,7 @@ Truffle Teams 提供了一种快速简便的界面，用于将智能合同部署
 
 ### 构建专栏
 
-**Builds** 是松露团队正在处理或已处理的所有构建的列表。
+**Builds** 是 Truffle 团队正在处理或已处理的所有构建的列表。
 每个都将有一个状态图标来显示构建是否正在进行，失败或成功。
 使用成功的图标建立（具有复选标记的绿色框，如图所示）将能够部署; 提交右上角的 **<span class="inline-button">DEPLOY <i class="far fa-parachute-box"></i></span>** 按钮表示此.
 

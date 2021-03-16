@@ -4,8 +4,7 @@ weight: 2
 ---
 
 <p class="alert alert-warning">
-<strong>Alert</strong>: The `build` command and this approach is being deprecated. Please use third-party build tools like webpack or grunt, or see our <a href="/boxes">Truffle Boxes</a> for an example.
-</p>
+Alert: The `build` command and this approach is being deprecated. Please use third-party build tools like webpack or grunt, or see our [Truffle Boxes](/boxes) for an example.
 
 In order to provide tight integration with Truffle for those that desire it, Truffle allows you to specify a custom build pipeline meant to bootstrap and configure your application. Truffle provides three methods of integration, described below.
 
@@ -22,8 +21,8 @@ module.exports = {
   // BUILD_DESTINATION_DIRECTORY: expected destination of built assets (important for `truffle serve`)
   // BUILD_CONTRACTS_DIRECTORY: root location of your build contract files (.sol.js)
   //
-  build: "webpack"
-}
+  build: "webpack",
+};
 ```
 
 Note that you're given ample environment variables with which to integrate with Truffle, detailed above.
@@ -34,14 +33,14 @@ You can also provide a custom build function like the one below. Note you're giv
 
 ```javascript
 module.exports = {
-  build: function(options, callback) {
-     // Do something when a build is required. `options` contains these values:
-     //
-     // working_directory: root location of the project
-     // contracts_directory: root directory of .sol files
-     // destination_directory: directory where truffle expects the built assets (important for `truffle serve`)
-  }
-}
+  build: function (options, callback) {
+    // Do something when a build is required. `options` contains these values:
+    //
+    // working_directory: root location of the project
+    // contracts_directory: root directory of .sol files
+    // destination_directory: directory where truffle expects the built assets (important for `truffle serve`)
+  },
+};
 ```
 
 ## Creating a custom module
@@ -63,13 +62,13 @@ Whether you're building an application to run in the browser, or a command line 
 
 When configuring your build tool or application, you'll need to perform the following steps:
 
-1) Get all your contract artifacts into your build pipeline / application. This includes all of the `.json` files within the `./build/contracts` directory.
+1. Get all your contract artifacts into your build pipeline / application. This includes all of the `.json` files within the `./build/contracts` directory.
 
-2) Turn those `.json` contract artifacts into contract abstractions that are easy to use, via [@truffle/contract](https://github.com/trufflesuite/truffle/tree/master/packages/contract).
+2. Turn those `.json` contract artifacts into contract abstractions that are easy to use, via [@truffle/contract](https://github.com/trufflesuite/truffle/tree/master/packages/contract).
 
-3) Provision those contract abstractions with a Web3 provider. In the browser, this provider might come from [Metamask](https://metamask.io/) or [Mist](https://github.com/ethereum/mist), but it could also be a custom provider you've configured to point to [Infura](http://infura.io/) or any other Ethereum client.
+3. Provision those contract abstractions with a Web3 provider. In the browser, this provider might come from [Metamask](https://metamask.io/) or [Mist](https://github.com/ethereum/mist), but it could also be a custom provider you've configured to point to [Infura](http://infura.io/) or any other Ethereum client.
 
-4) Use your contracts!
+4. Use your contracts!
 
 In Node, this is very easy to do. Let's take a look at an example that shows off the "purest" way of performing the above steps, since it exists outside of any build process or tool.
 
@@ -82,10 +81,12 @@ var contract = require("@truffle/contract");
 var MyContract = contract(json);
 
 // Step 3: Provision the contract with a web3 provider
-MyContract.setProvider(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+MyContract.setProvider(
+  new Web3.providers.HttpProvider("http://127.0.0.1:8545")
+);
 
 // Step 4: Use the contract!
-MyContract.deployed().then(function(deployed) {
+MyContract.deployed().then(function (deployed) {
   return deployed.someFunction();
 });
 ```

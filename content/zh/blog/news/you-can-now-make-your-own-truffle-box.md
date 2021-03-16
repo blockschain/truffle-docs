@@ -1,5 +1,5 @@
 ---
-title: "你现在可以制作自己的松露盒"
+title: "你现在可以制作自己的 Truffle 盒"
 date: "2017-09-26"
 author: "Josh Quintal"
 published: true

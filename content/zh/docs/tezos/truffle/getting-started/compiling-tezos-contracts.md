@@ -1,17 +1,16 @@
 ---
-title: 编译利加罗合同
+title: 编译利加罗合约
 weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Compiling LIGO contracts
 
 ## Location
 
-All of your contracts are located in your project's `contracts/` directory. Tezos contracts are written in [LIGO](https://ligolang.org/), and all files containing contracts will have a file extension of `.ligo`. 
+All of your contracts are located in your project's `contracts/` directory. Tezos contracts are written in [LIGO](https://ligolang.org/), and all files containing contracts will have a file extension of `.ligo`.
 
 With the example Truffle [Tezos project](/docs/tezos/truffle/quickstart) (created through `truffle unbox tezos-example`), you're given three contracts, `Counter.ligo`, `Migrations.ligo`, and `SimpleStorage.ligo`.
 
@@ -31,6 +30,6 @@ Artifacts of your compilation will be placed in the `build/contracts/` directory
 
 These artifacts are integral to the inner workings of Truffle, and they play an important part in the successful deployment of your application. **You should not edit these files** as they'll be overwritten by contract compilation and deployment.
 
-## All good? 
+## All good?
 
-If you've gotten this far, it's time to deploy. Check out our [Deploying Tezos Contracts](/docs/tezos/truffle/getting-started/deploying-tezos-contracts) section for more! 
+If you've gotten this far, it's time to deploy. Check out our [Deploying Tezos Contracts](/docs/tezos/truffle/getting-started/deploying-tezos-contracts) section for more!

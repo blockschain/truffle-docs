@@ -3,7 +3,7 @@ title: Corda 节点
 weight: 5
 ---
 
-<p class="alert alert-info">For Corda technical documentation not related to Ganache head over to <a href="https://docs.corda.net/docs/corda-os/4.4.html">Corda's official documentation</a>.</p>
+For Corda technical documentation not related to Ganache head over to [Corda's official documentation](https://docs.corda.net/docs/corda-os/4.4.html).
 
 The Nodes screen lists all the nodes and notaries on the network.
 

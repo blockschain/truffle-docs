@@ -1,11 +1,10 @@
 ---
-title: 与您的合同互动
+title: 与您的合约互动
 weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Interacting with your contracts
 
@@ -113,13 +112,12 @@ BigNumber { s: 1, e: 0, c: [ 2 ] }
 
 There are a few things interesting about the above code:
 
-* We called the abstraction's `main()` function directly.
-* When calling the `main()` function, we only passed on parameter. The second (last) parameter of the `main()` function is provided by the underlying blockchain, and represents the current storage data of the contract. Because it's sent to the contract for us, we don't need to send it from the outside.
-* We received a transaction response after calling `main()`, which included a transaction hash (the `tx` parameter in the response). The transaction hash describe the id of the transaction on the blockchain.
-* We used the helper function, `storage()`, to get the storage data of the contract. The data of this particular contract is an integer, and in Javascript is represented by the BigNumber object, in this case with the value of `2`. This happens to be the value we sent to `main()` within our transaction!
+- We called the abstraction's `main()` function directly.
+- When calling the `main()` function, we only passed on parameter. The second (last) parameter of the `main()` function is provided by the underlying blockchain, and represents the current storage data of the contract. Because it's sent to the contract for us, we don't need to send it from the outside.
+- We received a transaction response after calling `main()`, which included a transaction hash (the `tx` parameter in the response). The transaction hash describe the id of the transaction on the blockchain.
+- We used the helper function, `storage()`, to get the storage data of the contract. The data of this particular contract is an integer, and in Javascript is represented by the BigNumber object, in this case with the value of `2`. This happens to be the value we sent to `main()` within our transaction!
 
 This is all well and good. Now let's try it with a multi-entrypoint contract:
-
 
 ```javascript
 truffle(development)> let instance = await Counter.deployed()
@@ -146,11 +144,10 @@ BigNumber { s: 1, e: 0, c: [ 2 ] }
 
 What's interesting here:
 
-* We received a return value. Note that since the Ethereum network can handle very large numbers, we're given a [BigNumber](https://github.com/MikeMcl/bignumber.js/) object which we can then convert to a number. The BigNumber library is used because Tezos can represent larger numbers than are allowed natively by Javascript.
+- We received a return value. Note that since the Ethereum network can handle very large numbers, we're given a [BigNumber](https://github.com/MikeMcl/bignumber.js/) object which we can then convert to a number. The BigNumber library is used because Tezos can represent larger numbers than are allowed natively by Javascript.
 
 <p class="alert alert-warning">
-<strong>Warning</strong>: If you try to convert a BigNumber that's larger than the largest integer supported by Javascript, you'll likely run into errors or unexpected behavior. We suggest using BigNumber throughout your application.
-</p>
+Warning: If you try to convert a BigNumber that's larger than the largest integer supported by Javascript, you'll likely run into errors or unexpected behavior. We suggest using BigNumber throughout your application.
 
 Note that the data you get back from the `storage()` function will represent the types and structure of the underlying data stored in your contract. Let's take a new example we haven't seen yet:
 

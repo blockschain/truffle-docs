@@ -4,8 +4,7 @@ weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 Wanna build apps on Tezos using Truffle? You're in the right place.
 
@@ -27,9 +26,7 @@ Before you can start developing Tezos applications with Truffle, you'll first ne
 
 [See Docker install instructions for your platform.](https://docs.docker.com/install/)
 
-<p class="alert alert-info">
-<strong>Docker on Windows:</strong> If you're developing on Windows, you need to install the <a href="https://docs.docker.com/docker-for-windows/edge-release-notes/">Docker edge release</a> instead of the mainline docker version. Trust us: This is a better experience.
-</p>
+Docker on Windows: If you're developing on Windows, you need to install the [Docker edge release](https://docs.docker.com/docker-for-windows/edge-release-notes/) instead of the mainline docker version. Trust us: This is a better experience.
 
 ### Other Requirements
 
@@ -97,13 +94,10 @@ module.exports = {
 
 That's it! You're all set to run the box's deployment scripts against a testnet.
 
-<p class="alert alert-info">
-<strong>Note:</strong> The default tezos box is configured to deploy to multiple networks, including mainnet. If you'd like to deploy to those networks, you'll need to first configure the `secret`, `mnemonic`, `password`, and `email` like the above to represent an account you own that's funded with XTZ. See the <a href="/docs/tezos/truffle/reference/configuring-tezos-projects">Configuring Tezos Projects</a> section for more info.
-</p>
+注意: The default tezos box is configured to deploy to multiple networks, including mainnet. If you'd like to deploy to those networks, you'll need to first configure the `secret`, `mnemonic`, `password`, and `email` like the above to represent an account you own that's funded with XTZ. See the [Configuring Tezos Projects](/docs/tezos/truffle/reference/configuring-tezos-projects) section for more info.
 
 <p class="alert alert-danger">
-<strong>Caution!</strong> Keep your `secret`, `mnemonic` and `password` safe! When not on a testnet, you can quickly lose all your tez if someone else gets ahold of them.
-</p>
+Caution! Keep your `secret`, `mnemonic` and `password` safe! When not on a testnet, you can quickly lose all your tez if someone else gets ahold of them.
 
 ### Running Truffle's deployment scripts
 

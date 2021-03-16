@@ -1,9 +1,10 @@
 ---
-title: "毛毛雨和合同活动"
+title: "毛毛雨和合约活动"
 date: "2019-04-05"
 author: "Amal Sudama"
 published: true
 ---
+
 Drizzle is ideal for synchronizing contract state with a user interface, but as
 dapps grow in complexity we foresee growing demand for coordination with
 off-chain services.
@@ -17,7 +18,7 @@ events.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jGIY_l8oWTQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p class="font-italic text-center">The finished dapp.</p>
+<p class="font-italic text-center">The finished dapp.
 
 We'll use [`react-toastify`](https://github.com/fkhadra/react-toastify) to alert the user whenever a SimpleStorage contract
 event is emitted. We have to declare a <ToastContainer /> component and invoke
@@ -27,9 +28,9 @@ event reducer respectively.
 **A Complete example is available at the following [repo](https://github.com/trufflesuite/drizzle-event-demo).**
 
 <div class="alert alert-info">
-  <strong>Prerequisite</strong>: You should be familiar with Truffle, Drizzle, React and Redux. If you need an introduction please consult the following resources:
+  Prerequisite: You should be familiar with Truffle, Drizzle, React and Redux. If you need an introduction please consult the following resources:
 
-  <br/><br/>
+<br/><br/>
 
   <ol>
     <li>[Truffle Quickstart](https://truffleframework.com/docs/truffle/quickstart)</li>
@@ -41,17 +42,13 @@ event reducer respectively.
   </ol>
 </div>
 
-
-Unbox Drizzle
-=============
+# Unbox Drizzle
 
 Let's use `truffle unbox` to bootstrap a project and then wire up a contract
 event to a display component by creating a reducer and hook it up to Drizzle's
 `EVENT_FIRED` action.
 
-<p class="alert alert-info">
-  <strong>Note</strong>: More Drizzle actions are listed in our [Drizzle Actions documentation](/docs/drizzle/reference/drizzle-actions).
-</p>
+注意: More Drizzle actions are listed in our [Drizzle Actions documentation](/docs/drizzle/reference/drizzle-actions).
 
 First create an empty directory, navigate to it, and `unbox` Drizzle.
 
@@ -78,9 +75,7 @@ truffle(develop)> migrate
 
 Now that we have a test chain running and our smart contracts deployed, let's add a toast notification to the UI.
 
-
-Listen for Contract Events
-==========================
+# Listen for Contract Events
 
 We want to listen for the `SimpleStorage` contract's `StorageSet` event and show a toast notification once it fires.
 
@@ -104,9 +99,9 @@ toast from `react-toastify`, and `drizzleOptions`.
 
 ```javascript
 // ./app/middleware/index.js
-import { generateStore, EventActions } from '@drizzle/store'
-import drizzleOptions from '../drizzleOptions'
-import { toast } from 'react-toastify'
+import { generateStore, EventActions } from "@drizzle/store";
+import drizzleOptions from "../drizzleOptions";
+import { toast } from "react-toastify";
 ```
 
 The action `EventActions.EVENT_FIRED` is emitted whenever a contract event is
@@ -115,19 +110,18 @@ middleware with the Redux store. As you know, Redux middleware comprises a set
 of functions executed in a sequence that processes each dispatched actions
 before passing them to Reducers.
 
-
 ```javascript
-const contractEventNotifier = store => next => action => {
+const contractEventNotifier = (store) => (next) => (action) => {
   if (action.type === EventActions.EVENT_FIRED) {
-    const contract = action.name
-    const contractEvent = action.event.event
-    const message = action.event.returnValues._message
-    const display = `${contract}(${contractEvent}): ${message}`
+    const contract = action.name;
+    const contractEvent = action.event.event;
+    const message = action.event.returnValues._message;
+    const display = `${contract}(${contractEvent}): ${message}`;
 
-    toast.success(display, { position: toast.POSITION.TOP_RIGHT })
+    toast.success(display, { position: toast.POSITION.TOP_RIGHT });
   }
-  return next(action)
-}
+  return next(action);
+};
 ```
 
 Now lets register this middleware with Drizzle. `generateStore` will return a
@@ -135,17 +129,16 @@ Redux store that you can use anywhere you can use a store. We will export it to
 be used by `DrizzleProvider`.
 
 ```javascript
-const appMiddlewares = [ contractEventNotifier ]
+const appMiddlewares = [contractEventNotifier];
 
 export default generateStore({
   drizzleOptions,
   appMiddlewares,
-  disableReduxDevTools: false  // enable ReduxDevTools!
-})
+  disableReduxDevTools: false, // enable ReduxDevTools!
+});
 ```
 
-Connect the Store
------------------
+## Connect the Store
 
 Send the `store` as a prop to `DrizzleProvider`
 
@@ -158,8 +151,7 @@ import store from './middleware'
 ...
 ```
 
-Hook up Display
----------------
+## Hook up Display
 
 Modify `MyComponent.js` to import `ReactToastify.css` and configure `ToastContainer`
 
@@ -176,27 +168,26 @@ export default ({ accounts }) => (
   </div>
 ```
 
+## A Quick Test
 
-A Quick Test
-------------
-  * Things often go south during development so a pretest check is in order.
-    1. MetaMask should NOT be on Main net! Do not run this if you're on main
-       net!
-    1. Is MetaMask listening on the correct port defined above? Metamask should
-       have ETH funds. Something is amiss if it doesn't.
-    1. Are the smart contracts deployed from the correct directory?
+- Things often go south during development so a pretest check is in order.
 
-  * Fire up the app.
-    ```shell
-    $ npm run start
-    ```
-  * Change SimpleStorage's `stored Value`
-    ![Change SimpleStorage value!](/img/tutorials/drizzle-and-contract-events/stored-value.gif)
+  1. MetaMask should NOT be on Main net! Do not run this if you're on main
+     net!
+  1. Is MetaMask listening on the correct port defined above? Metamask should
+     have ETH funds. Something is amiss if it doesn't.
+  1. Are the smart contracts deployed from the correct directory?
 
+- Fire up the app.
+  ```shell
+  $ npm run start
+  ```
+- Change SimpleStorage's `stored Value`
+  ![Change SimpleStorage value!](/img/tutorials/drizzle-and-contract-events/stored-value.gif)
 
-  * You'll be rewarded with a toast notification when the transaction is completed.
-    ![Toast](/img/tutorials/drizzle-and-contract-events/alert-toast.png "A
-    successful Toast!")
+- You'll be rewarded with a toast notification when the transaction is completed.
+  ![Toast](/img/tutorials/drizzle-and-contract-events/alert-toast.png "A
+successful Toast!")
 
 The dapp is now a consumer of Drizzle's `EVENT_FIRED` action item and can
 coordinate with other services to implement its business logic.

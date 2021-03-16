@@ -5,11 +5,11 @@ author: "David Burela"
 published: true
 ---
 
-> Update: Since this tutorial was published, we have released <a href="/docs/ganache/overview">Ganache</a>, a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but we highly recommend checking out our <a href="https://www.trufflesuite.com/ganache">Ganache Documentation</a>
+> Update: Since this tutorial was published, we have released [Ganache Documentation](/docs/ganache/overview">Ganache</a>, a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but we highly recommend checking out our <a href="https://www.trufflesuite.com/ganache)
 
 This post was originally published by David Burela on his blog [Burela's House-o-blog](https://davidburela.wordpress.com/2016/12/23/ethereum-devops-with-truffle-testrpc-visual-studio-team-services/). Big thanks to David for allowing us publish it here!
 
--------------------
+---
 
 I have been working on automating the compilation and testing of Ethereum solidity contracts, via the use of [Truffle](http://truffleframework.com/). I’ve got the test results being published back into the portal, allowing me to see on each commit if my code still compiles and passes my tests.
 
@@ -41,12 +41,12 @@ mocha: {
 VSTS does provide hosted build agents, which are generic and can build standard .Net projects, Xamarin, etc. But because we are going to use npm packages installed globally on the box to handle the Truffle builds
 
 - Create a new Windows VM (Can be your own hosted server, or Azure).
-e.g. [Windows Server 2016 Datacentre edition on Azure](https://azure.microsoft.com/en-au/marketplace/partners/microsoft/windowsserver2016datacenter/)
+  e.g. [Windows Server 2016 Datacentre edition on Azure](https://azure.microsoft.com/en-au/marketplace/partners/microsoft/windowsserver2016datacenter/)
 - Install the VSTS build agent. Instructions at [https://www.visualstudio.com/en-us/docs/build/admin/agents/v2-windows](https://www.visualstudio.com/en-us/docs/build/admin/agents/v2-windows)
-Note: DON’T select to run service as NT AUTHORITY\NETWORK, this will not work with TestRPC (needs to open ports).
-Run the service as another user, or NT AUTHORITY\SYSTEM
+  注意: DON’T select to run service as NT AUTHORITY\NETWORK, this will not work with TestRPC (needs to open ports).
+  Run the service as another user, or NT AUTHORITY\SYSTEM
 - Install chocolatey
-[https://chocolatey.org/install](https://chocolatey.org/install)
+  [https://chocolatey.org/install](https://chocolatey.org/install)
 - Install these chocolatey packages
 
 ```shell
@@ -77,6 +77,7 @@ Create a new variable with the path to where the npm global path is, for the use
 ![image](https://davidburela.files.wordpress.com/2016/12/image5.png)
 
 ## Add 7 PowerShell tasks, and configure them like this
+
 - Name: System version information
 - Script:
 
@@ -95,6 +96,7 @@ Write-Host -nonewline    “npm version: “; npm -v
 Write-Host -nonewline    “npm prefix: “;  npm prefix -g
 Write-Host -nonewline    “truffle: ” ;    truffle version
 ```
+
 ![image](https://davidburela.files.wordpress.com/2016/12/image6.png)
 
 - Name: Config transform & test clean
@@ -109,8 +111,8 @@ Rename-Item .\truffle.js .\truffle_temp.js
 cat .\truffle_temp.js | % { $_ -replace ‘reporter: “spec”‘, ‘reporter: “mocha-junit-reporter”‘ } | Out-File -Encoding ASCII .\truffle.js
 rm .\truffle_temp.js
 ```
-![image](https://davidburela.files.wordpress.com/2016/12/image7.png)
 
+![image](https://davidburela.files.wordpress.com/2016/12/image7.png)
 
 - Name: Truffle build
 - Script:
@@ -122,6 +124,7 @@ $ENV:Path = $ENV:Path + “;” + $env:npm_path
 #Truffle build
 truffle compile
 ```
+
 ![image](https://davidburela.files.wordpress.com/2016/12/image8.png)
 
 - Name: Launch TestRPC
@@ -140,7 +143,6 @@ $testrpcProcess.Id | Export-CliXml testrpcPID.xml
 cat testrpcPID.xml
 ```
 
-
 - Name: Run Truffle tests
 - Script:
 
@@ -151,8 +153,8 @@ $ENV:Path = $ENV:Path + “;” + $env:npm_path
 # Run the tests
 truffle test
 ```
-![image](https://davidburela.files.wordpress.com/2016/12/image10.png)
 
+![image](https://davidburela.files.wordpress.com/2016/12/image10.png)
 
 - Name: Shutdown TestRPC
 - Other Settings: Enable “Always Run” (to make sure it is shutdown if there is an error)
@@ -167,12 +169,13 @@ cat testrpcPID.xml
 $testrpcPID = Import-CliXml testrpcPID.xml
 taskkill /pid $testrpcPID /F /T
 ```
+
 ![image](https://davidburela.files.wordpress.com/2016/12/image11.png)
 
 - Add a new Publish test result
 - Test Result Format: JUnit
 - Test Result Files: `junitresults.xml`
-![image](https://davidburela.files.wordpress.com/2016/12/image12.png)
+  ![image](https://davidburela.files.wordpress.com/2016/12/image12.png)
 
 ## Future work
 

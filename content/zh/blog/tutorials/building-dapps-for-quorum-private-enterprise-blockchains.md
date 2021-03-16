@@ -21,34 +21,34 @@ This tutorial represents Truffle's official support for Quorum. By the end of th
 
 This tutorial expects you to have some knowledge of Truffle, Ethereum, Quorum, and Solidity. For more information on these topics, please see the following links:
 
-* [Truffle documentation](/docs/)
-* [Ethereum overview](/tutorials/ethereum-overview)
-* [Quorum overview](https://www.jpmorgan.com/country/US/EN/Quorum) and [documentation](https://github.com/jpmorganchase/quorum/wiki)
-* [Solidity documentation](https://solidity.readthedocs.io/en/develop/)
+- [Truffle documentation](/docs/)
+- [Ethereum overview](/tutorials/ethereum-overview)
+- [Quorum overview](https://www.jpmorgan.com/country/US/EN/Quorum) and [documentation](https://github.com/jpmorganchase/quorum/wiki)
+- [Solidity documentation](https://solidity.readthedocs.io/en/develop/)
 
 You will primarily be using the command line for this tutorial. Please ensure you have basic familiarity with opening and using the command line provided by your operating system. Additionally, you will need the following software installed before proceeding:
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-* [Vagrant](https://www.vagrantup.com/downloads.html)
-* [Git](https://git-scm.com/downloads)
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [Git](https://git-scm.com/downloads)
 
 ## Getting Started
 
 In this tutorial, we'll show you how to develop dapps for Quorum using Truffle and Quorum's [7nodes example](https://github.com/jpmorganchase/quorum-examples/tree/master/examples/7nodes). The steps are as follows:
 
-* Setting up your Quorum client
-* Connecting Truffle to Quorum
-* Deploying smart contracts on Quorum
-* Using Quorum's privacy features to make transactions private
-* Interacting with contracts privately
+- Setting up your Quorum client
+- Connecting Truffle to Quorum
+- Deploying smart contracts on Quorum
+- Using Quorum's privacy features to make transactions private
+- Interacting with contracts privately
 
-You'll see that developing for Quorum using Truffle is *exactly like* developing for the public Ethereum blockchain. Truffle supports Quorum out of the box, and the same strategies and methods for building Ethereum-enabled applications for the Ethereum public blockchain also apply to building dapps on Quorum.
+You'll see that developing for Quorum using Truffle is _exactly like_ developing for the public Ethereum blockchain. Truffle supports Quorum out of the box, and the same strategies and methods for building Ethereum-enabled applications for the Ethereum public blockchain also apply to building dapps on Quorum.
 
 ## Setting up your Quorum client
 
 The Quorum client is a replacement for the Ethereum client. Using the Quorum client, you can set up a private blockchain that's only available to you and the people you allow to participate.
 
-We're going to use a Quorum cluster of seven nodes (so seven Quorum clients) already set up and configured for us inside a virtual machine. You *could* choose to install Quorum yourself by [downloading it directly](https://github.com/jpmorganchase/quorum) and building it from source, but for this example, using the pre-configured cluster is much easier.
+We're going to use a Quorum cluster of seven nodes (so seven Quorum clients) already set up and configured for us inside a virtual machine. You _could_ choose to install Quorum yourself by [downloading it directly](https://github.com/jpmorganchase/quorum) and building it from source, but for this example, using the pre-configured cluster is much easier.
 
 1. To set up the cluster, open a terminal and navigate to a directory where you'd like it installed. Here, we chose `workspace`:
 
@@ -72,17 +72,17 @@ We're going to use a Quorum cluster of seven nodes (so seven Quorum clients) alr
 
 1. After `vagrant up` successfully completes, we'll want a way to access our newly minted virtual machine. Note that a virtual machine is like another computer running inside of your own, and so we'll need a way to access it in order to run commands within the machine. Luckily `vagrant` provides just such a feature. Type the following command:
 
-  ```shell
-  vagrant ssh
-  ```
+```shell
+vagrant ssh
+```
 
-  Note that after running this command, our command line changes to show a different prompt:
+Note that after running this command, our command line changes to show a different prompt:
 
-  ```shell
-  ubuntu@ubuntu-xenial:~$
-  ```
+```shell
+ubuntu@ubuntu-xenial:~$
+```
 
-  This designates that we're running commands inside the virtual machine.
+This designates that we're running commands inside the virtual machine.
 
 1. While we're at the above virtual machine prompt, navigate to the example we want to run:
 
@@ -133,17 +133,15 @@ To set up Truffle, we're going to start by creating a bare Truffle project, with
          network_id: "*", // Match any network id
          gasPrice: 0,
          gas: 4500000,
-         type: "quorum" // needed for Truffle to support Quorum
-       }
-     }
+         type: "quorum", // needed for Truffle to support Quorum
+       },
+     },
    };
    ```
 
    Note that we changed the port that Truffle normally connects to (we changed it to `22000`). Because of the magic of VirtualBox and Vagrant, the node running inside the virtual machine is made available to us via local ports, so connecting via `127.0.0.1` and `22000` will work just fine.
 
-   <p class="alert alert-info">
    **Note**: The seven Quorum clients respond on ports `22000` (node 1) through `22006` (node 7).
-   </p>
 
 Now that we have Truffle set up, we can move onto code.
 
@@ -188,9 +186,11 @@ We won't spend too much time talking about writing or deploying contracts in Tru
 
    var SimpleStorage = artifacts.require("SimpleStorage");
 
-   module.exports = function(deployer) {
+   module.exports = function (deployer) {
      // Pass 42 to the contract as the first constructor parameter
-     deployer.deploy(SimpleStorage, 42, {privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="]})
+     deployer.deploy(SimpleStorage, 42, {
+       privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="],
+     });
    };
    ```
 
@@ -237,25 +237,25 @@ We originally configured Truffle to point our development environment to the fir
          network_id: "*", // Match any network id
          gasPrice: 0,
          gas: 4500000,
-         type: "quorum" // needed for Truffle to support Quorum
+         type: "quorum", // needed for Truffle to support Quorum
        },
-       nodefour:  {
+       nodefour: {
          host: "127.0.0.1",
          port: 22003,
          network_id: "*", // Match any network id
          gasPrice: 0,
          gas: 4500000,
-         type: "quorum" // needed for Truffle to support Quorum
+         type: "quorum", // needed for Truffle to support Quorum
        },
-       nodeseven:  {
+       nodeseven: {
          host: "127.0.0.1",
          port: 22006,
          network_id: "*", // Match any network id
          gasPrice: 0,
          gas: 4500000,
-         type: "quorum" // needed for Truffle to support Quorum
-       }
-     }
+         type: "quorum", // needed for Truffle to support Quorum
+       },
+     },
    };
    ```
 
@@ -276,7 +276,10 @@ We originally configured Truffle to point our development environment to the fir
 1. Here, we'll get the deployed instance of the SimpleStorage contract and then get the integer value we specified on deployment. Enter the following command:
 
    ```javascript
-   truffle(development)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(development) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    You'll see the following response:
@@ -302,7 +305,10 @@ We originally configured Truffle to point our development environment to the fir
 1. Run the same command as above to get the integer value from the SimpleStorage contract:
 
    ```javascript
-   truffle(nodefour)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(nodefour) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    You'll see the following response:
@@ -313,7 +319,7 @@ We originally configured Truffle to point our development environment to the fir
 
    You'll notice we got `0` back instead. This is because the accounts represented by node 4 weren't privy to this contract.
 
-1. Lastly we can try with node 7, which *was* privy to this contract. Quit and relaunch the console again:
+1. Lastly we can try with node 7, which _was_ privy to this contract. Quit and relaunch the console again:
 
    ```shell
    truffle console --network nodeseven
@@ -328,7 +334,10 @@ We originally configured Truffle to point our development environment to the fir
 1. Run the same command as above to get the integer value from the SimpleStorage contract:
 
    ```javascript
-   truffle(nodeseven)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(nodeseven) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    You'll see the following response:
@@ -341,7 +350,7 @@ We originally configured Truffle to point our development environment to the fir
 
 ## Interacting with contracts privately
 
-So far, we've shown you how to deploy contracts that are private within your migrations. When building a dapp on Quorum, it'd also be helpful to learn how to make *all* transactions private.
+So far, we've shown you how to deploy contracts that are private within your migrations. When building a dapp on Quorum, it'd also be helpful to learn how to make _all_ transactions private.
 
 Truffle uses its [@truffle/contract](https://github.com/trufflesuite/truffle/tree/master/packages/contract) contract abstraction wherever contracts are used in JavaScript. When you interacted with `SimpleStorage` in the console above, for instance, you were using a `@truffle/contract` contract abstraction. These abstractions are also used within your migrations, your JavaScript-based unit tests, as well as executing external scripts with Truffle.
 
@@ -352,19 +361,24 @@ Truffle's contract abstraction allow you to make a transaction against any funct
    ```javascript
    var SimpleStorage = artifacts.require("SimpleStorage");
 
-   module.exports = function(done) {
-     console.log("Getting deployed version of SimpleStorage...")
-     SimpleStorage.deployed().then(function(instance) {
-       console.log("Setting value to 65...");
-       return instance.set(65, {privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="]});
-     }).then(function(result) {
-       console.log("Transaction:", result.tx);
-       console.log("Finished!");
-       done();
-     }).catch(function(e) {
-       console.log(e);
-       done();
-     });
+   module.exports = function (done) {
+     console.log("Getting deployed version of SimpleStorage...");
+     SimpleStorage.deployed()
+       .then(function (instance) {
+         console.log("Setting value to 65...");
+         return instance.set(65, {
+           privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="],
+         });
+       })
+       .then(function (result) {
+         console.log("Transaction:", result.tx);
+         console.log("Finished!");
+         done();
+       })
+       .catch(function (e) {
+         console.log(e);
+         done();
+       });
    };
    ```
 
@@ -394,7 +408,10 @@ Truffle's contract abstraction allow you to make a transaction against any funct
    ```
 
    ```javascript
-   truffle(development)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(development) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    The response will be:
@@ -410,7 +427,10 @@ Truffle's contract abstraction allow you to make a transaction against any funct
    ```
 
    ```javascript
-   truffle(nodefour)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(nodefour) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    The response will be:
@@ -426,7 +446,10 @@ Truffle's contract abstraction allow you to make a transaction against any funct
    ```
 
    ```javascript
-   truffle(nodeseven)> SimpleStorage.deployed().then(function(instance) { return instance.get(); })
+   truffle(nodeseven) >
+     SimpleStorage.deployed().then(function (instance) {
+       return instance.get();
+     });
    ```
 
    The response will be:

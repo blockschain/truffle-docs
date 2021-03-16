@@ -1,7 +1,7 @@
 ---
 title: Ganache 概述
 linkTitle: Ganache
-weight: 3
+weight: 2
 description: >
   [Ganache](/ganache)是一种私人区块链，用于快速的Etereum和Corda分布式应用程序开发。 
   您可以在整个开发周期中使用Ganache; 使您可以在安全和确定的环境中开发，部署和测试您的DAPP.

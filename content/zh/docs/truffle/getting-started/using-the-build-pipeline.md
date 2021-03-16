@@ -4,8 +4,7 @@ weight: 10
 ---
 
 <p class="alert alert-warning">
-<strong>警报</strong>: 此命令已不推荐使用。 请使用像webpack或grunt这样的第三方构建工具，或看我们的 <a href="/boxes">Truffle Boxes</a> 对于一个例子.
-</p>
+警报: 此命令已不推荐使用。 请使用像webpack或grunt这样的第三方构建工具，或看我们的 [Truffle Boxes](/boxes) 对于一个例子.
 
 Truffle 1.0 and 2.0 came standard with a default build system heavily geared toward web applications (here, the term "build" means turning code artifacts into HTML, Javascript and CSS). That build system has been pulled out into its [own module](https://github.com/trufflesuite/truffle-default-builder/tree/master) to make Truffle usable and extensible for all kinds of applications.
 

@@ -31,8 +31,8 @@ Projects created with Truffle have a specific layout by default which enables th
 
 The most important directories in a Truffle package are the following:
 
-* `/contracts`
-* `/build` (which includes `/build/contracts`, created by Truffle)
+- `/contracts`
+- `/build` (which includes `/build/contracts`, created by Truffle)
 
 The first directory is your contracts directory, which includes your raw Solidity contracts. The second directory is the build directory, and more specifically `/build/contracts`, which holds build artifacts in the form of `.sol.js` files. Including raw contracts in your package will allow others to import those contracts within their own solidity code. Similarly, including your `.sol.js` build artifacts in your package will allow others to seamlessly interact with your contracts from Javascript, which can be used in dapps, scripts and migrations.
 
@@ -107,9 +107,9 @@ Migration: 3_hook_up_example_library.js
 ```javascript
 var SimpleNameRegistry = require("example-truffle-library/build/contracts/SimpleNameRegistry.sol.js");
 
-module.exports = function(deployer) {
+module.exports = function (deployer) {
   // Deploy our contract, then set the address of the registry.
-  deployer.deploy(MyContract).then(function() {
+  deployer.deploy(MyContract).then(function () {
     MyContract.deployed().setRegistry(SimpleNameRegistry.address);
   });
 };
@@ -117,9 +117,7 @@ module.exports = function(deployer) {
 
 ## Recommendation: Use the TestRPC
 
-<p class="alert alert-info">
 **Update**: Since this tutorial was published, we have released [Ganache](/ganache) a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but we highly recommend checking out our [Working with Ganache](/docs/ganache/using) page.
-</p>
 
 The [ethereumjs-testrpc](https://github.com/ethereumjs/testrpc) is wildly useful for packages that were previously deployed to the live network. The TestRPC includes a `--fork` feature which allows you to fork from the main chain while developing your application. What this means for you is that you can develop and test against packages that are deployed live, using **real data**, without having to worry about deploying your dependency's contracts yourself.
 

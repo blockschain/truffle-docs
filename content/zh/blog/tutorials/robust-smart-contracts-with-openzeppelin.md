@@ -1,9 +1,10 @@
 ---
-title: "使用OpenZeppelin建立强大的智能合同"
+title: "使用OpenZeppelin建立强大的智能合约"
 date: "2017-08-03"
 author: "Josh Quintal"
 published: true
 ---
+
 ![OpenZeppelin](/img/tutorials/open-zeppelin/oz-logo.png)
 
 Smart contracts deployed to the Ethereum mainnet can deal with real money, so having our Solidity code free from errors and highly secure is essential.
@@ -12,16 +13,15 @@ Smart contracts deployed to the Ethereum mainnet can deal with real money, so ha
 
 We can use and extend these contracts to create more secure dapps in less time. OpenZeppelin comes with a wide array of smart contracts for various important functions ([see them all here](https://github.com/OpenZeppelin/openzeppelin-solidity)), but today we'll be focusing on their token contracts. Specifically, we'll be extending their `StandardToken.sol` contract to create our own [ERC20](https://theethereum.wiki/w/index.php/ERC20_Token_Standard)-compliant token.
 
-
 ## Requirements
 
 This tutorial expects you to have some knowledge of Truffle, Ethereum, and Solidity. If you haven't gone through our [Ethereum overview](/tutorials/ethereum-overview) and our [Pet Shop tutorial](/tutorials/pet-shop) yet, those would be great places to start.
 
 For even more information, please see the following links:
 
-* [Truffle documentation](/docs)
-* [Ethereum](https://ethereum.org/)
-* [Solidity documentation](https://solidity.readthedocs.io/en/develop/)
+- [Truffle documentation](/docs)
+- [Ethereum](https://ethereum.org/)
+- [Solidity documentation](https://solidity.readthedocs.io/en/develop/)
 
 We will primarily be using the command line for this tutorial, so please ensure you have basic familiarity with your operating system's terminal.
 
@@ -29,10 +29,10 @@ We will primarily be using the command line for this tutorial, so please ensure 
 
 In this tutorial we will be covering:
 
-* Unboxing the front-end application
-* Creating the "TutorialToken" smart contract
-* Compiling and deploying the smart contract
-* Interacting with the new token
+- Unboxing the front-end application
+- Creating the "TutorialToken" smart contract
+- Compiling and deploying the smart contract
+- Interacting with the new token
 
 ## Unboxing the front-end application
 
@@ -75,8 +75,8 @@ With our front-end taken care of, we can focus on the `TutorialToken` contract.
 
    Things to notice:
 
-   * Beyond the standard smart contract setup, we import the `StandardToken.sol` contract and declare our `TutorialToken`.
-   * We use `is` to inherit from the `StandardToken` contract. Our contract will inherit all variables and functions from the `StandardToken` contract. Inherited functions and variables can be overwritten by redeclaring them in the new contract.
+   - Beyond the standard smart contract setup, we import the `StandardToken.sol` contract and declare our `TutorialToken`.
+   - We use `is` to inherit from the `StandardToken` contract. Our contract will inherit all variables and functions from the `StandardToken` contract. Inherited functions and variables can be overwritten by redeclaring them in the new contract.
 
 1. To set our own parameters for the token, we'll be declaring our own name, symbol, and other details. Add the following content block to the contract (between the curly braces):
 
@@ -89,9 +89,9 @@ With our front-end taken care of, we can focus on the `TutorialToken` contract.
 
    Things to notice:
 
-   * The `name` and `symbol` variables give our token a unique identity.
-   * The `decimals` variable determines the degree to which this token can be subdivided. For our example we went with 2 decimal places, similar to dollars and cents.
-   * The `INITIAL_SUPPLY` variable determines the number of tokens created when this contract is deployed. In this case, the number is arbitrary.
+   - The `name` and `symbol` variables give our token a unique identity.
+   - The `decimals` variable determines the degree to which this token can be subdivided. For our example we went with 2 decimal places, similar to dollars and cents.
+   - The `INITIAL_SUPPLY` variable determines the number of tokens created when this contract is deployed. In this case, the number is arbitrary.
 
 1. To finish up our contract, we'll create a constructor function to mint with the `totalSupply` equal to our declared `INITIAL_SUPPLY` and give the entire supply to the deploying account's address. Add this block below the content added in the previous step:
 
@@ -110,7 +110,7 @@ Using less than 15 lines of hand-coded Solidity, we've created our own Ethereum 
    ```javascript
    var TutorialToken = artifacts.require("TutorialToken");
 
-   module.exports = function(deployer) {
+   module.exports = function (deployer) {
      deployer.deploy(TutorialToken);
    };
    ```
@@ -121,9 +121,7 @@ Using less than 15 lines of hand-coded Solidity, we've created our own Ethereum 
 
    ![Ganache](/img/tutorials/open-zeppelin/oz-ganache-initial.png "Ganache")
 
-   <p class="alert alert-info">
-     **Note**: Read more about Ganache in the [Truffle documentation](/docs/ganache/using).
-   </p>
+   **Note**: Read more about Ganache in the [Truffle documentation](/docs/ganache/using).
 
 1. With our blockchain launched, head back to your terminal. Inside your project, run the following command to compile the contract:
 
@@ -131,9 +129,7 @@ Using less than 15 lines of hand-coded Solidity, we've created our own Ethereum 
    truffle compile
    ```
 
-   <p class="alert alert-info">
-     <strong>Note</strong>: If you're on Windows and encountering problems running this command, please see the documentation on [resolving naming conflicts on Windows](/docs/advanced/configuration#resolving-naming-conflicts-on-windows).
-   </p>
+   注意: If you're on Windows and encountering problems running this command, please see the documentation on [resolving naming conflicts on Windows](/docs/advanced/configuration#resolving-naming-conflicts-on-windows).
 
 1. Once the compile has completed, deploy the contract to the blockchain:
 
@@ -174,7 +170,6 @@ You will want to enter the mnemonic displayed in Ganache into MetaMask, and make
 
 <p class="alert alert-danger">
 **Warning**: Do not use the Main Network in MetaMask. If you send ether to any account generated from Ganache's default mnemonic, you will lose it all!
-</p>
 
 1. Still in your terminal, run a local web server containing the front-end application:
 

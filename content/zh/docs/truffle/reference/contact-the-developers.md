@@ -8,8 +8,8 @@ weight: 5
     <div class="card mt-3">
       <div class="card-body card-zendesk">
         <h2 class="mt-0">Open a Support Ticket! <span class="badge badge-pill badge-success">NEW</span></h2>
-        <p>The easiest way to track your conversation and contribute to our knowledge base! Open a support ticket to begin talking to our support staff. Common questions will be added to our knowledge base to assist future Trufflers!</p>
-        <a href="https://trufflesuite.zendesk.com/hc/en-us/requests/new" class="btn btn-truffle">Open a Support Ticket</a>
+        <p>The easiest way to track your conversation and contribute to our knowledge base! Open a support ticket to begin talking to our support staff. Common questions will be added to our knowledge base to assist future Trufflers!
+        [Open a Support Ticket](https://trufflesuite.zendesk.com/hc/en-us/requests/new" class="btn btn-truffle)
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ If you want to reach out to give us some feedback you can always [tweet at us](h
   <div class="col">
     <div class="bd-dark-cream pt-4 pb-4 pl-5 pr-5 hs-form-inline hs-form-docs">
       <h3>SIGN UP FOR THE TRUFFLE MAILING LIST</h3>
-      <p>Sign up today to be a member of the Truffle mailing list. You'll be added to our low volume mailing list which we'll use to communicate future changes, development ideas and allow you to shape Truffle's development.</p>
+      <p>Sign up today to be a member of the Truffle mailing list. You'll be added to our low volume mailing list which we'll use to communicate future changes, development ideas and allow you to shape Truffle's development.
       <!--[if lte IE 8]>
         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
       <![endif]-->

@@ -1,5 +1,5 @@
 ---
-title: "我们不做的10件事，在松露令人敬畏的情况下工作"
+title: "我们不做的10件事，在 Truffle 令人敬畏的情况下工作"
 date: "2019-07-05"
 author: "Tim Coulter"
 published: true

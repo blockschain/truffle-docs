@@ -1,14 +1,15 @@
 ---
-title: 创建松露盒
+title: 创建 Truffle 盒
 weight: 3
 ---
 
 ## Creating a box
 
 To create a Truffle Box you'll need a few things:
-* A GitHub repository
-* A configuration file
-* Optionally, small and large images for the box's listing
+
+- A GitHub repository
+- A configuration file
+- Optionally, small and large images for the box's listing
 
 The configuration file and images belong in the top-level directory of your repo. With these files in place, and your repo on GitHub, the unbox command will be: `truffle unbox {USER_NAME || ORG_NAME}/{REPO_NAME}`
 
@@ -76,4 +77,4 @@ If no images are provided in a box, we default to banners containing the Truffle
 
 ## Truffle site listing
 
-Before being listed on the Truffle website, all boxes undergo a screening process to ensure compatibility with Truffle. To start the pre-screening process, <a href="mailto:boxes@trufflesuite.com?subject=Truffle%20box%20review">send us an email</a> with your desired box name and brief description, along with a link to its GitHub repo to: [boxes@trufflesuite.com](mailto:boxes@trufflesuite.com?subject=Truffle%20box%20review).
+Before being listed on the Truffle website, all boxes undergo a screening process to ensure compatibility with Truffle. To start the pre-screening process, [send us an email](mailto:boxes@trufflesuite.com?subject=Truffle%20box%20review) with your desired box name and brief description, along with a link to its GitHub repo to: [boxes@trufflesuite.com](mailto:boxes@trufflesuite.com?subject=Truffle%20box%20review).

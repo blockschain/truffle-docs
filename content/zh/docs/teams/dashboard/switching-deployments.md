@@ -7,9 +7,7 @@ weight: 2
 为此，只需单击仪表板屏幕右上方的<span class="inline-button">SWITCH DEPLOYMENT</span>按钮。
 打开 deploymemt 选择模式后，选择要监视的部署。
 
-<p class="alert alert-info">
-  如果您正在与一组开发人员一起使用DApp，则更改仪表板部署将对您团队中的所有开发人员进行更改。
-</p>
+如果您正在与一组开发人员一起使用 DApp，则更改仪表板部署将对您团队中的所有开发人员进行更改。
 
 <figure class="screenshot">
   <img class="img-fluid"

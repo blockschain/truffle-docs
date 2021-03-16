@@ -1,5 +1,6 @@
 ---
 title: 问我们一个问题
+linkTitle: 支持
 weight: 12
 ---
 
@@ -8,8 +9,8 @@ weight: 12
     <div class="card mt-3">
       <div class="card-body card-zendesk">
         <h2 class="mt-0">打开支持票！ <span class="badge badge-pill badge-success">NEW</span></h2>
-        <p>跟踪您的对话并为我们的知识库做出贡献的最简单方法！打开支持通知单，开始与我们的支持人员交谈。 常见问题将添加到我们的知识库中，以帮助将来的松露！</p>
-        <a href="https://trufflesuite.zendesk.com/hc/en-us/requests/new" class="btn btn-truffle">Open a Support Ticket</a>
+        <p>跟踪您的对话并为我们的知识库做出贡献的最简单方法！打开支持通知单，开始与我们的支持人员交谈。 常见问题将添加到我们的知识库中，以帮助将来的 Truffle ！
+        [Open a Support Ticket](https://trufflesuite.zendesk.com/hc/en-us/requests/new" class="btn btn-truffle)
       </div>
     </div>
   </div>
@@ -27,7 +28,7 @@ weight: 12
   <div class="col">
     <div class="bd-dark-cream pt-4 pb-4 pl-5 pr-5 hs-form-inline hs-form-docs">
       <h3>注册松饼邮件清单</h3>
-      <p>立即注册成为Truffle邮件列表的成员。 您将被添加到我们的小批量邮件列表中，我们将使用该列表来传达未来的变化，开发思路，并允许您调整Truffle的开发。</p>
+      <p>立即注册成为Truffle邮件列表的成员。 您将被添加到我们的小批量邮件列表中，我们将使用该列表来传达未来的变化，开发思路，并允许您调整Truffle的开发。
       <!--[if lte IE 8]>
         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
       <![endif]-->

@@ -4,8 +4,7 @@ weight: 1
 ---
 
 <p class="alert alert-danger">
-<strong>Tezos support</strong> in Truffle is experimental. Give it a spin, and help us out by <a href="https://github.com/trufflesuite/truffle/issues">filing issues on Github</a>.
-</p>
+Tezos support in Truffle is experimental. Give it a spin, and help us out by [filing issues on Github](https://github.com/trufflesuite/truffle/issues).
 
 # Configuring your Tezos Project
 
@@ -28,9 +27,9 @@ module.exports = {
       mnemonic,
       password,
       email,
-      type: "tezos"
-    }
-  }
+      type: "tezos",
+    },
+  },
 };
 ```
 
@@ -52,12 +51,11 @@ If you're going to set up a flextesa environment on your own, you'll want to per
 1. Configure your Truffle project to point to the flextesa environment. ([see example](https://github.com/truffle-box/tezos-example-box/blob/master/truffle-config.js#L7))
 1. Import the default private key into your Truffle configuration. ([see example](https://github.com/truffle-box/tezos-example-box/blob/master/truffle-config.js#L1))
 
-
 ## Suported configuration options
 
 ### networks
 
-Specifies which networks are available for deployment during migrations. When compiling and running migrations on a specific network, contract artifacts will be saved and recorded for later use. When your contract abstractions detect that your Tezos client is connected to a specific network, they'll use the contract artifacts associated that network to simplify app deployment. 
+Specifies which networks are available for deployment during migrations. When compiling and running migrations on a specific network, contract artifacts will be saved and recorded for later use. When your contract abstractions detect that your Tezos client is connected to a specific network, they'll use the contract artifacts associated that network to simplify app deployment.
 
 The `networks` object, shown below, is keyed by a network name and contains a corresponding object that defines the parameters of the network. The `networks` option is required, as if you have no network configuration, Truffle will not be able to deploy your contracts. The default network configuration provided by the [Tezos example Truffle box](https://github.com/truffle-box/tezos-example-box) specifies multiple available networks, including mainnet and the Babylon testnet. To configure Truffle to connect to other networks, simply add more named networks and specify the corresponding network id.
 
@@ -111,13 +109,11 @@ module.exports = {
   contracts_directory: "./allMyStuff/someStuff/theContractFolder",
   networks: {
     // ...
-  }
+  },
 };
 ```
 
-<p class="alert alert-info">
-<strong>Note</strong>: In addition to specifying a relative path, you can also use globs/regular expressions to selectively compile contracts.
-</p>
+注意: In addition to specifying a relative path, you can also use globs/regular expressions to selectively compile contracts.
 
 ### contracts_build_directory
 
@@ -132,7 +128,7 @@ module.exports = {
   contracts_build_directory: "./output",
   networks: {
     // ...
-  }
+  },
 };
 ```
 
@@ -143,26 +139,26 @@ module.exports = {
   contracts_build_directory: "../../../output",
   networks: {
     // ...
-  }
+  },
 };
 ```
 
 Absolute paths will also work. This is not recommended though, as an absolute path may not exist when compiled on another system. If you use absolute paths on Windows, make sure to use double backslashes for paths (example: `C:\\Users\\Username\\output`).
 
 ### migrations_directory
+
 The default migrations directory is `./migrations` relative to the project root. This can be changed with the `migrations_directory` key.
 
- Example:
+Example:
 
 ```javascript
 module.exports = {
   migrations_directory: "./allMyStuff/someStuff/theMigrationsFolder",
   networks: {
     // ...
-  }
+  },
 };
 ```
-
 
 ### mocha
 
@@ -172,16 +168,15 @@ Example:
 
 ```javascript
 mocha: {
-  useColors: true
+  useColors: true;
 }
 ```
 
 ## plugins
 
 <p class="alert alert-warning">
-<strong>Note</strong>: This feature is new and still in a barebones state. Please let us
+注意: This feature is new and still in a barebones state. Please let us
 know how we can improve it!
-</p>
 
 Provides Truffle with a list of installed third-party extensions installed as
 NPM package dependencies.

@@ -4,7 +4,7 @@ linkTitle: 工作区概述
 weight: 2
 ---
 
-<p class="alert alert-info">For Corda technical documentation not related to Ganache head over to <a href="https://docs.corda.net/docs/corda-os/4.4.html">Corda's official documentation</a>.</p>
+For Corda technical documentation not related to Ganache head over to [Corda's official documentation](https://docs.corda.net/docs/corda-os/4.4.html).
 
 ## 主界面
 
@@ -12,7 +12,7 @@ Once you've created a workspace, the screen will show some details about the nod
 
 ![Ganache](/img/docs/ganache/corda/nodes.png)
 
-<p class="text-center">*Corda Nodes*</p>
+<p class="text-center">*Corda Nodes*
 
 There are five pages available:
 

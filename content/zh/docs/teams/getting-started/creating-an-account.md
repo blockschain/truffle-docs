@@ -16,7 +16,7 @@ weight: 1
 选择要添加的存储库，然后单击“继续”。
 选择任一个 **All repositories** 将此帐户/组织中的所有存储库添加到团队 或者 **Only select repositories** 从下拉列表中选择单个存储库.
 
-> Note: 我们可以随时在稍后添加存储库。 有关更多信息，请参阅[添加存储库](/docs/teams/getting-started/adding-repositories)文档。
+> 注意: 我们可以随时在稍后添加存储库。 有关更多信息，请参阅[添加存储库](/docs/teams/getting-started/adding-repositories)文档。
 
 最后, 点击 **Install** 将 Truffle 团队安装在所选存储库上，并将其重定向到 Truffle Teams 主页，您将在那里找到存储库的列表。
 

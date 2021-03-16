@@ -11,9 +11,7 @@ We're going to focus on the lower levels today, taking you through setting up a 
 
 This will be a very minimal tutorial focused on setting and getting a simple string stored in a contract. It's meant for those with a basic knowledge of Truffle, who have some knowledge of JavaScript and React.js, but who are new to using Drizzle.
 
-<p class="alert alert-info">
-<strong>Note</strong>: For Truffle basics, please read through the Truffle [Pet Shop](/tutorials/pet-shop) tutorial before proceeding.
-</p>
+注意: For Truffle basics, please read through the Truffle [Pet Shop](/tutorials/pet-shop) tutorial before proceeding.
 
 In this tutorial we will be covering:
 
@@ -32,7 +30,7 @@ In this tutorial we will be covering:
 
 There are a few technical requirements before we start. Please install the following:
 
-*   [Node.js v8+ LTS and npm](https://nodejs.org/en/) (comes with Node)
+- [Node.js v8+ LTS and npm](https://nodejs.org/en/) (comes with Node)
 
 ### Truffle
 
@@ -75,10 +73,10 @@ Let's take a brief look at the directory structure that was just generated.
 
 The default Truffle directory structure contains the following:
 
-* `contracts/`: Contains the [Solidity](https://solidity.readthedocs.io/) source files for our smart contracts. There is an important contract in here called `Migrations.sol`, which we'll talk about later.
-* `migrations/`: Truffle uses a migration system to handle smart contract deployments. A migration is an additional special smart contract that keeps track of changes.
-* `test/`: Contains both JavaScript and Solidity tests for our smart contracts.
-* `truffle-config.js`: Truffle configuration file.
+- `contracts/`: Contains the [Solidity](https://solidity.readthedocs.io/) source files for our smart contracts. There is an important contract in here called `Migrations.sol`, which we'll talk about later.
+- `migrations/`: Truffle uses a migration system to handle smart contract deployments. A migration is an additional special smart contract that keeps track of changes.
+- `test/`: Contains both JavaScript and Solidity tests for our smart contracts.
+- `truffle-config.js`: Truffle configuration file.
 
 ## Writing our smart contract
 
@@ -102,8 +100,8 @@ We'll add a simple smart contract called MyStringStore.
 
 Since this isn't a Solidity tutorial, all you need to know about this is:
 
-* We've created a public string variable named `myString` and initialized it to "Hello World". This automatically creates a getter (since it's a public variable) so we don't have to write one ourselves.
-* We've created a setter method that simply sets the `myString` variable with whatever string is passed in.
+- We've created a public string variable named `myString` and initialized it to "Hello World". This automatically creates a getter (since it's a public variable) so we don't have to write one ourselves.
+- We've created a setter method that simply sets the `myString` variable with whatever string is passed in.
 
 ## Launching a test blockchain with Truffle Develop
 
@@ -129,9 +127,7 @@ In the Truffle Develop console, type the following command:
 compile
 ```
 
-<p class="alert alert-info">
-<strong>Note</strong>: If you're on Windows and encountering problems running this command, please see the documentation on [resolving naming conflicts on Windows](/docs/advanced/configuration#resolving-naming-conflicts-on-windows).
-</p>
+注意: If you're on Windows and encountering problems running this command, please see the documentation on [resolving naming conflicts on Windows](/docs/advanced/configuration#resolving-naming-conflicts-on-windows).
 
 You should see output similar to the following:
 
@@ -145,9 +141,7 @@ Writing artifacts to ./build/contracts
 
 Now that we've successfully compiled our contracts, it's time to migrate them to the blockchain!
 
-<p class="alert alert-info">
-  <strong>Note</strong>: Read more about migrations in the [Truffle documentation](/docs/getting_started/migrations).
-</p>
+注意: Read more about migrations in the [Truffle documentation](/docs/getting_started/migrations).
 
 To create our own migration script.
 
@@ -158,7 +152,7 @@ To create our own migration script.
    ```javascript
    const MyStringStore = artifacts.require("MyStringStore");
 
-   module.exports = function(deployer) {
+   module.exports = function (deployer) {
      deployer.deploy(MyStringStore);
    };
    ```
@@ -182,7 +176,7 @@ Before we proceed, we should write a couple tests to ensure that our contract wo
    ```javascript
    const MyStringStore = artifacts.require("./MyStringStore.sol");
 
-   contract("MyStringStore", accounts => {
+   contract("MyStringStore", (accounts) => {
      it("should store the string 'Hey there!'", async () => {
        const myStringStore = await MyStringStore.deployed();
 
@@ -244,7 +238,7 @@ In the `truffle-config.js` file, replace the contents with the following:
 const path = require("path");
 
 module.exports = {
-  contracts_build_directory: path.join(__dirname, "client/src/contracts")
+  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
 };
 ```
 
@@ -272,9 +266,7 @@ npm start
 
 This will serve the front-end under `localhost:3000`, so open that up in your browser.
 
-<p class="alert alert-info">
-<strong>Note</strong>: Make sure to use an incognito window if you already have MetaMask installed (or disable MetaMask for now). Otherwise, the app will try to use the network specified in MetaMask rather than the develop network under `localhost:9545`.
-</p>
+注意: Make sure to use an incognito window if you already have MetaMask installed (or disable MetaMask for now). Otherwise, the app will try to use the network specified in MetaMask rather than the develop network under `localhost:9545`.
 
 If the default Create-React-App page loaded without any issues, you may proceed.
 
@@ -311,11 +303,11 @@ And finally, we created the `drizzleStore` and used that to create our `drizzle`
 Once that is complete, your `index.js` should look something like this:
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 // import drizzle functions and contract artifact
 import { Drizzle, generateStore } from "@drizzle/store";
@@ -335,7 +327,7 @@ const options = {
 // setup the drizzle store and drizzle
 const drizzle = new Drizzle(options);
 
-ReactDOM.render(<App drizzle={drizzle} />, document.getElementById('root'));
+ReactDOM.render(<App drizzle={drizzle} />, document.getElementById("root"));
 ```
 
 Note again that the `drizzle` instance is passed into the `App` component as props.
@@ -423,7 +415,6 @@ class App extends Component {
 
     // subscribe to changes in the store
     this.unsubscribe = drizzle.store.subscribe(() => {
-
       // every time the store updates, grab the state from drizzle
       const drizzleState = drizzle.store.getState();
 
@@ -526,7 +517,7 @@ class ReadString extends React.Component {
     const myString = MyStringStore.myString[this.state.dataKey];
 
     // if it exists, then we display its value
-    return <p>My stored string: {myString && myString.value}</p>;
+    return <p>My stored string: {myString && myString.value};
   }
 }
 
@@ -567,7 +558,7 @@ render() {
   const myString = MyStringStore.myString[this.state.dataKey];
 
   // if it exists, then we display its value
-  return <p>My stored string: {myString && myString.value}</p>;
+  return <p>My stored string: {myString && myString.value};
 }
 ```
 
@@ -594,20 +585,20 @@ import React from "react";
 class SetString extends React.Component {
   state = { stackId: null };
 
-  handleKeyDown = e => {
+  handleKeyDown = (e) => {
     // if the enter key is pressed, set the value with the string
     if (e.keyCode === 13) {
       this.setValue(e.target.value);
     }
   };
 
-  setValue = value => {
+  setValue = (value) => {
     const { drizzle, drizzleState } = this.props;
     const contract = drizzle.contracts.MyStringStore;
 
     // let drizzle know we want to call the `set` method with `value`
     const stackId = contract.methods["set"].cacheSend(value, {
-      from: drizzleState.accounts[0]
+      from: drizzleState.accounts[0],
     });
 
     // save the `stackId` for later reference
@@ -625,7 +616,9 @@ class SetString extends React.Component {
     if (!txHash) return null;
 
     // otherwise, return the transaction status
-    return `Transaction status: ${transactions[txHash] && transactions[txHash].status}`;
+    return `Transaction status: ${
+      transactions[txHash] && transactions[txHash].status
+    }`;
   };
 
   render() {
@@ -706,13 +699,13 @@ Also, we will display the status of the transaction. The `getTxStatus` method wi
 ### Submitting the transaction
 
 ```javascript
-setValue = value => {
+setValue = (value) => {
   const { drizzle, drizzleState } = this.props;
   const contract = drizzle.contracts.MyStringStore;
 
   // let drizzle know we want to call the `set` method with `value`
   const stackId = contract.methods["set"].cacheSend(value, {
-    from: drizzleState.accounts[0]
+    from: drizzleState.accounts[0],
   });
 
   // save the `stackId` for later reference
@@ -738,7 +731,9 @@ getTxStatus = () => {
   if (!txHash) return null;
 
   // otherwise, return the transaction status
-  return `Transaction status: ${transactions[txHash] && transactions[txHash].status}`;
+  return `Transaction status: ${
+    transactions[txHash] && transactions[txHash].status
+  }`;
 };
 ```
 
