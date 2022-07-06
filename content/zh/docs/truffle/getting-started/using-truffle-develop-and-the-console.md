@@ -1,5 +1,6 @@
 ---
-title: 使用 Truffle 开发和控制台
+title: 使用 Truffle Develop 和 Console
+linkTitle: Develop 和 Console
 weight: 12
 ---
 
@@ -13,7 +14,7 @@ Truffle 通过交互式控制台为您提供两种简单的方法，并提供您
 
 ## 为什么两个不同的控制台？
 
-Having two different consoles allows you to choose the best tool for your needs.
+拥有两个不同的控制台可让您选择最适合自己需求的工具。
 
 使用 **Truffle Console** 的原因:
 
